@@ -1,13 +1,38 @@
 <header class="header">
-  <nav class="nav">
-    <ul class="nav-list">
-      <li class="nav-item">
-        <a href="./page-2.html" class="nav-link">Page 2</a>
-      </li>
-
-      <li class="nav-item">
-        <a href="./page-3.html" class="nav-link">Page 3</a>
-      </li>
-    </ul>
-  </nav>
+    <div class="container">
+        <div class="header__wrapper">
+            <a class="logo" href="./">
+                <button class="logo__button">
+                    <svg class="logo__icon">
+                        <use href="./img/icons.svg#icon-logo"></use>
+                    </svg>
+                </button>
+                Food Boutique
+            </a>
+            <nav>
+                <ul class="header__menu">
+                    <li class="header__menu-item">
+                        <a class="header__menu-link" href="#"> Home </a>
+                    </li>
+                    <li class="header__menu-item">
+                        <a class="header__menu-link" href="#">
+                            <button
+                                class="header__menu-link-button"
+                                type="button"
+                            >
+                                <svg class="header__menu-link-icon">
+                                    <use href="./img/icons.svg#icon-cart"></use>
+                                </svg>
+                            </button>
+                            <span class="header__menu-link-counter">
+                                Cart (<span class="header__menu-link-quantity"
+                                    >3</span
+                                >)
+                            </span>
+                        </a>
+                    </li>
+                </ul>
+            </nav>
+        </div>
+    </div>
 </header>

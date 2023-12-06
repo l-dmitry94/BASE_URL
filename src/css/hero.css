@@ -1,0 +1,38 @@
+.hero__head {
+    max-width: 292px;
+    text-align: center;
+    margin: 0 auto 32px;
+}
+
+.hero__title {
+    font-size: 44px;
+    font-weight: 500;
+    line-height: 1.09;
+    letter-spacing: -0.02em;
+    margin-bottom: 16px;
+}
+
+.hero__title-color {
+    color: #6d8434;
+}
+
+.hero__descr {
+    color: rgba(1, 1, 1, 0.8);
+    font-size: 14px;
+    font-weight: 400;
+    line-height: 1.29;
+}
+
+.hero__img {
+    position: relative;
+}
+
+.hero__img-photo {
+    border-radius: 30px;
+}
+
+.hero__label {
+    position: absolute;
+    top: -7px;
+    right: 8px;
+}

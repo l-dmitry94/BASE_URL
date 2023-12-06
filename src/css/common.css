@@ -1,0 +1,33 @@
+.container {
+    max-width: 375px;
+    width: 100%;
+    margin: 0 auto;
+    padding: 0 20px;
+}
+
+.logo {
+    display: flex;
+    align-items: center;
+    gap: 8px;
+    font-family: 'Quincy CF';
+    font-size: 18px;
+    font-style: normal;
+    line-height: 1.11;
+    letter-spacing: -0.02em;
+}
+
+.logo__button {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    width: 28px;
+    height: 28px;
+    background-color: #6d8434;
+    border-radius: 50%;
+    fill: #e8e8e2;
+}
+
+.logo__icon {
+    width: 16px;
+    height: 16px;
+}

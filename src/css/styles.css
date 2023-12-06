@@ -5,21 +5,28 @@
   |============================
 */
 @import url('./reset.css');
-@import url('./vite-promo.css');
+@import url('./fonts.css');
+@import url('./common.css');
 @import url('./header.css');
+@import url('./hero.css');
 
 :root {
-  font-family: Inter, Avenir, Helvetica, Arial, sans-serif;
-  font-size: 16px;
-  line-height: 24px;
-  font-weight: 400;
+    --black: #010101;
+    --green: #6d8434;
+    --grey: #e8e8e2;
+    --white: #ffffff;
+    --light-grey: #fafafa;
 
-  color: #242424;
-  background-color: rgba(255, 255, 255, 0.87);
+    font-family: 'Neue Montreal';
+    font-size: 16px;
+    line-height: 1.5;
+    font-weight: 500;
+    color: var(--black);
+    background-color: var(--grey);
 
-  font-synthesis: none;
-  text-rendering: optimizeLegibility;
-  -webkit-font-smoothing: antialiased;
-  -moz-osx-font-smoothing: grayscale;
-  -webkit-text-size-adjust: 100%;
+    font-synthesis: none;
+    text-rendering: optimizeLegibility;
+    -webkit-font-smoothing: antialiased;
+    -moz-osx-font-smoothing: grayscale;
+    -webkit-text-size-adjust: 100%;
 }
