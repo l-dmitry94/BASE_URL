@@ -1,73 +1,12 @@
-<section class="products__section">
-    <div class="filters__section">
-        <p class="filters__name">Filters:</p>
-        <ul class="filters__list">
-            <li class="filters__item">
-                <input
-                    type="search"
-                    name="filters__search"
-                    id="filters__search"
-                />
-            </li>
-            <li class="filters__item">
-                <select
-                    class="filters__categories-select"
-                    name="categories-select"
-                    id="categories-select"
-                >
-                    <option selected>Categories</option>
-                </select>
-            </li>
-            <li class="filters__item">
-                <select
-                    class="filters__sort-select"
-                    name="sort-select"
-                    id="sort-select"
-                >
-                    <option selected>A to Z</option>
-                </select>
-            </li>
-        </ul>
-    </div>
-
-    <div class="cards__section">
-        <ul class="cards__list">
-            <li class="cards__item">
-                <img class="cards__image-space" src="" alt="" />
-                <h4 class="cards__name">Avocado</h4>
-                <div class="cards__first-descr">
-                    <p class="cards__category">Category:</p>
-                    <p class="cards__category-result">Fresh Produce</p>
-                </div>
-                <div class="cards__second-descr">
-                    <p class="cards__size">Size:</p>
-                    <p class="cards__size-result">Each</p>
-                </div>
-                <div class="cards__third-descr">
-                    <p class="cards__popularity">Popularity:</p>
-                    <p class="cards__popularity-result">0</p>
-                </div>
-                <div class="cards__price">
-                    <p class="">$1.99</p>
-                    <button type="button">
-                        <svg class="icon__cart" width="30" height="30">
-                            <use href="./img/icons.svg#icon-cart"></use>
-                        </svg>
-                    </button>
-                </div>
-            </li>
-        </ul>
-    </div>
-
-    <div class="products__pagination">
-        <a href="#">&laquo;</a>
-        <a href="#">1</a>
-        <a class="active" href="#">2</a>
-        <a href="#">3</a>
-        <a href="#">4</a>
-        <a href="#">5</a>
-        <a href="#">6</a>
-        <a href="#">&raquo;</a>
+<section class="products">
+    <div class="container">
+        <div class="products__wrapper">
+            <load ="partials/products-main.html" />
+            <aside class="aside">
+                <load ="partials/popular.html" />
+                <load ="partials/discount.html" />
+            </aside>
+        </div>
     </div>
 
     <aside class="popular__discount__section">

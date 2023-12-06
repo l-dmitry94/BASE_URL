@@ -6,5 +6,7 @@ export async function fetchAllCategories() {
         url: '/categories'
     })
 
+    console.log(response.data)
+
     return response.data;
 }

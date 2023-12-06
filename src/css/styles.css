@@ -12,6 +12,10 @@
 @import url('./header.css');
 @import url('./hero.css');
 @import url('./products.css');
+@import url('./products-main.css');
+@import url('./popular.css');
+@import url('./discount.css');
+
 
 :root {
     --black: #010101;
