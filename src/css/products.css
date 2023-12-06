@@ -1,0 +1,9 @@
+.filters__section {
+    margin: 74px 20px 0;
+}
+.filters__name {
+    color: rgba(1, 1, 1, 0.3);
+    font-size: 14px;
+    font-style: normal;
+    line-height: 18px; /* 128.571% */
+}
