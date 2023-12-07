@@ -8,7 +8,7 @@
         
       <script type="module" crossorigin src="/BASE_URL/commonHelpers.js"></script>
       <link rel="modulepreload" crossorigin href="/BASE_URL/assets/vendor-a61d8330.js">
-      <link rel="stylesheet" href="/BASE_URL/assets/index-ebe6f2b0.css">
+      <link rel="stylesheet" href="/BASE_URL/assets/index-663612aa.css">
     </head>
     <body>
         <header class="header">
@@ -104,15 +104,19 @@
         <p class="products__filters-title">Filters:</p>
         <ul class="products__filters-list">
             <li class="products__filters-item">
-                <input
-                    class="products__filters-input input"
-                    type="search"
-                    name="search"
-                    placeholder="Search for anything"
-                />
-                <svg class="icon-search">
-                    <use href="/BASE_URL/assets/icons-89969f25.svg#icon-search"></use>
-                </svg>
+                <form class="products__filters-form">
+                    <input
+                        class="products__filters-input input"
+                        type="search"
+                        name="search"
+                        placeholder="Search for anything"
+                    />
+                    <button class="products__filters-button" type="submit">
+                        <svg class="icon-search">
+                            <use href="/BASE_URL/assets/icons-89969f25.svg#icon-search"></use>
+                        </svg>
+                    </button>
+                </form>
             </li>
             <li class="products__filters-item">
                 <select
@@ -218,39 +222,28 @@
     </ul>
 </section>
 
-                <div class="discount">
+                <section class="discount">
     <h2 class="discount-popular__products">Discount products</h2>
     <ul class="discount__list">
         <li class="discount__item">
-            <div class="discount__image">
-                <img class="discount__image-photo-js" src="" alt="" />
-            </div>
-            <div class="discount__descr">
-                <p>Dark Chocolate</p>
-                <div class="discount__price-container">
-                    <p class="discount__price">$6.99</p>
-                    <svg class="icon__cart">
-                        <use href="/BASE_URL/assets/icons-89969f25.svg#icon-cart"></use>
-                    </svg>
+            <a class="discount__link" href="#">
+                <div class="discount__image">
+                    <img class="discount__image-photo-js" src="" alt="" />
                 </div>
-            </div>
-        </li>
-        <li class="discount__item">
-            <div class="discount__image">
-                <img class="discount__image-photo-js" src="" alt="" />
-            </div>
-            <div class="discount__descr">
-                <p>Dark Chocolate</p>
-                <div class="discount__price-container">
-                    <p class="discount__price">$6.99</p>
-                    <svg class="icon__cart">
-                        <use href="/BASE_URL/assets/icons-89969f25.svg#icon-cart"></use>
-                    </svg>
+                <div class="discount__descr">
+                    <p>Dark Chocolate</p>
+                    <div class="discount__price-container">
+                        <p class="discount__price">$6.99</p>
+                        <svg class="icon__cart">
+                            <use href="/BASE_URL/assets/icons-89969f25.svg#icon-cart"></use>
+                        </svg>
+                    </div>
                 </div>
-            </div>
+            </a>
         </li>
     </ul>
 </section>
+
             </aside>
         </div>
     </div>
