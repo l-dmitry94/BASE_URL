@@ -1,3 +1,132 @@
-.products__main{
-
+.products__main {
+    display: flex;
+    flex-direction: column;
+    padding-bottom: 80px;
 }
+.products__filters {
+    color: rgba(1, 1, 1, 0.3);
+    margin-bottom: 40px;
+}
+
+.products__filters-title {
+    font-size: 14px;
+    font-weight: 400;
+    line-height: 1.28; 
+    margin-bottom: 8px;
+}
+
+.products__filters-item {
+    display: flex;
+    position: relative;
+}
+
+.icon-search {
+    position: absolute;
+    top: 50%;
+    right: 20px;
+    transform: translateY(-50%);
+    width: 20px;
+    height: 20px;
+}
+
+.input {
+    display: flex;
+    width: 100%;
+    height: auto;
+    padding: 14px 20px;
+    border-radius: 30px;
+    outline: none;
+    border: 1px solid rgba(1, 1, 1, 0.3);
+    background-color: transparent;
+    font-size: 14px;
+    line-height: 1.29;
+    margin-bottom: 12px;
+}
+.input:focus {
+    border: 1px solid var(--green);
+}
+
+.input::placeholder {
+    color: var(--black);
+}
+
+input[type='search']::-webkit-search-decoration,
+input[type='search']::-webkit-search-cancel-button,
+input[type='search']::-webkit-search-results-button,
+input[type='search']::-webkit-search-results-decoration {
+    -webkit-appearance: none;
+}
+
+.products__filters-item:last-child .input{
+    background-color: var(--light-grey);
+}
+
+.cards {
+    display: inline-flex;
+    flex-direction: column;
+    gap: 20px;
+    margin-bottom: 40px;
+}
+
+.cards__link {
+    display: block;
+    padding: 20px;
+    width: 335px;
+    border-radius: 20px;
+    height: auto;
+    background: var(--light-grey);
+}
+.cards__background-img {
+    width: 295px;
+    height: 178px;
+    border-radius: 10px;
+    background: var(--grey);
+    margin-bottom: 20px;
+    display: flex;
+    justify-content: center;
+    padding: 19px 0;
+}
+
+.cards__title {
+    color: var(--black);
+    font-size: 18px;
+    line-height: 1.11;
+    margin-bottom: 10px;
+}
+.cards__info {
+    display: flex;
+    gap: 8px;
+    margin-bottom: 40px;
+}
+.cards__info-item {
+    display: flex;
+    align-items: center;
+    gap: 4px;
+}
+.cards__info-title {
+    color: rgba(1, 1, 1, 0.3);
+    font-size: 12px;
+    line-height: 1.2em; /* 116.667% */
+}
+.cards__info-value {
+    color: var(--black);
+    font-size: 12px;
+    line-height: 1.2;
+}
+.cards__main {
+    display: flex;
+    justify-content: space-between;
+    align-items: end;
+}
+
+.icon__cart {
+    background-color: var(--green);
+    border-radius: 30px;
+    padding: 8px;
+    fill: var(--light-grey);
+    width: 34px;
+    height: 34px;
+}
+
+
+
