@@ -1,1 +1,49 @@
-.popular{}
+.popular__card {
+    display: flex;
+    flex-direction: column;
+    height: auto;
+    gap: 14px;
+}
+.popular__item {
+
+}
+
+.popular__link {
+    padding: 16px;
+    display: flex;
+    flex-direction: row;
+    position: relative;
+    background-color: var(--light-grey);
+    border-radius: 10px;
+}
+.popular__info {
+    display: flex;
+    flex-direction: column;
+    margin-bottom: 0;
+}
+.popular__img {
+    width: 74px;
+    height: 74px;
+    margin-right: 10px;
+    margin-bottom: 0;
+}
+
+.popular__info-up {
+    display: flex;
+    flex-direction: row;
+}
+
+.popular__icon__cart {
+    background-color: var(--grey);
+    fill: var(--green);
+    padding: 4px;
+    border-radius: 30px;
+    position: absolute;
+    top: 16px;
+    right: 16px;
+}
+
+.popular__info-down {
+    display: flex;
+    gap: 9px;
+}
