@@ -82,7 +82,7 @@ export function createModalCards(arr) {
     return arr
         .map(
             ({ name, img, category, price, size, popularity, desc }) =>
-                `<li class="cards__item">
+                `<li class="modal__item">
       <img class="cards__image-photo" src="${img}" alt="${name}" />
       <div class="cards__main">
       <h4 class="cards__title">${name}</h4>
