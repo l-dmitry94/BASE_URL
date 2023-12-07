@@ -15,7 +15,7 @@
 @import url('./products-main.css');
 @import url('./popular.css');
 @import url('./discount.css');
-
+@import url('./footer.css');
 
 :root {
     --black: #010101;

@@ -4,8 +4,6 @@
     padding-bottom: 20px;
 }
 
-.container {
-}
 .footer__wrap {
     margin-bottom: 80px;
 }
@@ -22,8 +20,6 @@
 .footer .logo__button {
     background-color: var(--grey);
     fill: var(--green);
-}
-.logo__icon {
 }
 
 .footer__social-list {
@@ -75,8 +71,6 @@
     font-weight: 400;
     line-height: 18px;
 }
-.footer__cover-form {
-}
 
 .footer__form-text {
     color: var(--grey);
@@ -89,8 +83,6 @@
 
 .footer__form {
     max-width: 335px;
-}
-.footer__form-label {
 }
 
 .footer__form-input {
@@ -140,8 +132,6 @@
     display: flex;
     flex-direction: column;
     gap: 8px;
-}
-.footer__privacy {
 }
 
 .opacity {
