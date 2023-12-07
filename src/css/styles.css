@@ -16,10 +16,10 @@
 @import url('./popular.css');
 @import url('./discount.css');
 
-
 :root {
     --black: #010101;
     --green: #6d8434;
+    --dark-green: #586f1f;
     --grey: #e8e8e2;
     --white: #ffffff;
     --light-grey: #fafafa;
