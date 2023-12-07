@@ -4,15 +4,19 @@
         <p class="products__filters-title">Filters:</p>
         <ul class="products__filters-list">
             <li class="products__filters-item">
-                <input
-                    class="products__filters-input input"
-                    type="search"
-                    name="search"
-                    placeholder="Search for anything"
-                />
-                <svg class="icon-search">
-                    <use href="./img/icons.svg#icon-search"></use>
-                </svg>
+                <form class="products__filters-form">
+                    <input
+                        class="products__filters-input input"
+                        type="search"
+                        name="search"
+                        placeholder="Search for anything"
+                    />
+                    <button class="products__filters-button" type="submit">
+                        <svg class="icon-search">
+                            <use href="./img/icons.svg#icon-search"></use>
+                        </svg>
+                    </button>
+                </form>
             </li>
             <li class="products__filters-item">
                 <select
