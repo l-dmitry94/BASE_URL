@@ -2,7 +2,7 @@ export function createFiltresCards(arr) {
     return arr
         .map(
             ({ id, name, img, category, price, size, popularity }) =>
-                `<li class="cards__item" id="${id}">
+                `<li class="cards__item" data-id="${id}">
             <a class="cards__link" href="${img}">
       <img class="cards__image-photo" src="${img}" alt="${name}" />
       <h4 class="cards__title">${name}</h4>
@@ -34,7 +34,7 @@ export function createPopularCards(arr) {
     return arr
         .map(
             ({ id, name, img, category, size, popularity }) =>
-                `<li class="popular__item" id="${id}">
+                `<li class="popular__item" data-id="${id}">
       <img class="cards__popular-image" src="${img}" alt="${name}" />
       <h4 class="cards__title">${name}</h4>
       <ul class="popular__info">
@@ -62,7 +62,7 @@ export function createDiscountCards(arr) {
     return arr
         .map(
             ({ id, name, img, price }) =>
-                `<li class="discount__item" id="${id}">
+                `<li class="discount__item" data-id="${id}">
             <img class="cards__discount-image" src="${img}" alt="${name}" />
             <div class="discount__desc">
             <h4 class="cards__title">${name}</h4>
@@ -78,11 +78,8 @@ export function createDiscountCards(arr) {
         .join('');
 }
 
-export function createModalCards(arr) {
-    return arr
-        .map(
-            ({ id, name, img, category, price, size, popularity, desc }) =>
-                `<li class="modal__item" id="${id}">
+export function createModalCards({ id, name, img, category, price, size, popularity, desc }) {
+    return `<div class="modal__item" data-id="${id}">
       <img class="cards__image-photo" src="${img}" alt="${name}" />
       <div class="cards__main">
       <h4 class="cards__title">${name}</h4>
@@ -106,7 +103,5 @@ export function createModalCards(arr) {
                         <use href="./img/icons.svg#icon-cart"></use>
                     </svg>
                 </button>
-            </div></li>`
-        )
-        .join('');
+            </div></div>`
 }
