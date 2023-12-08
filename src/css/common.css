@@ -34,3 +34,15 @@ body.modal-open {
     overflow: hidden;
 }
 
+@media (min-width: 768px) {
+    .container {
+        max-width: 768px;
+        padding: 0 32px;
+    }
+}
+
+@media (min-width: 1240px) {
+    .container {
+        max-width: 1240px;
+    }
+}
