@@ -1,6 +1,10 @@
 import { apiSubscription } from '../services/api';
+import {
+    modalFooterNewSubscr,
+    modalFooterExistedSubscr,
+} from '../services/modals-footer';
+import { footerFormRef } from '../services/refs';
 
-const footerFormRef = document.querySelector('.footer__form');
 footerFormRef.addEventListener('submit', handleForm);
 
 export function handleForm(e) {
@@ -19,8 +23,12 @@ async function postSubscriptionNewProducts(value) {
                 email: value,
             },
         });
-        console.log(response);
-    } catch (error) {
-        console.log(error.message);
+        if (response.statusText === 'Created') {
+            modalFooterNewSubscr();
+        }
+    } catch ({ response }) {
+        if (response.statusText === 'Conflict') {
+            modalFooterExistedSubscr();
+        }
     }
 }

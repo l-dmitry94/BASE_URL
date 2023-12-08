@@ -11,20 +11,23 @@
 .products__filters-title {
     font-size: 14px;
     font-weight: 400;
-    line-height: 1.28; 
+    line-height: 1.28;
     margin-bottom: 8px;
 }
 
-.products__filters-item {
-    display: flex;
+.products__filters-form {
     position: relative;
+
 }
 
-.icon-search {
+.products__filters-button {
     position: absolute;
     top: 50%;
     right: 20px;
     transform: translateY(-50%);
+}
+
+.icon-search {
     width: 20px;
     height: 20px;
 }
@@ -40,6 +43,7 @@
     background-color: transparent;
     font-size: 14px;
     line-height: 1.29;
+    cursor: pointer;
     margin-bottom: 12px;
 }
 .input:focus {
@@ -57,7 +61,7 @@ input[type='search']::-webkit-search-results-decoration {
     -webkit-appearance: none;
 }
 
-.products__filters-item:last-child .input{
+.products__filters-item:last-child .input {
     background-color: var(--light-grey);
 }
 
@@ -127,6 +131,3 @@ input[type='search']::-webkit-search-results-decoration {
     width: 34px;
     height: 34px;
 }
-
-
-
