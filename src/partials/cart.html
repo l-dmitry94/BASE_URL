@@ -2,7 +2,7 @@
     <div class="container">
         <div class="cart__title-thumb">
             <button class="header__menu-link-button" type="button">
-                <svg class="cart-icon">
+                <svg class="cart__icon">
                     <use href="./img/icons.svg#icon-cart"></use>
                 </svg>
             </button>
@@ -19,41 +19,41 @@
                         <use href="./img/icons.svg#icon-close"></use>
                     </svg>
                 </button>
-                <ul class="cart__basket-list"></ul>
             </div>
         </div>
-        <div class="total__order-thumb">
-            <p class="your__order-title">Your Order</p>
-            <div class="total__price-thumb">
-                <p class="cart__total-title">Total</p>
-                <p class="cart__sum">
-                    Sum:
-                    <span class="total__price" id="cart__total">$0.00</span>
-                </p>
+
+        <div class="card__products-wrap">
+            <ul class="card__products"></ul>
+            <div class="total__order-thumb">
+                <p class="your__order-title">Your Order</p>
+                <div class="total__price-thumb">
+                    <p class="cart__total-title">Total</p>
+                    <p class="cart__sum">
+                        Sum:
+                        <span class="total__price" id="cart__total">$0.00</span>
+                    </p>
+                </div>
+
+                <form class="checkout__field">
+                    <label for="cart__client-email" class="cart__input-label">
+                        <span class="placeholder__prefix">Mail:</span>
+                        <input
+                            class="cart__basket-input"
+                            type="email"
+                            name="email"
+                            placeholder="Enter your email"
+                        />
+                    </label>
+
+                    <button
+                        type="submit"
+                        class="cart__submit-button"
+                        aria-label="Checkout cart"
+                    >
+                        Checkout
+                    </button>
+                </form>
             </div>
-
-            <form class="checkout__field">
-                <label for="cart__client-email" class="cart__input-label">
-                    <span class="placeholder__prefix">Mail:</span>
-                    <input
-                        type="email"
-                        pattern="[a-zA-Z0-9._%+\-]+@[a-zA-Z0-9.\-]+\.[a-zA-Z]{2,4}$"
-                        name="cart__client-email"
-                        class="cart__basket-input"
-                        id="cart__client-email"
-                        placeholder="Enter your email"
-                        required
-                    />
-                </label>
-
-                <button
-                    type="submit"
-                    class="cart__submit-button"
-                    aria-label="Checkout cart"
-                >
-                    Checkout
-                </button>
-            </form>
         </div>
     </div>
 </section>
