@@ -1,5 +1,5 @@
 export function createFiltresCards(arr) {
-    return arr
+    return arr.results
         .map(
             ({ id, name, img, category, price, size, popularity }) =>
                 `<li class="cards__item" data-id="${id}">
