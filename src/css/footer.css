@@ -15,6 +15,7 @@
 .footer .logo {
     color: var(--grey);
     margin-bottom: 20px;
+    display: inline-flex;
 }
 
 .footer .logo__button {
@@ -40,6 +41,14 @@
     display: flex;
     align-items: center;
     justify-content: center;
+    transition: background-color 0.3s linear;
+}
+
+.footer__social-link:hover,
+.footer__social-link:focus {
+    background-color: rgba(232, 232, 226, 0.2);
+    border-radius: 10px;
+    border: 1px solid rgba(232, 232, 226, 0.3);
 }
 
 .footer__social-svg {
@@ -92,7 +101,6 @@
     border: 1px solid var(--grey);
     margin-bottom: 14px;
     background-color: transparent;
-    outline: none;
     color: var(--grey);
     font-family: inherit;
 }
@@ -116,6 +124,7 @@
     font-style: normal;
     font-weight: 500;
     line-height: 1.28;
+    transition: color 0.3s linear;
 }
 
 .footer__form-submit:hover,
@@ -143,4 +152,102 @@
     letter-spacing: -0.02em;
 }
 
+/* !--------------------------modal-New------------------------------ */
+.modal {
+}
 
+.footer__modal {
+    width: 335px;
+    height: 400px;
+    border-radius: 20px;
+    background: var(--grey);
+    position: relative;
+}
+
+.footer__modal-close {
+    position: absolute;
+    top: 14px;
+    right: 14px;
+}
+
+.footer__modal-icon {
+    width: 22px;
+    height: 22px;
+}
+
+.footer__modal-title-text {
+    padding: 100px 43.5px 22px; /* padding: 90px 81px 3px; */
+}
+
+.footer__modal-title {
+    margin-bottom: 14px; /* margin: 0 41.5px 20px; */
+    color: var(--black);
+    text-align: center;
+    font-size: 20px;
+    font-style: normal;
+    font-weight: 500;
+    line-height: 1.2;
+}
+
+.footer__modal-span {
+    color: var(--green);
+    font-size: 20px;
+    font-style: normal;
+    font-weight: 500;
+    line-height: 1.2;
+}
+
+.footer__modal-text {
+    color: rgba(1, 1, 1, 0.7);
+    text-align: center;
+    font-size: 14px;
+    font-style: normal;
+    font-weight: 400;
+    line-height: 1.28;
+}
+
+.footer__modal-png {
+}
+
+.basicLightbox {
+    background-color: rgba(1, 1, 1, 0.4) !important;
+}
+/* !--------------------------modal-Existed---------------------------- */
+
+.footer__modal-Existed {
+    width: 335px;
+    height: 276px;
+    border-radius: 20px;
+    background: var(--grey);
+    position: relative;
+}
+.footer__modal-title-text-Existed {
+    padding: 80px 43.5px;
+}
+.footer__modal-title-Existed {
+    color: var(--black);
+    text-align: center;
+    font-family: Neue Montreal;
+    font-size: 20px;
+    font-style: normal;
+    font-weight: 500;
+    line-height: 1.2; 
+    margin-bottom: 14px;
+}
+.footer__modal-span-Existed {
+    color: var(--green);
+    font-family: Neue Montreal;
+    font-size: 20px;
+    font-style: normal;
+    font-weight: 500;
+    line-height: 1.2;
+}
+.footer__modal-text-Existed {
+    color: rgba(1, 1, 1, 0.7);
+    text-align: center;
+    font-family: Neue Montreal;
+    font-size: 14px;
+    font-style: normal;
+    font-weight: 400;
+    line-height: 1.28; 
+}
