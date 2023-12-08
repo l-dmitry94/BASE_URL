@@ -19,8 +19,8 @@ fetchAllCategories()
         .map(key => `<option value="" class="products__filters-select" >${key}</option>`)
         .join('');
     let additionalGender = `<option value="" class="products__filters-select" >Show all</option>`;
-    let additionalGender1 = `<option value="" class="products__filters-select" >Categories</option>`;
-    refs.productsFiltersSelect.innerHTML = additionalGender1 + markupList + additionalGender;
+    // let additionalGender1 = `<option value="" class="products__filters-select" >Categories</option>`;
+    refs.productsFiltersSelect.innerHTML = markupList + additionalGender;
 }).catch;
 
 
@@ -28,7 +28,8 @@ fetchAllCategories()
 // Отримуємо всі продукти
     fetchAllProducts()
     .then (data => {
-       let test1 = createFiltresCards(data);
+       let test1 = createFiltresCards(data.results);
+       
        refs.productsCards.innerHTML = test1;
     })
 .catch

@@ -30,7 +30,11 @@ export async function fetchSearchProducts(category, page, limit) {
 }
 
 
-
+export function normalizeCategory (categ) {
+    categ = categ.replace('_&_', ' / ')
+    categ = categ.replace('_', ' ')
+    return categ
+}
 
 
 
@@ -48,7 +52,7 @@ export function handleChange() {
         fetchSearchProducts(storedData.category.replace(/ /g, '_'), storedData.page, storedData.limit)
         .then (data => {
             let test = createFiltresCards(data);
-            // refs.productsCards.innerHTML = test;
+            refs.productsCards.innerHTML = test;
             console.log(data);
          })
          
