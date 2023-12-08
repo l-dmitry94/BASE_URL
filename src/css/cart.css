@@ -157,11 +157,7 @@
 }
 
 @media screen and (min-width: 768px) {
-    .container {
-        max-width: 768px;
-        margin: 0 auto;
-        padding: 0 32px;
-    }
+
     .cart__icon {
         width: 18px;
         height: 18px;
