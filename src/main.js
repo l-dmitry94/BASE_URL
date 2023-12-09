@@ -5,11 +5,13 @@ import { fetchAllProducts } from './js/requests/products';
 import { refs } from './js/services/refs';
 import { dataAsString } from './js/services/refs';
 import { createFiltresCards, createDiscountCards } from './js/services/markup';
-import { handleChange } from './js/requests/products';
-import { handleSubmit } from './js/requests/products';
-import { normalizeCategory } from './js/requests/products';
+import { handleChange } from './js/products/products';
+import { handleSubmit } from './js/products/products';
+import { normalizeCategory } from './js/products/products';
 // Отримуємо всі категорії
 import { fetchAllDiscount } from './js/products/discount';
+
+
 
 fetchAllCategories().then(data => {
     let modifiedCategories = data.map(data => {
@@ -17,12 +19,9 @@ fetchAllCategories().then(data => {
     });
     localStorage.setItem('filter', dataAsString);
     let markupList = modifiedCategories
-        .map(key => `<option >${key}</option>`)
-        .map(
-            key =>
-                `<option value="" class="products__filters-select" >${key}</option>`
-        )
+        .map(key => `<option value="${key}">${normalizeCategory(key)}</option>`)
         .join('');
+
     let additionalGender = `<option  selected  >Show all</option>`;
     refs.productsFiltersSelect.innerHTML = markupList + additionalGender;
 }).catch;
@@ -31,7 +30,7 @@ fetchAllCategories().then(data => {
 fetchAllProducts().then(data => {
     let test1 = createFiltresCards(data.results);
     refs.productsCards.innerHTML = test1;
-}).catch(error); 
+}).catch();
 
 // Функція обробки submit в секції filters
 refs.productsFiltersSelect.addEventListener('change', handleChange);
@@ -39,7 +38,6 @@ refs.productsFiltersSelect.addEventListener('change', handleChange);
 refs.btnSubmit.addEventListener('submit', handleSubmit);
 
 
-    refs.productsCards.innerHTML = test1;
 
 refs.productsFiltersSelect.addEventListener('change', handleChange);
 
