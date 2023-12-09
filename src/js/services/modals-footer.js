@@ -1,8 +1,15 @@
 import * as basicLightbox from 'basiclightbox';
 import 'basiclightbox/dist/basicLightbox.min.css';
 
+const windowWidth = window.innerWidth;
+let imageUrl;
+
 // !-----------------------------New-Subscriber-------------------------------
 export const modalFooterNewSubscr = function () {
+    const imageUrl =
+        windowWidth >= 768
+            ? '../../img/footer/subscription-tab.png'
+            : '../../img/footer/subscription.png.png';
     let closeBtn;
     const instance = basicLightbox.create(
         `
@@ -26,7 +33,7 @@ export const modalFooterNewSubscr = function () {
         </div>
         <div class="footer__modal-png">
             <img
-                src="../../img/footer/subscription.png.png"
+                src=${imageUrl}
                 alt="bascket of products"
             />
         </div>
