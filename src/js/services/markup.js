@@ -1,4 +1,4 @@
-import { normalizeCategory } from "../requests/products";
+import { normalizeCategory } from '../requests/products';
 
 export function createFiltresCards(arr) {
     return arr
@@ -14,7 +14,9 @@ export function createFiltresCards(arr) {
                         <h4 class="cards__title">${name}</h4>
                         <ul class="cards__info">
                             <li class="cards__info-item">
-                            <p class="cards__info-title">Category: <span class="cards__info-value">${normalizeCategory(category)}</span></p>
+                            <p class="cards__info-title">Category: <span class="cards__info-value">${normalizeCategory(
+                                category
+                            )}</span></p>
                         
                             </li>
                             <li class="cards__info-item">
@@ -74,23 +76,31 @@ export function createDiscountCards(arr) {
         .map(
             ({ _id, name, img, price }) =>
                 `<li class="discount__item" data-id="${_id}">
-            <img class="cards__discount-image" src="${img}" alt="${name}" />
-            <div class="discount__desc">
-            <h4 class="cards__title">${name}</h4>
-            <p class="cards__price">${price}</p>
-            </div>
-                <button class="cards__button" type="button">
-                <svg class="icon__cart" width="18" height="18">
+                 <a class="discount__link" href="#">
+                  <div class="discount__image">
+            <img class="discount__image-photo-js" src="${img}" alt="${name}" /> </div>
+            <div class="discount__descr">
+            <p class="cards__title">${name}</p>
+                    <div class="discount__price-container">
+                        <p class="cards__price">${price}</p>
+                        <button class="cards__button" type="button">
+                <svg class="icon__cart" width="60" height="60">
                     <use href="./img/icons.svg#icon-cart"></use>
                 </svg>
                 </button>
-   </li>`
+                    </div>
+                        <svg class="icon__discount" width="18" height="18">
+                            <use href="./img/icons.svg#icon-discount"></use>
+                         </svg>
+            </div>  
+                 </a>
+                 </li>`
         )
         .join('');
 }
 
 export function createModalCards({
-    id,
+    _id,
     name,
     img,
     category,
