@@ -1,3 +1,4 @@
+
 import { handleForm } from './js/requests/subscription';
 import { fetchAllCategories } from './js/requests/products';
 import { fetchAllProducts } from './js/requests/products';
