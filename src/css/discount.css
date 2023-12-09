@@ -18,10 +18,9 @@
     flex-direction: column;
     gap: 20px;
 }
-.discount__item {
-    position: relative;
-}
+
 .discount__link {
+    position: relative;
     display: block;
     padding: 16px;
     width: 335px;
