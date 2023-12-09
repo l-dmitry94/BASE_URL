@@ -1,4 +1,4 @@
-import { normalizeCategory } from '../requests/products';
+import { normalizeCategory } from '../products/products';
 
 export function createFiltresCards(arr) {
     return arr
