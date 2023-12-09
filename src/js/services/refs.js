@@ -2,6 +2,7 @@ export const refs = {
     productsFilters: document.querySelector('.products__filters-input'),
     productsFiltersSelect: document.querySelector('.products__filters-select'),
     productsCards: document.querySelector('.product__cards'),
+    cardWrapper: document.querySelector('.cart__wrapper')
 };
 export let baseDataToStore = {
     keyword: null,
