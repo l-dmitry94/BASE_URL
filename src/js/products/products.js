@@ -57,6 +57,8 @@ export function handleChange() {
         localStorage.setItem('filter', JSON.stringify(storedData));
         fetchAllProducts().then(data => {
             let test1 = createFiltresCards(data.results);
+            localStorage.setItem('filter', dataAsString);
+            refs.productsFilters.value = '';
             refs.productsCards.innerHTML = test1;
         }).catch;
         localStorage.setItem('filter', data1);
