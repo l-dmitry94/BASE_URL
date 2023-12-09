@@ -6,7 +6,7 @@
         <meta name="viewport" content="width=device-width, initial-scale=1.0" />
         <title>Food Cart</title>
         
-      <link rel="stylesheet" href="/BASE_URL/assets/styles-6bc26032.css">
+      <link rel="stylesheet" href="/BASE_URL/assets/styles-9f3cf562.css">
     </head>
     <body>
         <header class="header">
@@ -53,7 +53,7 @@
     <div class="container">
         <div class="cart__wrapper">
             <div class="cart__title-thumb">
-                <button class="header__menu-link-button" type="button">
+                <button class="cart__button" type="button">
                     <svg class="cart__icon">
                         <use href="/BASE_URL/assets/icons-242b7a09.svg#icon-cart"></use>
                     </svg>
@@ -62,7 +62,7 @@
                     Cart (<span class="cart__item-count">0</span>)
                 </h2>
             </div>
-    
+
             <div class="cart__desctop-thumb">
                 <div class="cart__added-list">
                     <button class="cart__delete-button" type="button">
@@ -73,7 +73,7 @@
                     </button>
                 </div>
             </div>
-    
+
             <div class="card__products-wrap">
                 <ul class="card__products"></ul>
                 <div class="total__order-thumb">
@@ -82,12 +82,17 @@
                         <p class="cart__total-title">Total</p>
                         <p class="cart__sum">
                             Sum:
-                            <span class="total__price" id="cart__total">$0.00</span>
+                            <span class="total__price" id="cart__total"
+                                >$0.00</span
+                            >
                         </p>
                     </div>
-    
+
                     <form class="checkout__field">
-                        <label for="cart__client-email" class="cart__input-label">
+                        <label
+                            for="cart__client-email"
+                            class="cart__input-label"
+                        >
                             <span class="placeholder__prefix">Mail:</span>
                             <input
                                 class="cart__basket-input"
@@ -96,7 +101,7 @@
                                 placeholder="Enter your email"
                             />
                         </label>
-    
+
                         <button
                             type="submit"
                             class="cart__submit-button"
@@ -108,7 +113,6 @@
                 </div>
             </div>
         </div>
-
     </div>
 </section>
 
