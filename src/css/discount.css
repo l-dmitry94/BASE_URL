@@ -45,7 +45,8 @@
     position: absolute;
     top: 3px;
     right: 10px;
-    padding: 23px;
+    width: 60px;
+    height: 60px;
 }
 .discount__descr {
     display: flex;

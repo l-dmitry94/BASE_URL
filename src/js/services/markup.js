@@ -84,15 +84,15 @@ export function createDiscountCards(arr) {
                     <div class="discount__price-container">
                         <p class="cards__price">${price}</p>
                         <button class="cards__button" type="button">
-                <svg class="icon__cart" width="60" height="60">
+                <svg class="icon__cart">
                     <use href="./img/icons.svg#icon-cart"></use>
                 </svg>
                 </button>
                     </div>
-                        <svg class="icon__discount" width="18" height="18">
+                        
+            </div><svg class="icon__discount">
                             <use href="./img/icons.svg#icon-discount"></use>
-                         </svg>
-            </div>  
+                         </svg>  
                  </a>
                  </li>`
         )
