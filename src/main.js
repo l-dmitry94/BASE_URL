@@ -36,7 +36,6 @@ fetchAllProducts().then(data => {
 refs.productsFiltersSelect.addEventListener('change', handleChange);
 
 fetchAllDiscount().then(data => {
-    console.log(data);
     let discount = createDiscountCards(data.slice(0, 2));
     refs.discountCards.innerHTML = discount;
 }).catch;
