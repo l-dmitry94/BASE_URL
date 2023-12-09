@@ -20,6 +20,7 @@
 }
 
 .discount__link {
+    position: relative;
     display: block;
     padding: 16px;
     width: 335px;
@@ -33,13 +34,18 @@
     border-radius: 10px;
     background: var(--grey);
     margin-bottom: 16px;
-}
-.discount__image-photo-js {
     display: flex;
     justify-content: center;
     padding: 18px 0;
 }
 
+.icon__discount {
+    position: absolute;
+    top: 3px;
+    right: 10px;
+    width: 60px;
+    height: 60px;
+}
 .discount__descr {
     display: flex;
     justify-content: space-between;

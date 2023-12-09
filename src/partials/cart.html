@@ -1,59 +1,66 @@
 <section class="cart" id="cart">
     <div class="container">
-        <div class="cart__title-thumb">
-            <button class="header__menu-link-button" type="button">
-                <svg class="cart-icon">
-                    <use href="./img/icons.svg#icon-cart"></use>
-                </svg>
-            </button>
-            <h2 class="cart__title">
-                Cart (<span class="cart__item-count">0</span>)
-            </h2>
-        </div>
-
-        <div class="cart__desctop-thumb">
-            <div class="cart__added-list">
-                <button class="cart__delete-button" type="button">
-                    Delete all
-                    <svg class="cart__delete-icon" width="24" height="24">
-                        <use href="./img/icons.svg#icon-close"></use>
+        <div class="cart__wrapper">
+            <div class="cart__title-thumb">
+                <button class="cart__button" type="button">
+                    <svg class="cart__icon">
+                        <use href="./img/icons.svg#icon-cart"></use>
                     </svg>
                 </button>
-                <ul class="cart__basket-list"></ul>
-            </div>
-        </div>
-        <div class="total__order-thumb">
-            <p class="your__order-title">Your Order</p>
-            <div class="total__price-thumb">
-                <p class="cart__total-title">Total</p>
-                <p class="cart__sum">
-                    Sum:
-                    <span class="total__price" id="cart__total">$0.00</span>
-                </p>
+                <h2 class="cart__title">
+                    Cart (<span class="cart__item-count">0</span>)
+                </h2>
             </div>
 
-            <form class="checkout__field">
-                <label for="cart__client-email" class="cart__input-label">
-                    <span class="placeholder__prefix">Mail:</span>
-                    <input
-                        type="email"
-                        pattern="[a-zA-Z0-9._%+\-]+@[a-zA-Z0-9.\-]+\.[a-zA-Z]{2,4}$"
-                        name="cart__client-email"
-                        class="cart__basket-input"
-                        id="cart__client-email"
-                        placeholder="Enter your email"
-                        required
-                    />
-                </label>
+            <div class="cart__desctop-thumb">
+                <div class="cart__added-list">
+                    <button class="cart__delete-button" type="button">
+                        Delete all
+                        <svg class="cart__delete-icon" width="24" height="24">
+                            <use href="./img/icons.svg#icon-close"></use>
+                        </svg>
+                    </button>
+                </div>
+            </div>
 
-                <button
-                    type="submit"
-                    class="cart__submit-button"
-                    aria-label="Checkout cart"
-                >
-                    Checkout
-                </button>
-            </form>
+            <div class="card__products-wrap">
+                <ul class="card__products"></ul>
+                <div class="total__order-thumb">
+                    <p class="your__order-title">Your Order</p>
+                    <div class="total__price-thumb">
+                        <p class="cart__total-title">Total</p>
+                        <p class="cart__sum">
+                            Sum:
+                            <span class="total__price" id="cart__total"
+                                >$0.00</span
+                            >
+                        </p>
+                    </div>
+
+                    <form class="checkout__field">
+                        <label
+                            for="cart__client-email"
+                            class="cart__input-label"
+                        >
+                            <span class="placeholder__prefix">Mail:</span>
+                            <input
+                                class="cart__basket-input"
+                                type="email"
+                                name="email"
+                                placeholder="Enter your email"
+                            />
+                        </label>
+
+                        <button
+                            type="submit"
+                            class="cart__submit-button"
+                            aria-label="Checkout cart"
+                        >
+                            Checkout
+                        </button>
+                    </form>
+                </div>
+            </div>
         </div>
     </div>
 </section>
