@@ -4,8 +4,7 @@ export function createFiltresCards(arr) {
     return arr
         .map(
             ({ _id, name, img, category, price, size, popularity }) =>
-                `<div class="product__cards">
-            <ul class="cards">
+                `
                 <li class="cards__item" data-id="${_id}">
                 <a class="cards__link" href="${img}">
                         <div class="cards__background-img">
@@ -36,9 +35,7 @@ export function createFiltresCards(arr) {
                             </button>
                         </div>
                     </a>
-                </li>
-            </ul>
-        </div>`
+                </li>`
         )
         .join('');
 }
