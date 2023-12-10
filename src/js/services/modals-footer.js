@@ -6,7 +6,6 @@ import icons from '../../img/icons.svg';
 
 const mediaQuery = window.matchMedia('(min-width: 768px)');
 
-
 // !-----------------------------New-Subscriber-------------------------------
 export function modalFooterNewSubscr(e) {
     let closeBtn;
