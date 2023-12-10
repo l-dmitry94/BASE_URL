@@ -15,6 +15,8 @@ import { normalizeCategory } from './js/products/products';
 // Отримуємо всі категорії
 import { fetchAllDiscount } from './js/products/discount';
 import { fetchAllPopular } from './js/products/popular';
+import { addToCart } from './js/products/add-to-cart';
+
 
 
 fetchAllCategories().then(data => {
@@ -54,3 +56,6 @@ fetchAllPopular().then(data => {
     refs.popularCards.innerHTML = popular;
 }).catch;
 
+refs.productsCards.addEventListener("click", (event) => event.preventDefault())
+
+refs.productsCards.addEventListener("click", addToCart);

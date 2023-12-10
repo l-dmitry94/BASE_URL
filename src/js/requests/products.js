@@ -2,6 +2,7 @@ import { apiProducts } from '../services/api';
 import { refs } from '../services/refs';
 import { createFiltresCards } from '../services/markup';
 import { dataAsString } from '../services/refs';
+import { checkProduct } from '../products/check-products';
 
 export async function fetchAllCategories() {
     const response = await apiProducts({
@@ -18,6 +19,7 @@ export async function fetchAllProducts() {
     const response = await apiProducts({
         method: 'GET',
     });
+    checkProduct();
 
     // console.log(response.data);
 
@@ -51,4 +53,13 @@ export async function fetchSearchProducts(category, page, limit) {
         url: `?category=${category}&page=${page}&limit=${limit}`,
     });
     return response.data;
+}
+
+export async function fetchProduct(id) {
+    const response = await apiProducts({
+        method: "GET",
+        url: `/${id}`
+    })
+
+    return response.data
 }
