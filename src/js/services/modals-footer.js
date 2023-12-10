@@ -1,26 +1,23 @@
 import * as basicLightbox from 'basiclightbox';
 import 'basiclightbox/dist/basicLightbox.min.css';
+import imageURLMob from '../../img/footer/subscription.png.png'
+import imageURLTab from '../../img/footer/subscription.png.png'
+import icons from '../../img/icons.svg'
 
-
-
-
-    function handleResize(e) {
+function handleResize(e) {
     let screenWidth = e.target.screen.width;
     if (screenWidth >= 768) {
-        imageUrl =  '../../img/footer/subscription-tab.png';
+        imageUrl = '../../img/footer/subscription-tab.png';
     } else {
         imageUrl = '../../img/footer/subscription.png.png';
     }
-    return imageUrl
+    return imageUrl;
 }
 
 window.addEventListener('resize', handleResize);
 
-
-
-
 // !-----------------------------New-Subscriber-------------------------------
-export function modalFooterNewSubscr(imageUrl) {
+export function modalFooterNewSubscr() {
     let closeBtn;
 
     const instance = basicLightbox.create(
@@ -29,7 +26,7 @@ export function modalFooterNewSubscr(imageUrl) {
     <div class="footer__modal">
         <button type="button" class="footer__modal-close">
             <svg class="footer__modal-icon">
-                <use href="../../img/icons.svg#icon-close"></use>
+                <use href="${icons}#icon-close"></use>
             </svg>
         </button>
         <div class="footer__modal-title-text">
@@ -45,7 +42,7 @@ export function modalFooterNewSubscr(imageUrl) {
         </div>
         <div class="footer__modal-png">
             <img
-                src=${imageUrl}
+                src=${imageURLMob}
                 alt="bascket of products"
             />
         </div>
