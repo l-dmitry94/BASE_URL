@@ -44,26 +44,37 @@ export function createPopularCards(arr) {
     return arr
         .map(
             ({ _id, name, img, category, size, popularity }) =>
-                `<li class="popular__item" data-id="${_id}">
-      <img class="cards__popular-image" src="${img}" alt="${name}" />
-      <h4 class="cards__title">${name}</h4>
-      <ul class="popular__info">
-            <li class="cards__info-item">
-                    <p class="cards__info-title">Category: <span class="cards__info-value">${category}</span></p>
-            </li>
-            <li class="cards__info-item">
-                    <p class="cards__info-title">Size: <span class="cards__info-value">${size}</span></p>
-            </li>
-            <li class="cards__info-item">
-                    <p class="cards__info-title">Popularity: <span class="cards__info-value">${popularity}</span></p>
-            </li>
-        </ul>
-            <button class="popular__button" type="button">
-                <svg class="icon__cart" width="12" height="12">
-                    <use href="./img/icons.svg#icon-cart"></use>
-                </svg>
-            </button>
-   </li>`
+                `<li class="cards__item popular__item" data-id="${_id}">
+                    <a class="popular__link" href="${img}">
+                <div class="cards__background-img popular__img">
+                    <img class="popular__image-photo-js" src="${img}" alt="${name}" />
+                </div>
+                <div class="popular__card-description">
+                    <h4 class="cards__title">${name}</h4>
+                    <ul class="cards__info popular__info">
+                        <li class="cards__info-item popular__info-up">
+                            <p class="cards__info-title">Category:</p>
+                            <p class="cards__info-value">${category}</p>
+                        </li>
+                        <li class="popular__info-down">
+                            <div class="cards__info-item">
+                                <p class="cards__info-title">Size:</p>
+                                <p class="cards__info-value">${size}</p>
+                            </div>
+                            <div class="cards__info-item">
+                                <p class="cards__info-title">Popularity:</p>
+                                <p class="cards__info-value">${popularity}</p>
+                            </div>
+                        </li>
+                    </ul>
+                </div>
+                <button class="popular__card-button" type="button">
+                    <svg class="popular__icon__cart">
+                        <use href="./img/icons.svg#icon-cart"></use>
+                    </svg>
+                </button>
+            </a>
+        </li>`
         )
         .join('');
 }
