@@ -1,3 +1,5 @@
+// import SlimSelect from 'slim-select';
+// import "slim-select/dist/slimselect.css"
 
 import { handleForm } from './js/requests/subscription';
 import { fetchAllCategories } from './js/requests/products';
@@ -30,6 +32,10 @@ fetchAllCategories().then(data => {
 
     let additionalGender = `<option  selected  >Show all</option>`;
     refs.productsFiltersSelect.innerHTML = markupList + additionalGender;
+    // new SlimSelect({
+    //     select: refs.productsFiltersSelect,
+    //     showSearch: false,
+    //   })
 }).catch;
 
 // Отримуємо всі продукти

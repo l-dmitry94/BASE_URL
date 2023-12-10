@@ -1,5 +1,6 @@
 import { common } from '../common/common';
 import { getData } from '../services/storage';
+import check from '../../img/icons.svg'
 
 export async function checkProduct() {
     const cartArr = getData(common.CART_KEY);
