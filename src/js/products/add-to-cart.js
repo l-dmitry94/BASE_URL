@@ -26,6 +26,9 @@ export async function addToCart(event) {
 
     cartArr.push(product);
 
+    const quantity = document.querySelector(".header__menu-link-quantity");
+        quantity.textContent = cartArr.length;
+    
     localStorage.setItem(common.CART_KEY, JSON.stringify(cartArr));
 
     const checkItem = cartArr.some(({_id}) => id === _id);

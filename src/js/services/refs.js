@@ -7,6 +7,10 @@ export const refs = {
     discountCards: document.querySelector('.discount__list'),
     popularCards: document.querySelector('.popular__list'),
     cardWrapper: document.querySelector('.cart__wrapper'),
+    cartProducts: document.querySelector('.cart__products'),
+    cartQuantity: document.querySelectorAll(".cart-quantity"),
+    deleteAllProductsFromCart: document.querySelector('.cart__delete-button'),
+    totalPrice: document.querySelector('#cart__total')
 };
 export let baseDataToStore = {
     keyword: null,

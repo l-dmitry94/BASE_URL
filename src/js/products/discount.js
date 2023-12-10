@@ -8,7 +8,5 @@ export async function fetchAllDiscount() {
         url: '/discount',
     });
 
-    console.log(response.data);
-
     return response.data;
 }

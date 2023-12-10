@@ -18,6 +18,10 @@ import { normalizeCategory } from './js/products/products';
 import { fetchAllDiscount } from './js/products/discount';
 import { fetchAllPopular } from './js/products/popular';
 import { addToCart } from './js/products/add-to-cart';
+import { handleCart } from './js/cart/cart';
+import { quantityProduct } from './js/helpers/helpers';
+import { getData } from './js/services/storage';
+import { common } from './js/common/common';
 
 
 
@@ -65,3 +69,6 @@ fetchAllPopular().then(data => {
 refs.productsCards.addEventListener("click", (event) => event.preventDefault())
 
 refs.productsCards.addEventListener("click", addToCart);
+
+const cartArr = getData(common.CART_KEY);
+quantityProduct(cartArr);

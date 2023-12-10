@@ -8,7 +8,5 @@ export async function fetchAllPopular() {
         url: '/popular',
     });
 
-    console.log(response.data);
-
     return response.data;
 }

@@ -143,3 +143,61 @@ export function createModalCards({
                 </button>
             </div></div>`;
 }
+
+export function createMarkupCartList(arr) {
+    return arr.map(({_id, name, img, category, price, size}) => `
+            <li class="cart__products-item" data-id="${_id}">
+                <div class="cart__item-space">
+                    <img src="${img}" alt="${name}" class="cart__item-img">
+                </div>
+                <div class="cart__item-info">
+                    <h3 class="cart__item-title">${name}</h3>
+                    <ul class="cart__item-descr">
+                        <li class="cart__item">
+                            <p class="cart__item-name">Category:</p>
+                            <p class="cart__item-value">${normalizeCategory(category)}</p>
+                        </li>
+                        <li class="cart__item">
+                            <p class="cart__item-name">Size:</p>
+                            <p class="cart__item-value">${size}</p>
+                        </li>
+                    </ul> 
+                    <div class="cart__item-main">
+                        <span class="cart__item-price">$${price}</span>
+                        <div class="cart__item-quantity">
+                            <button class="cart__item-button">
+                                <svg class="cart__item-minus">
+                                    <use href="../img/icons.svg#icon-minus"></use>
+                                </svg>
+                            </button>
+                            <span class="cart__item-number">1</span>
+                            <button class="cart__item-button">
+                                <svg class="cart__item-minus">
+                                    <use href="../img/icons.svg#icon-plus"></use>
+                                </svg>
+                            </button>
+                        </div>
+                    </div>
+                </div>
+                <button class="cart__item-close">
+                    <svg class="cart__item-icon">
+                        <use href="../img/icons.svg#icon-close"></use>
+                    </svg>
+                </button>
+            </li>
+    `).join("")
+}
+
+export function createMarkupEmptyCart() {
+    return `
+    <div class="empty">
+    <picture>
+        <source media="(min-width: 768px)" srcset="./img/cart/empty-tab.png 1x, ./img/cart/empty-tab@2x.png 2x">
+        <source media="(min-width: 320px)" srcset="./img/cart/empty-mobile.png 1x, ./img/cart/empty-mobile@2x.png 2x">
+        <img class="empty__img" src="./img/cart/empty-mobile.png" alt="Empty">
+    </picture>
+    <h3 class="empty__title">Your basket is <span class="empty__title-color">empty...</span></h3>
+    <p class="empty__descr">Go to the main page to select your favorite products and add them to the cart.</p>
+</div>
+`;
+}
