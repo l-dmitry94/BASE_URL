@@ -6,16 +6,16 @@ import { fetchAllCategories } from './js/requests/products';
 import { fetchAllProducts } from './js/requests/products';
 import { refs } from './js/services/refs';
 import { dataAsString } from './js/services/refs';
+import './js/products/discount.js';
 import {
     createFiltresCards,
-    createDiscountCards,
     createPopularCards,
 } from './js/services/markup';
 import { handleChange } from './js/products/products';
 import { handleSubmit } from './js/products/products';
 import { normalizeCategory } from './js/products/products';
 // Отримуємо всі категорії
-import { fetchAllDiscount } from './js/products/discount';
+import { fetchAllDiscount } from './js/requests/products.js';
 import { fetchAllPopular } from './js/products/popular';
 import { addToCart } from './js/products/add-to-cart';
 import { handleCart } from './js/cart/cart';
@@ -55,10 +55,6 @@ refs.productsFiltersSelect.addEventListener('change', handleChange);
 refs.btnSubmit.addEventListener('submit', handleSubmit);
 
 refs.productsFiltersSelect.addEventListener('change', handleChange);
-fetchAllDiscount().then(data => {
-    let discount = createDiscountCards(data.slice(0, 2));
-    refs.discountCards.innerHTML = discount;
-}).catch;
 
 fetchAllPopular().then(data => {
     let popular = createPopularCards(data.slice(0, 5));

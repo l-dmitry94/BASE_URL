@@ -1,4 +1,5 @@
 import { normalizeCategory } from '../products/products';
+import icons from '../../img/icons.svg';
 
 export function createFiltresCards(arr) {
     return arr
@@ -6,7 +7,7 @@ export function createFiltresCards(arr) {
             ({ _id, name, img, category, price, size, popularity }) =>
                 `
                 <li class="cards__item" data-id="${_id}">
-                <a class="cards__link" href="${img}">
+                <a class="cards__link" href="#">
                         <div class="cards__background-img">
                             <img class="cards__image-photo-js" src="${img}" alt="${name}" />
                         </div>
@@ -30,7 +31,7 @@ export function createFiltresCards(arr) {
                         <p class="cards__price">$${price}</p>
                             <button class="cards__button" type="button">
                                 <svg class="icon__cart">
-                                    <use href="./img/icons.svg#icon-cart"></use>
+                                    <use href="${icons}#icon-cart"></use>
                                 </svg>
                             </button>
                         </div>
@@ -45,7 +46,7 @@ export function createPopularCards(arr) {
         .map(
             ({ _id, name, img, category, size, popularity }) =>
                 `<li class="cards__item popular__item" data-id="${_id}">
-                    <a class="popular__link" href="${img}">
+                    <a class="popular__link" href="#">
                 <div class="cards__background-img popular__img">
                     <img class="popular__image-photo-js" src="${img}" alt="${name}" />
                 </div>
@@ -70,7 +71,7 @@ export function createPopularCards(arr) {
                 </div>
                 <button class="popular__card-button" type="button">
                     <svg class="popular__icon__cart">
-                        <use href="./img/icons.svg#icon-cart"></use>
+                        <use href="${icons}#icon-cart"></use>
                     </svg>
                 </button>
             </a>
@@ -93,13 +94,13 @@ export function createDiscountCards(arr) {
                         <p class="cards__price">${price}</p>
                         <button class="cards__button" type="button">
                 <svg class="icon__cart">
-                    <use href="./img/icons.svg#icon-cart"></use>
+                    <use href="${icons}#icon-cart"></use>
                 </svg>
                 </button>
                     </div>
                         
             </div><svg class="icon__discount">
-                            <use href="./img/icons.svg#icon-discount"></use>
+                            <use href="${icons}#icon-discount"></use>
                          </svg>  
                  </a>
                  </li>`
@@ -118,34 +119,42 @@ export function createModalCards({
     desc,
 }) {
     return `<div class="modal__item" data-id="${_id}">
-      <img class="cards__image-photo" src="${img}" alt="${name}" />
-      <div class="cards__main">
-      <h4 class="cards__title">${name}</h4>
-      <ul class="modal__info">
-            <li class="cards__info-item">
-                    <p class="cards__info-title">Category: <span class="cards__info-value">${category}</span></p>
-            </li>
-            <li class="cards__info-item">
-                    <p class="cards__info-title">Size: <span class="cards__info-value">${size}</span></p>
-            </li>
-            <li class="cards__info-item">
-                    <p class="cards__info-title">Popularity: <span class="cards__info-value">${popularity}</span></p>
-            </li>
-        </ul>
-        <p class="cards__desc-modal">${desc}</p>
-        </div>
-        <div class="cards__main">
-                <p class="cards__price">${price}</p>
-                <button class="cards__button" type="button"> Add to
-                    <svg class="icon__cart" width="18" height="18">
-                        <use href="./img/icons.svg#icon-cart"></use>
+                <img class="cards__image-photo" src="${img}" alt="${name}" />
+                <div class="cards__main">
+                    <h4 class="cards__title">${name}</h4>
+                    <ul class="modal__info">
+                        <li class="cards__info-item">
+                            <p class="cards__info-title">Category: <span class="cards__info-value">${category}</span></p>
+                        </li>
+                        <li class="cards__info-item">
+                            <p class="cards__info-title">Size: <span class="cards__info-value">${size}</span></p>
+                        </li>
+                        <li class="cards__info-item">
+                            <p class="cards__info-title">Popularity: <span class="cards__info-value">${popularity}</span></p>
+                        </li>
+                    </ul>
+                    <p class="cards__desc-modal">${desc}</p>
+                </div>
+                <div class="cards__main">
+                    <p class="cards__price">${price}</p>
+                    <button class="cards__button" type="button"> Add to
+                        <svg class="icon__cart" width="18" height="18">
+                            <use href="${icons}#icon-cart"></use>
+                        </svg>
+                    </button>
+                </div>
+                <button class="modal__item-close" type="button">
+                    <svg class="checkout__modal-close-icon">
+                        <use href="${icons}#icon-close"></use>
                     </svg>
                 </button>
-            </div></div>`;
+            </div>`;
 }
 
 export function createMarkupCartList(arr) {
-    return arr.map(({_id, name, img, category, price, size}) => `
+    return arr
+        .map(
+            ({ _id, name, img, category, price, size }) => `
             <li class="cart__products-item" data-id="${_id}">
                 <div class="cart__item-space">
                     <img src="${img}" alt="${name}" class="cart__item-img">
@@ -155,7 +164,9 @@ export function createMarkupCartList(arr) {
                     <ul class="cart__item-descr">
                         <li class="cart__item">
                             <p class="cart__item-name">Category:</p>
-                            <p class="cart__item-value">${normalizeCategory(category)}</p>
+                            <p class="cart__item-value">${normalizeCategory(
+                                category
+                            )}</p>
                         </li>
                         <li class="cart__item">
                             <p class="cart__item-name">Size:</p>
@@ -167,13 +178,13 @@ export function createMarkupCartList(arr) {
                         <div class="cart__item-quantity">
                             <button class="cart__item-button">
                                 <svg class="cart__item-minus">
-                                    <use href="../img/icons.svg#icon-minus"></use>
+                                    <use href="${icons}#icon-minus"></use>
                                 </svg>
                             </button>
                             <span class="cart__item-number">1</span>
                             <button class="cart__item-button">
                                 <svg class="cart__item-minus">
-                                    <use href="../img/icons.svg#icon-plus"></use>
+                                    <use href="${icons}#icon-plus"></use>
                                 </svg>
                             </button>
                         </div>
@@ -181,11 +192,13 @@ export function createMarkupCartList(arr) {
                 </div>
                 <button class="cart__item-close">
                     <svg class="cart__item-icon">
-                        <use href="../img/icons.svg#icon-close"></use>
+                        <use href="${icons}#icon-close"></use>
                     </svg>
                 </button>
             </li>
-    `).join("")
+    `
+        )
+        .join('');
 }
 
 export function createMarkupEmptyCart() {
