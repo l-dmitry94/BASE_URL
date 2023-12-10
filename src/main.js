@@ -15,7 +15,7 @@ import { handleChange } from './js/products/products';
 import { handleSubmit } from './js/products/products';
 import { normalizeCategory } from './js/products/products';
 // Отримуємо всі категорії
-import { fetchAllDiscount } from './js/products/discount';
+import { fetchAllDiscount } from './js/requests/products.js';
 import { fetchAllPopular } from './js/products/popular';
 import { addToCart } from './js/products/add-to-cart';
 import { handleCart } from './js/cart/cart';
@@ -23,7 +23,7 @@ import { quantityProduct } from './js/helpers/helpers';
 import { getData } from './js/services/storage';
 import { common } from './js/common/common';
 
-
+import './js/products/discount.js';
 
 fetchAllCategories().then(data => {
     let modifiedCategories = data.map(data => {
@@ -43,32 +43,33 @@ fetchAllCategories().then(data => {
 }).catch;
 
 // Отримуємо всі продукти
-fetchAllProducts().then(data => {
-    let test1 = createFiltresCards(data.results);
-    refs.productsCards.innerHTML = test1;
-}).catch();
+fetchAllProducts()
+    .then(data => {
+        let test1 = createFiltresCards(data.results);
+        refs.productsCards.innerHTML = test1;
+    })
+    .catch();
 
 // Функція обробки submit в секції filters
 refs.productsFiltersSelect.addEventListener('change', handleChange);
 // Функція обробки submit в секції filters
 refs.btnSubmit.addEventListener('submit', handleSubmit);
 
-
-
 refs.productsFiltersSelect.addEventListener('change', handleChange);
-fetchAllDiscount().then(data => {
-    let discount = createDiscountCards(data.slice(0, 2));
-    refs.discountCards.innerHTML = discount;
-}).catch;
+
+// fetchAllDiscount().then(data => {
+//     let discount = createDiscountCards(data.slice(0, 2));
+//     refs.discountCards.innerHTML = discount;
+// }).catch;
 
 fetchAllPopular().then(data => {
     let popular = createPopularCards(data.slice(0, 5));
     refs.popularCards.innerHTML = popular;
 }).catch;
 
-refs.productsCards.addEventListener("click", (event) => event.preventDefault())
+refs.productsCards.addEventListener('click', event => event.preventDefault());
 
-refs.productsCards.addEventListener("click", addToCart);
+refs.productsCards.addEventListener('click', addToCart);
 
 const cartArr = getData(common.CART_KEY);
 quantityProduct(cartArr);
