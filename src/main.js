@@ -9,7 +9,6 @@ import { dataAsString } from './js/services/refs';
 import './js/products/discount.js';
 import {
     createFiltresCards,
-    createDiscountCards,
     createPopularCards,
 } from './js/services/markup';
 import { handleChange } from './js/products/products';
@@ -23,7 +22,6 @@ import { handleCart } from './js/cart/cart';
 import { quantityProduct } from './js/helpers/helpers';
 import { getData } from './js/services/storage';
 import { common } from './js/common/common';
-
 
 fetchAllCategories().then(data => {
     let modifiedCategories = data.map(data => {
