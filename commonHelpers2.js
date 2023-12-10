@@ -1,4 +1,4 @@
-import{d as f,f as b,e as E,h as w,i as y,r as n,j as L,g as h,c as l,k as _,l as C,m as S,n as m,o as k,p as x,s as T,t as v,u as A,v as q,q as M}from"./assets/markup-b51d4718.js";import{b as u}from"./assets/vendor-0363fca5.js";const P="/BASE_URL/assets/subscription-tab-ac534afc.png",R="/BASE_URL/assets/subscription.png-0e0f2d9d.png",p=window.matchMedia("(min-width: 768px)");function g(e){let t,o;p.matches?o=P:o=R;const s=u.create(`
+import{d as f,f as b,e as E,h as w,i as y,r as n,j as L,g as h,c as l,k as _,l as C,m as S,n as m,o as k,p as x,s as T,t as v,u as A,v as q,q as M}from"./assets/markup-4f17587e.js";import{b as u}from"./assets/vendor-0363fca5.js";const P="/BASE_URL/assets/subscription-tab-ac534afc.png",R="/BASE_URL/assets/subscription.png-0e0f2d9d.png",p=window.matchMedia("(min-width: 768px)");function g(e){let t,o;p.matches?o=P:o=R;const s=u.create(`
     <div class="modal">
     <div class="footer__modal">
         <button type="button" class="footer__modal-close">
