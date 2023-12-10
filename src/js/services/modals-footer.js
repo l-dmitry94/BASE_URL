@@ -1,9 +1,28 @@
 import * as basicLightbox from 'basiclightbox';
 import 'basiclightbox/dist/basicLightbox.min.css';
 
+
+
+
+    function handleResize(e) {
+    let screenWidth = e.target.screen.width;
+    if (screenWidth >= 768) {
+        imageUrl =  '../../img/footer/subscription-tab.png';
+    } else {
+        imageUrl = '../../img/footer/subscription.png.png';
+    }
+    return imageUrl
+}
+
+window.addEventListener('resize', handleResize);
+
+
+
+
 // !-----------------------------New-Subscriber-------------------------------
-export const modalFooterNewSubscr = function () {
+export function modalFooterNewSubscr(imageUrl) {
     let closeBtn;
+
     const instance = basicLightbox.create(
         `
     <div class="modal">
@@ -26,7 +45,7 @@ export const modalFooterNewSubscr = function () {
         </div>
         <div class="footer__modal-png">
             <img
-                src="../../img/footer/subscription.png.png"
+                src=${imageUrl}
                 alt="bascket of products"
             />
         </div>
@@ -56,7 +75,7 @@ export const modalFooterNewSubscr = function () {
             instance.close();
         }
     }
-};
+}
 // !-----------------------------Existed-Subscriber-------------------------------
 export const modalFooterExistedSubscr = function () {
     let closeBtn;

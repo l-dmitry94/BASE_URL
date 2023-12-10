@@ -3,38 +3,31 @@
     padding-top: 40px;
     padding-bottom: 20px;
 }
-
 .footer__wrap {
     margin-bottom: 80px;
 }
-
 .footer__cover-logo-social {
     margin-bottom: 40px;
 }
-
 .footer .logo {
     color: var(--grey);
     margin-bottom: 20px;
     display: inline-flex;
 }
-
 .footer .logo__button {
     background-color: var(--grey);
     fill: var(--green);
 }
-
 .footer__social-list {
     display: flex;
     gap: 12px;
 }
-
 .footer__social-item {
     border-radius: 10px;
     border: 1px solid rgba(232, 232, 226, 0.3);
     width: 40px;
     height: 40px;
 }
-
 .footer__social-link {
     width: 100%;
     height: 100%;
@@ -43,26 +36,22 @@
     justify-content: center;
     transition: background-color 0.3s linear;
 }
-
 .footer__social-link:hover,
 .footer__social-link:focus {
     background-color: rgba(232, 232, 226, 0.2);
     border-radius: 10px;
     border: 1px solid rgba(232, 232, 226, 0.3);
 }
-
 .footer__social-svg {
     fill: var(--grey);
     width: 24px;
     height: 24px;
     opacity: 0.8;
 }
-
 .footer__cover-title-text {
     margin-bottom: 80px;
     width: 335px;
 }
-
 .footer__title {
     color: var(--grey);
     font-size: 24px;
@@ -72,15 +61,13 @@
     letter-spacing: -0.02em;
     margin-bottom: 14px;
 }
-
 .footer__text {
     color: rgba(232, 232, 226, 0.7);
     font-size: 14px;
     font-style: normal;
     font-weight: 400;
-    line-height: 18px;
+    line-height: 1.28;
 }
-
 .footer__form-text {
     color: var(--grey);
     font-size: 14px;
@@ -89,14 +76,12 @@
     line-height: 1.28;
     margin-bottom: 20px;
 }
-
 .footer__form {
     max-width: 335px;
 }
-
 .footer__form-input {
     width: 100%;
-    padding: 12px 18px;
+    padding: 11px 18px;
     border-radius: 30px;
     border: 1px solid var(--grey);
     margin-bottom: 14px;
@@ -104,15 +89,10 @@
     color: var(--grey);
     font-family: inherit;
 }
-
 .footer__form-input::placeholder {
     color: rgba(232, 232, 226, 0.6);
     font-size: 14px;
-    font-style: normal;
-    font-weight: 400;
-    line-height: 1.28;
 }
-
 .footer__form-submit {
     width: 100%;
     padding: 12px 149px;
@@ -126,12 +106,10 @@
     line-height: 1.28;
     transition: color 0.3s linear;
 }
-
 .footer__form-submit:hover,
 .footer__form-submit:focus {
     color: var(--green);
 }
-
 .footer__cover-privacy {
     color: var(--grey);
     font-size: 14px;
@@ -142,11 +120,9 @@
     flex-direction: column;
     gap: 8px;
 }
-
 .opacity {
     opacity: 0.9;
 }
-
 .footer__privacy-slash {
     margin: 0 6px;
     letter-spacing: -0.02em;
@@ -155,7 +131,6 @@
 /* !--------------------------modal-New------------------------------ */
 .modal {
 }
-
 .footer__modal {
     width: 335px;
     height: 400px;
@@ -163,52 +138,40 @@
     background: var(--grey);
     position: relative;
 }
-
 .footer__modal-close {
     position: absolute;
     top: 14px;
     right: 14px;
 }
-
 .footer__modal-icon {
     width: 22px;
     height: 22px;
 }
-
 .footer__modal-title-text {
-    padding: 100px 43.5px 22px; /* padding: 90px 81px 3px; */
+    padding: 100px 43.5px 22px;
 }
-
 .footer__modal-title {
-    margin-bottom: 14px; /* margin: 0 41.5px 20px; */
-    color: var(--black);
+    margin-bottom: 14px;
     text-align: center;
     font-size: 20px;
-    font-style: normal;
-    font-weight: 500;
     line-height: 1.2;
 }
-
 .footer__modal-span {
     color: var(--green);
     font-size: 20px;
-    font-style: normal;
-    font-weight: 500;
     line-height: 1.2;
 }
-
 .footer__modal-text {
     color: rgba(1, 1, 1, 0.7);
     text-align: center;
     font-size: 14px;
-    font-style: normal;
     font-weight: 400;
     line-height: 1.28;
 }
-
 .footer__modal-png {
+    border-radius: 18.966px;
+    display: block;
 }
-
 .basicLightbox {
     background-color: rgba(1, 1, 1, 0.4) !important;
 }
@@ -225,29 +188,162 @@
     padding: 80px 43.5px;
 }
 .footer__modal-title-Existed {
-    color: var(--black);
     text-align: center;
-    font-family: Neue Montreal;
     font-size: 20px;
-    font-style: normal;
-    font-weight: 500;
-    line-height: 1.2; 
+    line-height: 1.2;
     margin-bottom: 14px;
 }
 .footer__modal-span-Existed {
     color: var(--green);
-    font-family: Neue Montreal;
     font-size: 20px;
-    font-style: normal;
-    font-weight: 500;
     line-height: 1.2;
 }
 .footer__modal-text-Existed {
     color: rgba(1, 1, 1, 0.7);
     text-align: center;
-    font-family: Neue Montreal;
     font-size: 14px;
-    font-style: normal;
     font-weight: 400;
-    line-height: 1.28; 
+    line-height: 1.28;
+}
+
+/* !_____________________MEDIA-768________________________ */
+
+@media (min-width: 768px) {
+    .footer__wrap {
+        margin-bottom: 120px;
+        display: flex;
+        justify-content: space-between;
+    }
+    .footer .logo {
+        font-size: 24px;
+        line-height: 1;
+    }
+    .footer .logo__button {
+        width: 32px;
+        height: 32px;
+    }
+    .footer .logo__icon {
+        width: 20px;
+        height: 20px;
+    }
+    .footer__cover-logo-social {
+        margin-bottom: 0;
+    }
+    .footer__social-item {
+        width: 44px;
+        height: 44px;
+    }
+    .footer__social-svg {
+        width: 28px;
+        height: 28px;
+    }
+    .footer__cover-title-text {
+        margin-bottom: 64px;
+        width: 429px;
+    }
+    .footer__title {
+        font-size: 40px;
+        line-height: 1.1;
+        letter-spacing: -0.02em;
+        margin-bottom: 20px;
+    }
+    .footer__text {
+        font-size: 18px;
+        line-height: 1.33;
+    }
+    .footer__form-text {
+        font-size: 18px;
+        line-height: 1.33;
+    }
+    .footer__form {
+        max-width: 336px;
+    }
+    .footer__form-input {
+        margin-bottom: 20px;
+        line-height: 1.5;
+    }
+    .footer__form-input::placeholder {
+        font-size: 16px;
+    }
+    .footer__form-submit {
+        font-size: 16px;
+        line-height: 1.5;
+    }
+    .footer__cover-privacy {
+        flex-direction: row;
+        justify-content: space-between;
+        gap: 0;
+    }
+    /* ________________________________mmodal-New_______________________________ */
+    .footer__modal {
+        width: 490px;
+        height: 400px;
+    }
+    .footer__modal-close {
+        top: 24px;
+        right: 24px;
+    }
+    .footer__modal-icon {
+        width: 28px;
+        height: 28px;
+    }
+    .footer__modal-title-text {
+        padding: 90px 81px 3px;
+    }
+    .footer__modal-title {
+        width: 245px;
+        font-size: 24px;
+        line-height: 1;
+        margin: 0 auto 20px;
+    }
+    .footer__modal-span {
+        font-size: 24px;
+        line-height: 1;
+    }
+    .footer__modal-text {
+        font-size: 16px;
+        font-weight: 400;
+        line-height: 1.25;
+    }
+
+    /* ________________________________modal-Existed____________________________ */
+    .footer__modal-Existed {
+        width: 469px;
+        height: 308px;
+    }
+    .footer__modal-title-text-Existed {
+        padding: 100px 60px;
+    }
+    .footer__modal-title-Existed {
+        font-size: 24px;
+        line-height: 1;
+        width: 245px;
+        margin: 0 auto 20px;
+    }
+    .footer__modal-span-Existed {
+        font-size: 24px;
+        line-height: 1;
+    }
+    .footer__modal-text-Existed {
+        color: rgba(1, 1, 1, 0.7);
+        font-size: 16px;
+        font-weight: 400;
+        line-height: 1.25;
+    }
+}
+
+/* !_____________________MEDIA-1240________________________ */
+
+@media (min-width: 1240px) {
+    .footer__wrap {
+        margin-bottom: 128px;
+    }
+    .footer__wrap-wrap {
+        display: flex;
+        gap: 148px;
+    }
+    .footer__cover-title-text {
+        margin-bottom: 0;
+        width: 410px;
+    }
 }
