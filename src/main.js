@@ -1,4 +1,3 @@
-
 import { handleForm } from './js/requests/subscription';
 import { fetchAllCategories } from './js/requests/products';
 import { fetchAllProducts } from './js/requests/products';
@@ -15,7 +14,7 @@ import { normalizeCategory } from './js/products/products';
 // Отримуємо всі категорії
 import { fetchAllDiscount } from './js/products/discount';
 import { fetchAllPopular } from './js/products/popular';
-
+import { handleModal } from './js/cart/modal';
 
 fetchAllCategories().then(data => {
     let modifiedCategories = data.map(data => {
@@ -31,17 +30,17 @@ fetchAllCategories().then(data => {
 }).catch;
 
 // Отримуємо всі продукти
-fetchAllProducts().then(data => {
-    let test1 = createFiltresCards(data.results);
-    refs.productsCards.innerHTML = test1;
-}).catch();
+fetchAllProducts()
+    .then(data => {
+        let test1 = createFiltresCards(data.results);
+        refs.productsCards.innerHTML = test1;
+    })
+    .catch();
 
 // Функція обробки submit в секції filters
 refs.productsFiltersSelect.addEventListener('change', handleChange);
 // Функція обробки submit в секції filters
 refs.btnSubmit.addEventListener('submit', handleSubmit);
-
-
 
 refs.productsFiltersSelect.addEventListener('change', handleChange);
 fetchAllDiscount().then(data => {
@@ -54,3 +53,4 @@ fetchAllPopular().then(data => {
     refs.popularCards.innerHTML = popular;
 }).catch;
 
+refs.productsCards.addEventListener('click', handleModal);

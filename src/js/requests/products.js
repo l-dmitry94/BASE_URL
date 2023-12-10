@@ -52,3 +52,13 @@ export async function fetchSearchProducts(category, page, limit) {
     });
     return response.data;
 }
+
+// yev
+export async function fetchProduct(id) {
+    const response = await apiProducts({
+        method: 'GET',
+        url: `/${id}`,
+    });
+
+    return response.data;
+}
