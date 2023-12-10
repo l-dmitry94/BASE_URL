@@ -57,9 +57,18 @@ export async function fetchSearchProducts(category, page, limit) {
 
 export async function fetchProduct(id) {
     const response = await apiProducts({
-        method: "GET",
-        url: `/${id}`
-    })
+        method: 'GET',
+        url: `/${id}`,
+    });
 
-    return response.data
+    return response.data;
+}
+
+export async function fetchAllDiscount() {
+    const response = await apiProducts({
+        method: 'GET',
+        url: '/discount',
+    });
+
+    return response.data;
 }
