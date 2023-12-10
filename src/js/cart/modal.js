@@ -22,36 +22,3 @@ export async function handleModal(event) {
 
     instance.show();
 }
-
-// function showModalProduct(productData) {
-//     const modalContent = createModalCards(productData);
-//     const instance = basicLightbox.create(modalContent, {
-//         onShow: instance => {
-//             window.addEventListener('keydown', onEscapePress);
-//         },
-//         onClose: instance => {
-//             window.removeEventListener('keydown', onEscapePress);
-//         },
-//     });
-//     instance.show();
-
-//     function onEscapePress(event) {
-//         if (event.code === 'Escape') {
-//             instance.close();
-//         }
-//     }
-// }
-
-// function onProductClick(event) {
-//     event.preventDefault();
-//     if (!event.target.closest('.product__cards')) {
-//         return;
-//     }
-
-//     const productData = {};
-
-//     showModalProduct(productData);
-// }
-
-// const modalContainer = document.querySelector('.hero__title');
-// modalContainer.addEventListener('click', onProductClick);
