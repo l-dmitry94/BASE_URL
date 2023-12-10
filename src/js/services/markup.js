@@ -120,8 +120,9 @@ export function createModalCards({
 }) {
     return `<div class="modal__item" data-id="${_id}">
                 <img class="cards__image-photo" src="${img}" alt="${name}" />
-                <div class="cards__main">
-                    <h4 class="cards__title">${name}</h4>
+                <div class="cards__main up">
+      <div class="cards__main-modal">
+      <h4 class="cards__title modal">${name}</h4>
                     <ul class="modal__info">
                         <li class="cards__info-item">
                             <p class="cards__info-title">Category: <span class="cards__info-value">${category}</span></p>
@@ -135,20 +136,20 @@ export function createModalCards({
                     </ul>
                     <p class="cards__desc-modal">${desc}</p>
                 </div>
-                <div class="cards__main">
-                    <p class="cards__price">${price}</p>
-                    <button class="cards__button" type="button"> Add to
-                        <svg class="icon__cart" width="18" height="18">
-                            <use href="${icons}#icon-cart"></use>
-                        </svg>
-                    </button>
-                </div>
+                
                 <button class="modal__item-close" type="button">
                     <svg class="checkout__modal-close-icon">
                         <use href="${icons}#icon-close"></use>
                     </svg>
                 </button>
-            </div>`;
+            </div><div class="cards__main">
+            <p class="cards__price">$${price}</p>
+            <button class="cards__button add__to-button" type="button"> Add to
+                <svg class="icon__cart" width="18" height="18">
+                    <use href="${icons}#icon-cart"></use>
+                </svg>
+            </button>
+        </div>`;
 }
 
 export function createMarkupCartList(arr) {

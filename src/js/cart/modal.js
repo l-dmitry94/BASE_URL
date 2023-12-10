@@ -12,13 +12,14 @@ export async function handleModal(event) {
     const { id } = productLink.closest('.cards__item').dataset;
     const product = await fetchProduct(id);
 
-    const instance = basicLightbox.create(createModalCards(product));
-
-    /*, {
+    const instance = basicLightbox.create(createModalCards(product), {
         onShow: instance => {
-            instance.element().querySelector('a').onclick = instance.close;
+            instance
+                .element()
+                .querySelector('.checkout__modal-close-icon').onclick =
+                instance.close;
         },
-    }); */
+    });
 
     instance.show();
 }
