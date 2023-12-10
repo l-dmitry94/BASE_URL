@@ -42,3 +42,48 @@
 .header__menu-link-counter {
     display: none;
 }
+
+@media screen and (min-width: 768px) {
+    .header {
+        padding: 24px 0 104px;
+    }
+
+    .header__menu {
+        gap: 16px;
+    }
+
+    .header__menu-link {
+        display: flex;
+        gap: 14px;
+        flex-direction: row;
+        align-items: center;
+    }
+
+    .header__menu-item:first-child {
+        font-size: 18px;
+        padding: 12px 28px;
+    }
+    .header__menu-link-icon {
+        width: 18px;
+        height: 18px;
+    }
+
+    .header__menu-link-counter {
+        display: flex;
+        font-size: 18px;
+        font-style: normal;
+        font-weight: 500;
+        line-height: 1.33; /* 133.333% */
+        text-transform: uppercase;
+    }
+}
+
+@media screen and (min-width: 1240px) {
+    .header {
+        padding: 32px 0 85px;
+    }
+
+    .header__menu {
+        gap: 24px;
+    }
+}

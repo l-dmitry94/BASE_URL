@@ -123,11 +123,26 @@ input[type='search']::-webkit-search-results-decoration {
     align-items: end;
 }
 
-.icon__cart {
+.cards__button {
+    display: flex;
+    align-items: center;
+    justify-content: center;
     background-color: var(--green);
     border-radius: 30px;
-    padding: 8px;
-    fill: var(--light-grey);
     width: 34px;
     height: 34px;
+
+}
+
+.icon__cart {
+    width: 18px;
+    height: 18px;
+    fill: var(--light-grey);
+}
+
+.icon-checked {
+    width: 18px;
+    height: 18px;
+    fill: transparent;
+    stroke: var(--light-grey);
 }

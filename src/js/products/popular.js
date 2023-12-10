@@ -1,11 +1,11 @@
 import { apiProducts } from '../services/api';
 import { refs } from '../services/refs';
-import { createDiscountCards } from '../services/markup';
+import { createPopularCards } from '../services/markup';
 
-export async function fetchAllDiscount() {
+export async function fetchAllPopular() {
     const response = await apiProducts({
         method: 'GET',
-        url: '/discount',
+        url: '/popular',
     });
 
     return response.data;
