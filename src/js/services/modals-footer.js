@@ -1,24 +1,21 @@
 import * as basicLightbox from 'basiclightbox';
 import 'basiclightbox/dist/basicLightbox.min.css';
-import imageURLMob from '../../img/footer/subscription.png.png'
-import imageURLTab from '../../img/footer/subscription.png.png'
-import icons from '../../img/icons.svg'
+import imageURLTab from '../../img/footer/subscription-tab.png';
+import imageURLMob from '../../img/footer/subscription.png.png';
+import icons from '../../img/icons.svg';
 
-function handleResize(e) {
-    let screenWidth = e.target.screen.width;
-    if (screenWidth >= 768) {
-        imageUrl = '../../img/footer/subscription-tab.png';
-    } else {
-        imageUrl = '../../img/footer/subscription.png.png';
-    }
-    return imageUrl;
-}
-
-window.addEventListener('resize', handleResize);
+const mediaQuery = window.matchMedia('(min-width: 768px)');
 
 // !-----------------------------New-Subscriber-------------------------------
-export function modalFooterNewSubscr() {
+export function modalFooterNewSubscr(e) {
     let closeBtn;
+    let imageUrl;
+
+    if (!mediaQuery.matches) {
+        imageUrl = imageURLMob;
+    } else {
+        imageUrl = imageURLTab;
+    }
 
     const instance = basicLightbox.create(
         `
@@ -42,7 +39,7 @@ export function modalFooterNewSubscr() {
         </div>
         <div class="footer__modal-png">
             <img
-                src=${imageURLMob}
+                src="${imageUrl}"
                 alt="bascket of products"
             />
         </div>
@@ -72,13 +69,20 @@ export function modalFooterNewSubscr() {
             instance.close();
         }
     }
+
+    const modalRef = document.querySelector('.modal');
+    if (modalRef) {
+        console.dir(modalRef);
+        mediaQuery.addEventListener('change', modalFooterNewSubscr);
+    }
 }
+
 // !-----------------------------Existed-Subscriber-------------------------------
 export const modalFooterExistedSubscr = function () {
     let closeBtn;
     const instance = basicLightbox.create(
         `
-        <div class="modal">
+        <div class="modal-Existed">
         <div class="footer__modal-Existed">
             <button type="button" class="footer__modal-close">
                 <svg class="footer__modal-icon">
