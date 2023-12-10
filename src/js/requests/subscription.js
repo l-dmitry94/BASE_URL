@@ -32,4 +32,4 @@ async function postSubscriptionNewProducts(value) {
         }
     }
 }
-modalFooterNewSubscr();
+// modalFooterNewSubscr();
