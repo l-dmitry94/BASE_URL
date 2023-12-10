@@ -156,5 +156,5 @@ import{a as m}from"./vendor-0363fca5.js";(function(){const r=document.createElem
     <h3 class="empty__title">Your basket is <span class="empty__title-color">empty...</span></h3>
     <p class="empty__descr">Go to the main page to select your favorite products and add them to the cart.</p>
 </div>
-`}export{H as a,N as b,$ as c,T as d,x as e,q as f,S as g,O as h,d as i,E as j,n as k,F as l,P as m,v as n,_ as o,p,L as q,l as r,u as s,I as t,A as u,M as v};
-//# sourceMappingURL=markup-dc6da092.js.map
+`}export{H as a,N as b,$ as c,n as d,T as e,q as f,S as g,x as h,O as i,d as j,E as k,F as l,P as m,v as n,_ as o,p,L as q,l as r,u as s,I as t,A as u,M as v};
+//# sourceMappingURL=markup-b51d4718.js.map
