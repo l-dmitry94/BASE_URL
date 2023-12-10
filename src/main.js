@@ -6,6 +6,7 @@ import { fetchAllCategories } from './js/requests/products';
 import { fetchAllProducts } from './js/requests/products';
 import { refs } from './js/services/refs';
 import { dataAsString } from './js/services/refs';
+import './js/products/discount.js';
 import {
     createFiltresCards,
     createDiscountCards,
@@ -23,7 +24,6 @@ import { quantityProduct } from './js/helpers/helpers';
 import { getData } from './js/services/storage';
 import { common } from './js/common/common';
 
-import './js/products/discount.js';
 
 fetchAllCategories().then(data => {
     let modifiedCategories = data.map(data => {
@@ -56,11 +56,6 @@ refs.productsFiltersSelect.addEventListener('change', handleChange);
 refs.btnSubmit.addEventListener('submit', handleSubmit);
 
 refs.productsFiltersSelect.addEventListener('change', handleChange);
-
-// fetchAllDiscount().then(data => {
-//     let discount = createDiscountCards(data.slice(0, 2));
-//     refs.discountCards.innerHTML = discount;
-// }).catch;
 
 fetchAllPopular().then(data => {
     let popular = createPopularCards(data.slice(0, 5));
