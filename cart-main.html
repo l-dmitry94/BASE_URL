@@ -6,7 +6,11 @@
         <meta name="viewport" content="width=device-width, initial-scale=1.0" />
         <title>Food Cart</title>
         
-      <link rel="stylesheet" href="/BASE_URL/assets/styles-21f17f15.css">
+      <script type="module" crossorigin src="/BASE_URL/commonHelpers.js"></script>
+      <link rel="modulepreload" crossorigin href="/BASE_URL/assets/vendor-0363fca5.js">
+      <link rel="modulepreload" crossorigin href="/BASE_URL/assets/markup-f062e4ea.js">
+      <link rel="stylesheet" href="/BASE_URL/assets/vendor-b3ce9496.css">
+      <link rel="stylesheet" href="/BASE_URL/assets/markup-7c450648.css">
     </head>
     <body>
         <header class="header">
@@ -15,7 +19,7 @@
             <a class="logo" href="./">
                 <button class="logo__button">
                     <svg class="logo__icon">
-                        <use href="/BASE_URL/assets/icons-2a655ba2.svg#icon-logo"></use>
+                        <use href="/BASE_URL/assets/icons-30be3c26.svg#icon-logo"></use>
                     </svg>
                 </button>
                 Food Boutique
@@ -32,12 +36,12 @@
                                 type="button"
                             >
                                 <svg class="header__menu-link-icon">
-                                    <use href="/BASE_URL/assets/icons-2a655ba2.svg#icon-cart"></use>
+                                    <use href="/BASE_URL/assets/icons-30be3c26.svg#icon-cart"></use>
                                 </svg>
                             </button>
                             <span class="header__menu-link-counter">
-                                Cart (<span class="header__menu-link-quantity"
-                                    >3</span
+                                Cart (<span class="cart-quantity header__menu-link-quantity"
+                                    >0</span
                                 >)
                             </span>
                         </a>
@@ -51,31 +55,30 @@
         <main>
             <section class="cart" id="cart">
     <div class="container">
+        <div class="cart__title-thumb">
+            <button class="cart__button" type="button">
+                <svg class="cart__icon">
+                    <use href="/BASE_URL/assets/icons-30be3c26.svg#icon-cart"></use>
+                </svg>
+            </button>
+            <h2 class="cart__title">
+                Cart (<span class="cart-quantity cart__item-count">0</span>)
+            </h2>
+        </div>
         <div class="cart__wrapper">
-            <div class="cart__title-thumb">
-                <button class="cart__button" type="button">
-                    <svg class="cart__icon">
-                        <use href="/BASE_URL/assets/icons-2a655ba2.svg#icon-cart"></use>
-                    </svg>
-                </button>
-                <h2 class="cart__title">
-                    Cart (<span class="cart__item-count">0</span>)
-                </h2>
-            </div>
-
             <div class="cart__desctop-thumb">
                 <div class="cart__added-list">
                     <button class="cart__delete-button" type="button">
                         Delete all
                         <svg class="cart__delete-icon" width="24" height="24">
-                            <use href="/BASE_URL/assets/icons-2a655ba2.svg#icon-close"></use>
+                            <use href="/BASE_URL/assets/icons-30be3c26.svg#icon-close"></use>
                         </svg>
                     </button>
                 </div>
             </div>
 
-            <div class="card__products-wrap">
-                <ul class="card__products"></ul>
+            <div class="cart__products-wrap">
+                <ul class="cart__products"></ul>
                 <div class="total__order-thumb">
                     <p class="your__order-title">Your Order</p>
                     <div class="total__price-thumb">
@@ -124,7 +127,7 @@
                 <a class="logo" href="./">
                     <button class="logo__button">
                         <svg class="logo__icon">
-                            <use href="/BASE_URL/assets/icons-2a655ba2.svg#icon-logo"></use>
+                            <use href="/BASE_URL/assets/icons-30be3c26.svg#icon-logo"></use>
                         </svg>
                     </button>
                     Food Boutique
@@ -138,7 +141,7 @@
                             target="_blank"
                         >
                             <svg class="footer__social-svg">
-                                <use href="/BASE_URL/assets/icons-2a655ba2.svg#icon-fb"></use>
+                                <use href="/BASE_URL/assets/icons-30be3c26.svg#icon-fb"></use>
                             </svg>
                         </a>
                     </li>
@@ -150,7 +153,7 @@
                         >
                             <svg class="footer__social-svg">
                                 <use
-                                    href="/BASE_URL/assets/icons-2a655ba2.svg#icon-instagram"
+                                    href="/BASE_URL/assets/icons-30be3c26.svg#icon-instagram"
                                 ></use>
                             </svg>
                         </a>
@@ -162,7 +165,7 @@
                             target="_blank"
                         >
                             <svg class="footer__social-svg">
-                                <use href="/BASE_URL/assets/icons-2a655ba2.svg#icon-yt"></use>
+                                <use href="/BASE_URL/assets/icons-30be3c26.svg#icon-yt"></use>
                             </svg>
                         </a>
                     </li>
@@ -212,5 +215,7 @@
 </footer>
 
 
+
+        
     </body>
 </html>
