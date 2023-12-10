@@ -44,7 +44,6 @@ refs.btnSubmit.addEventListener('submit', handleSubmit);
 
 
 refs.productsFiltersSelect.addEventListener('change', handleChange);
-
 fetchAllDiscount().then(data => {
     let discount = createDiscountCards(data.slice(0, 2));
     refs.discountCards.innerHTML = discount;
