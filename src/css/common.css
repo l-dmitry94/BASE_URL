@@ -39,6 +39,20 @@ body.modal-open {
         max-width: 768px;
         padding: 0 32px;
     }
+
+    .logo {
+        font-size: 24px;
+    }
+
+    .logo__button {
+        width: 32px;
+        height: 32px;
+    }
+
+    .logo__icon {
+        width: 20px;
+        height: 20px;
+    }
 }
 
 @media (min-width: 1240px) {
