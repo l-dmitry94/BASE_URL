@@ -1,16 +1,29 @@
 import * as basicLightbox from 'basiclightbox';
 import 'basiclightbox/dist/basicLightbox.min.css';
+import imageURLTab from '../../img/footer/subscription-tab.png';
+import imageURLMob from '../../img/footer/subscription.png.png';
+import icons from '../../img/icons.svg';
+
+const mediaQuery = window.matchMedia('(min-width: 768px)');
 
 // !-----------------------------New-Subscriber-------------------------------
-export const modalFooterNewSubscr = function () {
+export function modalFooterNewSubscr(e) {
     let closeBtn;
+    let imageUrl;
+
+    if (!mediaQuery.matches) {
+        imageUrl = imageURLMob;
+    } else {
+        imageUrl = imageURLTab;
+    }
+
     const instance = basicLightbox.create(
         `
     <div class="modal">
     <div class="footer__modal">
         <button type="button" class="footer__modal-close">
             <svg class="footer__modal-icon">
-                <use href="../../img/icons.svg#icon-close"></use>
+                <use href="${icons}#icon-close"></use>
             </svg>
         </button>
         <div class="footer__modal-title-text">
@@ -26,7 +39,7 @@ export const modalFooterNewSubscr = function () {
         </div>
         <div class="footer__modal-png">
             <img
-                src="../../img/footer/subscription.png.png"
+                src="${imageUrl}"
                 alt="bascket of products"
             />
         </div>
@@ -56,13 +69,20 @@ export const modalFooterNewSubscr = function () {
             instance.close();
         }
     }
-};
+
+    const modalRef = document.querySelector('.modal');
+    if (modalRef) {
+        console.dir(modalRef);
+        mediaQuery.addEventListener('change', modalFooterNewSubscr);
+    }
+}
+
 // !-----------------------------Existed-Subscriber-------------------------------
 export const modalFooterExistedSubscr = function () {
     let closeBtn;
     const instance = basicLightbox.create(
         `
-        <div class="modal">
+        <div class="modal-Existed">
         <div class="footer__modal-Existed">
             <button type="button" class="footer__modal-close">
                 <svg class="footer__modal-icon">
