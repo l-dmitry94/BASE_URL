@@ -12,10 +12,7 @@
     height: 212px;
     border-radius: 10px;
     background: var(--grey);
-}
-
-.cards__main.up {
-    padding-top: 20px;
+    margin-bottom: 20px;
 }
 
 .modal__info {
@@ -23,9 +20,13 @@
 }
 
 .cards__desc-modal {
+    color: rgba(1, 1, 1, 0.7);
+    font-size: 14px;
+    font-weight: 400;
+    line-height: 1.29; 
     margin-bottom: 40px;
     overflow-y: auto;
-    max-height: 280px;
+    max-height: 72px;
 }
 
 .add__to-button {
@@ -37,8 +38,8 @@
 }
 
 .modal__info {
-    display: grid;
-    grid-template-columns: 1fr 1fr;
+    display: flex;
+    flex-wrap: wrap;
+    gap: 8px;
     padding-bottom: 20px;
-    row-gap: 9px;
 }

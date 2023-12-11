@@ -125,7 +125,7 @@ export function createModalCards({
       <h4 class="cards__title modal">${name}</h4>
                     <ul class="modal__info">
                         <li class="cards__info-item">
-                            <p class="cards__info-title">Category: <span class="cards__info-value">${category}</span></p>
+                            <p class="cards__info-title">Category: <span class="cards__info-value">${normalizeCategory(category)}</span></p>
                         </li>
                         <li class="cards__info-item">
                             <p class="cards__info-title">Size: <span class="cards__info-value">${size}</span></p>

@@ -7,8 +7,11 @@ import { createModalCards } from '../services/markup';
 export async function handleModal(event) {
     event.preventDefault();
     const { target } = event;
+    const addBtn = target.closest('.cards__button');
     const productLink = target.closest('.cards__link');
-    if (!productLink) return;
+    if (addBtn || !productLink) {
+        return;
+    }
     const { id } = productLink.closest('.cards__item').dataset;
     const product = await fetchProduct(id);
 
@@ -16,7 +19,7 @@ export async function handleModal(event) {
         onShow: instance => {
             instance
                 .element()
-                .querySelector('.checkout__modal-close-icon').onclick =
+                .querySelector('.modal__item-close').onclick =
                 instance.close;
         },
     });
