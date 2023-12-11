@@ -219,3 +219,36 @@ export function createMarkupEmptyCart() {
 </div>
 `;
 }
+
+export function createMarkupSuccessOrder(message) {
+    return `
+        <div class="checkout__modal">
+            <button class="checkout__close">
+                <svg class="checkout__modal-close-icon">
+                    <use href="./img/icons.svg#icon-close"></use>
+                </svg>
+            </button>
+            <div class="checkout__modal-image-shadow">
+                <img
+                    class="checkout__modal-img"
+                    src="./img/checkout-image.png"
+                    srcset="
+                        ./img/checkout-image.png   1x,
+                        ./img/checkout-image2x.png 2x
+                    "
+                    alt="Order picture"
+                />
+                <svg class="icon-ellipse">
+                    <use href="./img/icons.svg#icon-ellipse-1"></use>
+                </svg>
+            </div>
+
+            <div class="checkout__modal-txt-container">
+                <h3 class="checkout__modal-title">ORDER SUCCESS</h3>
+                <p class="checkout__modal-descr">
+                    ${message}
+                </p>
+            </div>
+        </div>
+    `
+}

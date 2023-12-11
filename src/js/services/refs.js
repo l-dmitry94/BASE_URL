@@ -10,7 +10,8 @@ export const refs = {
     cartProducts: document.querySelector('.cart__products'),
     cartQuantity: document.querySelectorAll(".cart-quantity"),
     deleteAllProductsFromCart: document.querySelector('.cart__delete-button'),
-    totalPrice: document.querySelector('#cart__total')
+    totalPrice: document.querySelector('#cart__total'),
+    sendForm: document.querySelector(".checkout__field")
 };
 export let baseDataToStore = {
     keyword: null,

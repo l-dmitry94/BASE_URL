@@ -18,13 +18,9 @@ export async function handleDeleteProduct(event) {
 
     const cartArr = getData(common.CART_KEY);
 
-    console.log(cartArr)
-
     const findProductIndex = cartArr.findIndex(({_id}) => _id === id)
 
-    console.log(findProductIndex)
-
-    const deleteProduct = cartArr.splice(findProductIndex, 1)
+    cartArr.splice(findProductIndex, 1);
 
     saveData(cartArr, common.CART_KEY)
 
@@ -36,6 +32,6 @@ export async function handleDeleteProduct(event) {
 
     if(!cartArr.length) {
         refs.cardWrapper.innerHTML = createMarkupEmptyCart();
+        localStorage.removeItem(common.CART_KEY)
     }
-
 }
