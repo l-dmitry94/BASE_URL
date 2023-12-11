@@ -34,11 +34,11 @@ export async function handleSendProducts(event) {
             {
                 onShow: instance => {
                     body.classList.add('modal-open');
-                    window.addEventListener("keydown", (event) => {
+                    window.addEventListener('keydown', event => {
                         if (event.code === 'Escape') {
                             instance.close();
                         }
-                    })
+                    });
                     instance
                         .element()
                         .querySelector('.checkout__close').onclick =
@@ -46,12 +46,12 @@ export async function handleSendProducts(event) {
                 },
                 onClose: instance => {
                     body.classList.remove('modal-open');
-                    window.removeEventListener("keydown", (event) => {
+                    window.removeEventListener('keydown', event => {
                         if (event.code === 'Escape') {
                             instance.close();
                         }
-                    })
-                }
+                    });
+                },
             }
         );
 
@@ -70,5 +70,3 @@ export async function handleSendProducts(event) {
         console.log(error);
     }
 }
-
-
