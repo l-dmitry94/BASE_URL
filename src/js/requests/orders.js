@@ -1,5 +1,4 @@
 import { apiOrders } from '../services/api';
-import { refs } from '../services/refs';
 
 export async function fetchSendOrder(email, arr) {
     const products = arr.map(({ _id }) => ({ productId: _id, amount: 1 }));

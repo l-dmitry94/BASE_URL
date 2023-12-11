@@ -1,7 +1,7 @@
 import * as basicLightbox from 'basiclightbox';
 import 'basiclightbox/dist/basicLightbox.min.css';
-import Notiflix from 'notiflix';
-import 'notiflix/dist/notiflix-3.2.6.min.css';
+// import Notiflix from 'notiflix';
+// import 'notiflix/dist/notiflix-3.2.6.min.css';
 
 import { common } from '../common/common';
 import { fetchSendOrder } from '../requests/orders';
@@ -52,6 +52,7 @@ export async function handleSendProducts(event) {
 
         submitBtn.disabled = false;
     } catch (error) {
-        Notiflix.Notify.failure('Failed to send order');
+        console.log(error)
+        // Notiflix.Notify.failure('Failed to send order');
     }
 }
