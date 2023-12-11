@@ -4,8 +4,6 @@ import emptyImageMob from '../../img/cart/empty-mobile.png'
 import emptyImageMobRetina from '../../img/cart/empty-mobile@2x.png'
 import emptyImageTab from '../../img/cart/empty-tab.png'
 import emptyImageTabRetina from '../../img/cart/empty-tab@2x.png'
-import emptyImageTabRetina from '../../img/cart/empty-tab@2x.png'
-import emptyImageTabRetina from '../../img/cart/empty-tab@2x.png'
 import orderModalImage from '../../img/checkout-image.png'
 import orderModalImageRetina from '../../img/checkout-image2x.png'
 
