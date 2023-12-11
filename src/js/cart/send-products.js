@@ -4,8 +4,13 @@ import 'basiclightbox/dist/basicLightbox.min.css';
 import { common } from '../common/common';
 import { fetchSendOrder } from '../requests/orders';
 import { getData } from '../services/storage';
-import { createMarkupEmptyCart, createMarkupSuccessOrder } from '../services/markup';
+import {
+    createMarkupEmptyCart,
+    createMarkupSuccessOrder,
+} from '../services/markup';
 import { refs } from '../services/refs';
+
+const body = document.body;
 
 export async function handleSendProducts(event) {
     event.preventDefault();
@@ -28,11 +33,25 @@ export async function handleSendProducts(event) {
             createMarkupSuccessOrder(data.message),
             {
                 onShow: instance => {
+                    body.classList.add('modal-open');
+                    window.addEventListener("keydown", (event) => {
+                        if (event.code === 'Escape') {
+                            instance.close();
+                        }
+                    })
                     instance
                         .element()
                         .querySelector('.checkout__close').onclick =
                         instance.close;
                 },
+                onClose: instance => {
+                    body.classList.remove('modal-open');
+                    window.removeEventListener("keydown", (event) => {
+                        if (event.code === 'Escape') {
+                            instance.close();
+                        }
+                    })
+                }
             }
         );
 
@@ -44,10 +63,12 @@ export async function handleSendProducts(event) {
 
         localStorage.removeItem(common.CART_KEY);
 
-        refs.cartQuantity.forEach(item => item.textContent = 0)
+        refs.cartQuantity.forEach(item => (item.textContent = 0));
 
         submitBtn.disabled = false;
     } catch (error) {
-        console.log(error)
+        console.log(error);
     }
 }
+
+

@@ -4,6 +4,7 @@ import { handleDeleteProduct } from './js/cart/delete-product';
 import { generalSum } from './js/cart/general-sum';
 import { handleSendProducts } from './js/cart/send-products';
 import { refs } from './js/services/refs';
+import './js/requests/subscription';
 
 handleCart();
 

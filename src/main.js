@@ -1,7 +1,7 @@
 import SlimSelect from 'slim-select';
 // import 'slim-select/dist/slimeselect.css';
 
-import { handleForm } from './js/requests/subscription';
+import './js/requests/subscription';
 import { fetchAllCategories } from './js/requests/products';
 import { fetchAllProducts } from './js/requests/products';
 import { refs } from './js/services/refs';
