@@ -1,5 +1,9 @@
 import { normalizeCategory } from '../products/products';
 import icons from '../../img/icons.svg';
+import emptyImageMob from '../../img/cart/empty-mobile.png'
+import emptyImageMobRetina from '../../img/cart/empty-mobile@2x.png'
+import emptyImageTab from '../../img/cart/empty-tab.png'
+import emptyImageTabRetina from '../../img/cart/empty-tab@2x.png'
 
 export function createFiltresCards(arr) {
     return arr
@@ -45,8 +49,8 @@ export function createPopularCards(arr) {
     return arr
         .map(
             ({ _id, name, img, category, size, popularity }) =>
-                `<li class="cards__item popular__item" data-id="${_id}">
-                    <a class="popular__link" href="#">
+                `<li class="cards__item" data-id="${_id}">
+                    <a class="popular__link cards__link" href="#">
                 <div class="cards__background-img popular__img">
                     <img class="popular__image-photo-js" src="${img}" alt="${name}" />
                 </div>
@@ -69,8 +73,8 @@ export function createPopularCards(arr) {
                         </li>
                     </ul>
                 </div>
-                <button class="popular__card-button" type="button">
-                    <svg class="popular__icon__cart">
+                <button class="popular__card-button cards__button" type="button">
+                    <svg class="popular__icon-cart">
                         <use href="${icons}#icon-cart"></use>
                     </svg>
                 </button>
@@ -84,8 +88,8 @@ export function createDiscountCards(arr) {
     return arr
         .map(
             ({ _id, name, img, price }) =>
-                `<li class="discount__item" data-id="${_id}">
-                 <a class="discount__link" href="#">
+                `<li class="discount__item cards__item" data-id="${_id}">
+                 <a class="discount__link cards__link" href="#">
                   <div class="discount__image">
             <img class="discount__image-photo-js" src="${img}" alt="${name}" /> </div>
             <div class="discount__descr">
@@ -206,9 +210,9 @@ export function createMarkupEmptyCart() {
     return `
     <div class="empty">
     <picture>
-        <source media="(min-width: 768px)" srcset="./img/cart/empty-tab.png 1x, ./img/cart/empty-tab@2x.png 2x">
-        <source media="(min-width: 320px)" srcset="./img/cart/empty-mobile.png 1x, ./img/cart/empty-mobile@2x.png 2x">
-        <img class="empty__img" src="./img/cart/empty-mobile.png" alt="Empty">
+        <source media="(min-width: 768px)" srcset="${emptyImageTab} 1x, ${emptyImageTabRetina} 2x">
+        <source media="(min-width: 320px)" srcset="${emptyImageMob} 1x, ${emptyImageMobRetina} 2x">
+        <img class="empty__img" src="${emptyImageMob}" alt="Empty">
     </picture>
     <h3 class="empty__title">Your basket is <span class="empty__title-color">empty...</span></h3>
     <p class="empty__descr">Go to the main page to select your favorite products and add them to the cart.</p>

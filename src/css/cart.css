@@ -59,6 +59,8 @@
 .cart__products {
     display: flex;
     flex-direction: column;
+    max-height: 505px;
+    overflow-y: auto;
 }
 
 .cart__products-item {

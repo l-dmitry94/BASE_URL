@@ -72,3 +72,12 @@ export async function fetchAllDiscount() {
 
     return response.data;
 }
+
+export async function fetchAllPopular() {
+    const response = await apiProducts({
+        method: 'GET',
+        url: '/popular',
+    });
+
+    return response.data;
+}

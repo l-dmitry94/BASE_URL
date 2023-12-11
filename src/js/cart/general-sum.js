@@ -9,5 +9,5 @@ export async function generalSum() {
         return total + price;
     }, 0)
 
-    refs.totalPrice.textContent = `$${totalSum}`
+    refs.totalPrice.textContent = `$${Number(totalSum.toFixed(2))}`
 }
