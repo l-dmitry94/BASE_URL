@@ -1,4 +1,4 @@
-// import SlimSelect from 'slim-select';
+import SlimSelect from 'slim-select';
 // import 'slim-select/dist/slimeselect.css';
 
 import { handleForm } from './js/requests/subscription';
@@ -21,6 +21,7 @@ import { quantityProduct } from './js/helpers/helpers';
 import { getData } from './js/services/storage';
 import { common } from './js/common/common';
 import { handleModal } from './js/products/modal.js';
+import { checkProduct } from './js/products/check-products.js';
 
 // !!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!
 fetchAllCategories().then(data => {
@@ -34,10 +35,10 @@ fetchAllCategories().then(data => {
 
     let additionalGender = `<option  selected  >Show all</option>`;
     refs.productsFiltersSelect.innerHTML = markupList + additionalGender;
-    // new SlimSelect({
-    //     select: refs.productsFiltersSelect,
-    //     showSearch: false,
-    // });
+    new SlimSelect({
+        select: refs.productsFiltersSelect,
+        showSearch: false,
+    });
 }).catch;
 
 // Отримуємо всі продукти
@@ -45,6 +46,8 @@ fetchAllProducts()
     .then(data => {
         let test1 = createFiltresCards(data.results);
         refs.productsCards.innerHTML = test1;
+        checkProduct();
+
     })
     .catch();
 
