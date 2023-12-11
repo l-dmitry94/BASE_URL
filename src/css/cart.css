@@ -61,6 +61,7 @@
     flex-direction: column;
     max-height: 505px;
     overflow-y: auto;
+    padding-right: 32px;
 }
 
 .cart__products-item {
@@ -72,7 +73,6 @@
 
 .cart__products-item:not(:last-child) {
     border-bottom: 1px solid rgba(1, 1, 1, 0.1);
-    margin-right: 32px;
 }
 
 .cart__item-space {
@@ -319,6 +319,11 @@
         width: 704px;
     }
 
+    .cart__item-img {
+        width: 72px;
+        height: 72px;
+    }
+
     .cart__title {
         font-size: 32px;
     }
@@ -327,7 +332,7 @@
         font-size: 16px;
     }
     .cart__products {
-        max-height: 600px;
+        max-height: 625px;
     }
     .cart__products-item {
         gap: 40px;
