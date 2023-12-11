@@ -19,6 +19,7 @@
 @import url('./cart.css');
 @import url('./modal.css');
 @import url('./modal-checkout.css');
+@import url('./pagination.css');
 
 :root {
     --black: #010101;

@@ -6,6 +6,7 @@ export const refs = {
     input: document.querySelector('.products__filters-input'),
     discountCards: document.querySelector('.discount__list'),
     cardWrapper: document.querySelector('.cart__wrapper'),
+    pagination: document.querySelector('.tui-pagination')
 };
 export let baseDataToStore = {
     keyword: null,
