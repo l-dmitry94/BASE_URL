@@ -1,4 +1,4 @@
-import{a as m}from"./vendor-0363fca5.js";(function(){const r=document.createElement("link").relList;if(r&&r.supports&&r.supports("modulepreload"))return;for(const a of document.querySelectorAll('link[rel="modulepreload"]'))s(a);new MutationObserver(a=>{for(const c of a)if(c.type==="childList")for(const o of c.addedNodes)o.tagName==="LINK"&&o.rel==="modulepreload"&&s(o)}).observe(document,{childList:!0,subtree:!0});function e(a){const c={};return a.integrity&&(c.integrity=a.integrity),a.referrerpolicy&&(c.referrerPolicy=a.referrerpolicy),a.crossorigin==="use-credentials"?c.credentials="include":a.crossorigin==="anonymous"?c.credentials="omit":c.credentials="same-origin",c}function s(a){if(a.ep)return;a.ep=!0;const c=e(a);fetch(a.href,c)}})();const b={CART_KEY:"cart"},l={productsFilters:document.querySelector(".products__filters-input"),productsFiltersSelect:document.querySelector(".products__filters-select"),productsCards:document.querySelector(".cards"),btnSubmit:document.querySelector(".products__filters-form"),input:document.querySelector(".products__filters-input"),discountCards:document.querySelector(".discount__list"),popularCards:document.querySelector(".popular__list"),cardWrapper:document.querySelector(".cart__wrapper"),cartProducts:document.querySelector(".cart__products"),cartQuantity:document.querySelectorAll(".cart-quantity"),deleteAllProductsFromCart:document.querySelector(".cart__delete-button"),totalPrice:document.querySelector("#cart__total")};let S={keyword:null,category:null,page:1,limit:6},_=JSON.stringify(S);const I=document.querySelector(".footer__form");function A(t){return l.cartQuantity.forEach(r=>r.textContent=t.length)}const f="https://food-boutique.b.goit.study/api",d=m.create({baseURL:`${f}/products`}),P=m.create({baseURL:`${f}/subscription`});m.create({baseURL:`${f}/orders`});function k(t){try{const r=localStorage.getItem(t);return r?JSON.parse(r):[]}catch(r){console.log(r.message)}}const n="/BASE_URL/assets/icons-30be3c26.svg";async function w(){const t=k(b.CART_KEY);t&&t.forEach(({_id:r})=>{const e=document.querySelector(`[data-id="${r}"]`);if(e){const s=e.querySelector(".cards__button");s&&(s.innerHTML=`<svg class="icon-checked"><use href="${n}#icon-check"></use></svg>`)}})}async function x(){return(await d({method:"GET",url:"/categories"})).data}async function p(){const t=await d({method:"GET"});return w(),t.data}async function y(t,r,e){return(await d({method:"GET",url:`?keyword=${t}&page=${r}&limit=${e}`})).data}async function $(t,r,e,s){return(await d({method:"GET",url:`?keyword=${t}&category=${r}&page=${e}&limit=${s}`})).data}async function C(t,r,e){return(await d({method:"GET",url:`?category=${t}&page=${r}&limit=${e}`})).data}async function M(t){return(await d({method:"GET",url:`/${t}`})).data}async function R(){return(await d({method:"GET",url:"/discount"})).data}async function O(){return(await d({method:"GET",url:"/popular"})).data}function g(t){return t=t.replace("_&_"," / "),t=t.replace("_"," "),t}function h(t){return t=t.replace(/ /g,"_"),t=t.replace(/\//g,encodeURIComponent("&")),t}function F(){const t=l.productsFiltersSelect.options[l.productsFiltersSelect.selectedIndex];let r=localStorage.getItem("filter"),e=r?JSON.parse(r):{};const s=t.textContent!=="Show all"?t.textContent:null;e.category=s,localStorage.setItem("filter",JSON.stringify(e)),e.category===null&&e.keyword===null?(localStorage.setItem("filter",_),e.category=null,p().then(a=>{let c=u(a.results);l.productsCards.innerHTML=c}).catch):e.category!==null&&e.keyword===null?C(h(e.category),e.page,e.limit).then(a=>{let c=u(a.results);l.productsCards.innerHTML=c,console.log(a)}).catch(a=>{console.log(a)}):e.category===null&&e.keyword!==null?(localStorage.setItem("filter",JSON.stringify(e)),p().then(a=>{let c=u(a.results);localStorage.setItem("filter",_),l.productsFilters.value="",l.productsCards.innerHTML=c}).catch,localStorage.setItem("filter",data1),l.productsFilters.value=""):e.category!==null&&e.keyword!==null&&$(e.keyword,h(e.category),e.page,e.limit).then(a=>{let c=u(a.results);l.productsCards.innerHTML=c,console.log(a)}).catch(a=>{console.console.log()})}function N(t){t.preventDefault();const r=l.input.value;let e=localStorage.getItem("filter"),s=e?JSON.parse(e):{};const a=r!==""?r:null;s.keyword=a,localStorage.setItem("filter",JSON.stringify(s));let c=_;s.keyword===null?p().then(o=>{let i=u(o.results);localStorage.setItem("filter",c),l.productsCards.innerHTML=i}).catch(o=>{console.error(o)}):s.keyword!==null&&s.category===null?y(s.keyword,s.page,s.limit).then(o=>{let i=u(o.results);l.productsCards.innerHTML=i}).catch(o=>{console.error(o)}):s.keyword!==null&&s.category!==null?$(s.keyword,s.category,s.page,s.limit).then(o=>{let i=u(o.results);l.productsCards.innerHTML=i}).catch(o=>{console.error(o)}):s.keyword!==null&&s.category===null&&(localStorage.setItem("filter",JSON.stringify(s)),y(s.keyword,s.page,s.limit).then(o=>{let i=u(o.results);l.productsCards.innerHTML=i}).catch(o=>{console.error(o)}))}const v="/BASE_URL/assets/empty-mobile-88cc64a6.png",L="/BASE_URL/assets/empty-mobile@2x-9530797e.png",T="/BASE_URL/assets/empty-tab-8d1fa0db.png",q="/BASE_URL/assets/empty-tab@2x-36112229.png";function u(t){return t.map(({_id:r,name:e,img:s,category:a,price:c,size:o,popularity:i})=>`
+import{a as f}from"./vendor-0363fca5.js";(function(){const r=document.createElement("link").relList;if(r&&r.supports&&r.supports("modulepreload"))return;for(const a of document.querySelectorAll('link[rel="modulepreload"]'))s(a);new MutationObserver(a=>{for(const c of a)if(c.type==="childList")for(const o of c.addedNodes)o.tagName==="LINK"&&o.rel==="modulepreload"&&s(o)}).observe(document,{childList:!0,subtree:!0});function e(a){const c={};return a.integrity&&(c.integrity=a.integrity),a.referrerpolicy&&(c.referrerPolicy=a.referrerpolicy),a.crossorigin==="use-credentials"?c.credentials="include":a.crossorigin==="anonymous"?c.credentials="omit":c.credentials="same-origin",c}function s(a){if(a.ep)return;a.ep=!0;const c=e(a);fetch(a.href,c)}})();const b={CART_KEY:"cart"},l={productsFilters:document.querySelector(".products__filters-input"),productsFiltersSelect:document.querySelector(".products__filters-select"),productsCards:document.querySelector(".cards"),btnSubmit:document.querySelector(".products__filters-form"),input:document.querySelector(".products__filters-input"),discountCards:document.querySelector(".discount__list"),popularCards:document.querySelector(".popular__list"),cardWrapper:document.querySelector(".cart__wrapper"),cartProducts:document.querySelector(".cart__products"),cartQuantity:document.querySelectorAll(".cart-quantity"),deleteAllProductsFromCart:document.querySelector(".cart__delete-button"),totalPrice:document.querySelector("#cart__total")};let S={keyword:null,category:null,page:1,limit:6},p=JSON.stringify(S);const I=document.querySelector(".footer__form");function A(t){return l.cartQuantity.forEach(r=>r.textContent=t.length)}const g="https://food-boutique.b.goit.study/api",d=f.create({baseURL:`${g}/products`}),P=f.create({baseURL:`${g}/subscription`});f.create({baseURL:`${g}/orders`});function x(t,r){localStorage.setItem(r,JSON.stringify(t))}function k(t){try{const r=localStorage.getItem(t);return r?JSON.parse(r):[]}catch(r){console.log(r.message)}}const n="/BASE_URL/assets/icons-30be3c26.svg";async function w(){const t=k(b.CART_KEY);t&&t.forEach(({_id:r})=>{const e=document.querySelector(`[data-id="${r}"]`);if(e){const s=e.querySelector(".cards__button");s&&(s.innerHTML=`<svg class="icon-checked"><use href="${n}#icon-check"></use></svg>`)}})}async function M(){return(await d({method:"GET",url:"/categories"})).data}async function m(){const t=await d({method:"GET"});return w(),t.data}async function y(t,r,e){return(await d({method:"GET",url:`?keyword=${t}&page=${r}&limit=${e}`})).data}async function $(t,r,e,s){return(await d({method:"GET",url:`?keyword=${t}&category=${r}&page=${e}&limit=${s}`})).data}async function C(t,r,e){return(await d({method:"GET",url:`?category=${t}&page=${r}&limit=${e}`})).data}async function R(t){return(await d({method:"GET",url:`/${t}`})).data}async function O(){return(await d({method:"GET",url:"/discount"})).data}async function F(){return(await d({method:"GET",url:"/popular"})).data}function _(t){return t=t.replace("_&_"," / "),t=t.replace("_"," "),t}function h(t){return t=t.replace(/ /g,"_"),t=t.replace(/\//g,encodeURIComponent("&")),t}function N(){const t=l.productsFiltersSelect.options[l.productsFiltersSelect.selectedIndex];let r=localStorage.getItem("filter"),e=r?JSON.parse(r):{};const s=t.textContent!=="Show all"?t.textContent:null;e.category=s,localStorage.setItem("filter",JSON.stringify(e)),e.category===null&&e.keyword===null?(localStorage.setItem("filter",p),e.category=null,m().then(a=>{let c=u(a.results);l.productsCards.innerHTML=c}).catch):e.category!==null&&e.keyword===null?C(h(e.category),e.page,e.limit).then(a=>{let c=u(a.results);l.productsCards.innerHTML=c,console.log(a)}).catch(a=>{console.log(a)}):e.category===null&&e.keyword!==null?(localStorage.setItem("filter",JSON.stringify(e)),m().then(a=>{let c=u(a.results);localStorage.setItem("filter",p),l.productsFilters.value="",l.productsCards.innerHTML=c}).catch,localStorage.setItem("filter",data1),l.productsFilters.value=""):e.category!==null&&e.keyword!==null&&$(e.keyword,h(e.category),e.page,e.limit).then(a=>{let c=u(a.results);l.productsCards.innerHTML=c,console.log(a)}).catch(a=>{console.console.log()})}function U(t){t.preventDefault();const r=l.input.value;let e=localStorage.getItem("filter"),s=e?JSON.parse(e):{};const a=r!==""?r:null;s.keyword=a,localStorage.setItem("filter",JSON.stringify(s));let c=p;s.keyword===null?m().then(o=>{let i=u(o.results);localStorage.setItem("filter",c),l.productsCards.innerHTML=i}).catch(o=>{console.error(o)}):s.keyword!==null&&s.category===null?y(s.keyword,s.page,s.limit).then(o=>{let i=u(o.results);l.productsCards.innerHTML=i}).catch(o=>{console.error(o)}):s.keyword!==null&&s.category!==null?$(s.keyword,s.category,s.page,s.limit).then(o=>{let i=u(o.results);l.productsCards.innerHTML=i}).catch(o=>{console.error(o)}):s.keyword!==null&&s.category===null&&(localStorage.setItem("filter",JSON.stringify(s)),y(s.keyword,s.page,s.limit).then(o=>{let i=u(o.results);l.productsCards.innerHTML=i}).catch(o=>{console.error(o)}))}const v="/BASE_URL/assets/empty-mobile-88cc64a6.png",L="/BASE_URL/assets/empty-mobile@2x-9530797e.png",T="/BASE_URL/assets/empty-tab-8d1fa0db.png",q="/BASE_URL/assets/empty-tab@2x-36112229.png";function u(t){return t.map(({_id:r,name:e,img:s,category:a,price:c,size:o,popularity:i})=>`
                 <li class="cards__item" data-id="${r}">
                 <a class="cards__link" href="#">
                         <div class="cards__background-img">
@@ -7,7 +7,7 @@ import{a as m}from"./vendor-0363fca5.js";(function(){const r=document.createElem
                         <h4 class="cards__title">${e}</h4>
                         <ul class="cards__info">
                             <li class="cards__info-item">
-                            <p class="cards__info-title">Category: <span class="cards__info-value">${g(a)}</span></p>
+                            <p class="cards__info-title">Category: <span class="cards__info-value">${_(a)}</span></p>
                         
                             </li>
                             <li class="cards__info-item">
@@ -27,7 +27,7 @@ import{a as m}from"./vendor-0363fca5.js";(function(){const r=document.createElem
                             </button>
                         </div>
                     </a>
-                </li>`).join("")}function U(t){return t.map(({_id:r,name:e,img:s,category:a,size:c,popularity:o})=>`<li class="cards__item" data-id="${r}">
+                </li>`).join("")}function G(t){return t.map(({_id:r,name:e,img:s,category:a,size:c,popularity:o})=>`<li class="cards__item" data-id="${r}">
                     <a class="popular__link cards__link" href="#">
                 <div class="cards__background-img popular__img">
                     <img class="popular__image-photo-js" src="${s}" alt="${e}" />
@@ -37,7 +37,7 @@ import{a as m}from"./vendor-0363fca5.js";(function(){const r=document.createElem
                     <ul class="cards__info popular__info">
                         <li class="cards__info-item popular__info-up">
                             <p class="cards__info-title">Category:</p>
-                            <p class="cards__info-value">${a}</p>
+                            <p class="cards__info-value">${_(a)}</p>
                         </li>
                         <li class="popular__info-down">
                             <div class="cards__info-item">
@@ -57,7 +57,7 @@ import{a as m}from"./vendor-0363fca5.js";(function(){const r=document.createElem
                     </svg>
                 </button>
             </a>
-        </li>`).join("")}function G(t){return t.map(({_id:r,name:e,img:s,price:a})=>`<li class="discount__item cards__item" data-id="${r}">
+        </li>`).join("")}function H(t){return t.map(({_id:r,name:e,img:s,price:a})=>`<li class="discount__item cards__item" data-id="${r}">
                  <a class="discount__link cards__link" href="#">
                   <div class="discount__image">
             <img class="discount__image-photo-js" src="${s}" alt="${e}" /> </div>
@@ -76,14 +76,14 @@ import{a as m}from"./vendor-0363fca5.js";(function(){const r=document.createElem
                             <use href="${n}#icon-discount"></use>
                          </svg>  
                  </a>
-                 </li>`).join("")}function H({_id:t,name:r,img:e,category:s,price:a,size:c,popularity:o,desc:i}){return`<div class="modal__item" data-id="${t}">
+                 </li>`).join("")}function J({_id:t,name:r,img:e,category:s,price:a,size:c,popularity:o,desc:i}){return`<div class="modal__item" data-id="${t}">
                 <img class="cards__image-photo" src="${e}" alt="${r}" />
                 <div class="cards__main up">
       <div class="cards__main-modal">
       <h4 class="cards__title modal">${r}</h4>
                     <ul class="modal__info">
                         <li class="cards__info-item">
-                            <p class="cards__info-title">Category: <span class="cards__info-value">${g(s)}</span></p>
+                            <p class="cards__info-title">Category: <span class="cards__info-value">${_(s)}</span></p>
                         </li>
                         <li class="cards__info-item">
                             <p class="cards__info-title">Size: <span class="cards__info-value">${c}</span></p>
@@ -117,7 +117,7 @@ import{a as m}from"./vendor-0363fca5.js";(function(){const r=document.createElem
                     <ul class="cart__item-descr">
                         <li class="cart__item">
                             <p class="cart__item-name">Category:</p>
-                            <p class="cart__item-value">${g(a)}</p>
+                            <p class="cart__item-value">${_(a)}</p>
                         </li>
                         <li class="cart__item">
                             <p class="cart__item-name">Size:</p>
@@ -147,7 +147,7 @@ import{a as m}from"./vendor-0363fca5.js";(function(){const r=document.createElem
                     </svg>
                 </button>
             </li>
-    `).join("")}function J(){return`
+    `).join("")}function D(){return`
     <div class="empty">
     <picture>
         <source media="(min-width: 768px)" srcset="${T} 1x, ${q} 2x">
@@ -157,5 +157,5 @@ import{a as m}from"./vendor-0363fca5.js";(function(){const r=document.createElem
     <h3 class="empty__title">Your basket is <span class="empty__title-color">empty...</span></h3>
     <p class="empty__descr">Go to the main page to select your favorite products and add them to the cart.</p>
 </div>
-`}export{J as a,j as b,b as c,n as d,P as e,I as f,k as g,R as h,G as i,w as j,O as k,U as l,M as m,H as n,x as o,g as p,A as q,l as r,_ as s,p as t,u,F as v,N as w};
-//# sourceMappingURL=markup-372ed981.js.map
+`}export{D as a,j as b,b as c,n as d,P as e,I as f,k as g,O as h,H as i,w as j,F as k,G as l,R as m,J as n,M as o,_ as p,A as q,l as r,x as s,p as t,m as u,u as v,N as w,U as x};
+//# sourceMappingURL=markup-a015eb13.js.map
