@@ -1,7 +1,5 @@
 import * as basicLightbox from 'basiclightbox';
 import 'basiclightbox/dist/basicLightbox.min.css';
-// import Notiflix from 'notiflix';
-// import 'notiflix/dist/notiflix-3.2.6.min.css';
 
 import { common } from '../common/common';
 import { fetchSendOrder } from '../requests/orders';
@@ -19,13 +17,11 @@ export async function handleSendProducts(event) {
     const emailValue = email.value.trim();
 
     if (!emailValue) {
-        // Notiflix.Notify.warning('Please enter your email');
         return;
     }
 
     const cartArr = getData(common.CART_KEY);
     try {
-        Notiflix.Loading.standard();
         const data = await fetchSendOrder(emailValue, cartArr);
 
         const instance = basicLightbox.create(
@@ -52,6 +48,6 @@ export async function handleSendProducts(event) {
 
         submitBtn.disabled = false;
     } catch (error) {
-        // Notiflix.Notify.failure('Failed to send order');
+        console.log(error)
     }
 }
