@@ -4,12 +4,10 @@ import imageURLTab from '../../img/footer/subscription-tab.png';
 import imageURLMob from '../../img/footer/subscription.png.png';
 import icons from '../../img/icons.svg';
 
-const mediaQuery = window.matchMedia('(min-width: 768px)');
-mediaQuery.addEventListener('change', modalFooterNewSubscr);
 // !-----------------------------New-Subscriber-------------------------------
+const mediaQuery = window.matchMedia('(min-width: 768px)');
 let imageUrl;
 let closeBtn;
-const modalRef = document.querySelector('.modal');
 
 const instance = basicLightbox.create(
     `
@@ -45,13 +43,11 @@ const instance = basicLightbox.create(
             window.addEventListener('keydown', handelClickOnEscap);
             closeBtn = instance.element().querySelector('.footer__modal-close');
             closeBtn.addEventListener('click', () => instance.close());
-            document.body.classList.add('modal-open');
         },
         onClose: () => {
             closeBtn.removeEventListener('click', () => instance.close());
             window.removeEventListener('keydown', handelClickOnEscap);
-            document.body.classList.remove('modal-open');
-            mediaQuery.removeEventListener('change',  modalFooterNewSubscr);
+            mediaQuery.removeEventListener('change', modalFooterNewSubscr);
         },
     }
 );
@@ -63,6 +59,7 @@ function handelClickOnEscap(eve) {
 }
 
 export function modalFooterNewSubscr() {
+    mediaQuery.addEventListener('change', modalFooterNewSubscr);
     if (!mediaQuery.matches) {
         imageUrl = imageURLMob;
     } else {
@@ -82,7 +79,7 @@ export function modalFooterNewSubscr() {
 // !-----------------------------Existed-Subscriber-------------------------------
 export const modalFooterExistedSubscr = function () {
     let closeBtn;
-    const instance = basicLightbox.create(
+    const instanceEx = basicLightbox.create(
         `
         <div class="modal-Existed">
         <div class="footer__modal-Existed">
@@ -106,26 +103,26 @@ export const modalFooterExistedSubscr = function () {
     </div>
 `,
         {
-            onShow: instance => {
+            onShow: instanceEx => {
                 window.addEventListener('keydown', handelClickOnEscap);
-                closeBtn = instance
+                closeBtn = instanceEx
                     .element()
                     .querySelector('.footer__modal-close');
-                closeBtn.addEventListener('click', () => instance.close());
+                closeBtn.addEventListener('click', () => instanceEx.close());
                 document.body.classList.add('modal-open');
             },
             onClose: () => {
-                closeBtn.removeEventListener('click', () => instance.close());
+                closeBtn.removeEventListener('click', () => instanceEx.close());
                 window.removeEventListener('keydown', handelClickOnEscap);
                 document.body.classList.remove('modal-open');
             },
         }
     );
 
-    instance.show();
+    instanceEx.show();
     function handelClickOnEscap(eve) {
         if (eve.code === 'Escape') {
-            instance.close();
+            instanceEx.close();
         }
     }
 };
