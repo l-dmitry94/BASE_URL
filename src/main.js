@@ -1,5 +1,5 @@
 // import SlimSelect from 'slim-select';
-// import "slim-select/dist/slimselect.css"
+// import 'slim-select/dist/slimeselect.css';
 
 import { handleForm } from './js/requests/subscription';
 import { fetchAllCategories } from './js/requests/products';
@@ -8,17 +8,13 @@ import { refs } from './js/services/refs';
 import { dataAsString } from './js/services/refs';
 import './js/products/discount.js';
 import './js/products/popular.js';
-import {
-    createFiltresCards,
-    createPopularCards,
-} from './js/services/markup';
+import { createFiltresCards, createPopularCards } from './js/services/markup';
 import { handleChange } from './js/products/products';
 import { handleSubmit } from './js/products/products';
 import { normalizeCategory } from './js/products/products';
 // Отримуємо всі категорії
 import { fetchAllProductsPagination } from './js/requests/products';
 import Pagination from 'tui-pagination';
-
 
 import { addToCart } from './js/products/add-to-cart';
 import { quantityProduct } from './js/helpers/helpers';
@@ -41,7 +37,7 @@ fetchAllCategories().then(data => {
     // new SlimSelect({
     //     select: refs.productsFiltersSelect,
     //     showSearch: false,
-    //   })
+    // });
 }).catch;
 
 // Отримуємо всі продукти
@@ -89,8 +85,6 @@ const options = {
     },
 };
 
-
-
 const pagination = new Pagination(container, options);
 
 pagination.on('beforeMove', event => {
@@ -110,12 +104,12 @@ pagination.on('beforeMove', event => {
     storedData.page = currentPage;
     localStorage.setItem('filter', JSON.stringify(storedData));
 
-    if (storedData.keyword === null&& storedData.category === null) {
+    if (storedData.keyword === null && storedData.category === null) {
         fetchAllProductsPagination(currentPage, storedData.limit)
             .then(data => {
                 let markup = createFiltresCards(data.results);
                 console.log(storedData.page);
-                
+
                 localStorage.setItem('filter', data1);
 
                 // console.log(data1);
@@ -127,7 +121,6 @@ pagination.on('beforeMove', event => {
             });
     }
 
-    
     // if (currentPage === currentPage) {
     //     return console.log(currentPage);
     //     // return true;

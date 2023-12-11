@@ -7,6 +7,7 @@ import {
 import { apiProducts } from '../services/api';
 import { createFiltresCards } from '../services/markup';
 import { dataAsString, refs } from '../services/refs';
+import { checkProduct } from './check-products';
 
 // Функція обробки категорій які приходять з сервера
 export function normalizeCategory(categ) {
@@ -66,6 +67,7 @@ export function handleChange() {
             localStorage.setItem('filter', dataAsString);
             refs.productsFilters.value = '';
             refs.productsCards.innerHTML = test1;
+            checkProduct();
         }).catch;
         localStorage.setItem('filter', data1);
         refs.productsFilters.value = '';
