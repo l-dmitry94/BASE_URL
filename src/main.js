@@ -1,19 +1,30 @@
+// import SlimSelect from 'slim-select';
+// import "slim-select/dist/slimselect.css"
+
 import { handleForm } from './js/requests/subscription';
 import { fetchAllCategories } from './js/requests/products';
 import { fetchAllProducts } from './js/requests/products';
 import { refs } from './js/services/refs';
 import { dataAsString } from './js/services/refs';
-import { createFiltresCards, createDiscountCards } from './js/services/markup';
+import './js/products/discount.js';
+import './js/products/popular.js';
+import {
+    createFiltresCards,
+    createPopularCards,
+} from './js/services/markup';
 import { handleChange } from './js/products/products';
 import { handleSubmit } from './js/products/products';
 import { normalizeCategory } from './js/products/products';
 // Отримуємо всі категорії
-import { fetchAllDiscount } from './js/products/discount';
-import { fetchSearchProducts } from './js/requests/products';
 import { fetchAllProductsPagination } from './js/requests/products';
 import Pagination from 'tui-pagination';
 
 
+import { addToCart } from './js/products/add-to-cart';
+import { quantityProduct } from './js/helpers/helpers';
+import { getData } from './js/services/storage';
+import { common } from './js/common/common';
+import { handleModal } from './js/products/modal.js';
 
 // !!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!
 fetchAllCategories().then(data => {
@@ -27,6 +38,10 @@ fetchAllCategories().then(data => {
 
     let additionalGender = `<option  selected  >Show all</option>`;
     refs.productsFiltersSelect.innerHTML = markupList + additionalGender;
+    // new SlimSelect({
+    //     select: refs.productsFiltersSelect,
+    //     showSearch: false,
+    //   })
 }).catch;
 
 // Отримуємо всі продукти
@@ -43,11 +58,6 @@ refs.productsFiltersSelect.addEventListener('change', handleChange);
 refs.btnSubmit.addEventListener('submit', handleSubmit);
 
 refs.productsFiltersSelect.addEventListener('change', handleChange);
-
-fetchAllDiscount().then(data => {
-    let discount = createDiscountCards(data.slice(0, 2));
-    refs.discountCards.innerHTML = discount;
-}).catch;
 
 // !!!!!!!
 const container = refs.pagination;
@@ -123,3 +133,15 @@ pagination.on('beforeMove', event => {
     //     // return true;
     // }
 });
+refs.productsCards.addEventListener('click', event => event.preventDefault());
+
+refs.productsCards.addEventListener('click', addToCart);
+refs.popularCards.addEventListener('click', addToCart);
+refs.discountCards.addEventListener('click', addToCart);
+
+const cartArr = getData(common.CART_KEY);
+quantityProduct(cartArr);
+
+refs.productsCards.addEventListener('click', handleModal);
+refs.popularCards.addEventListener('click', handleModal);
+refs.discountCards.addEventListener('click', handleModal);

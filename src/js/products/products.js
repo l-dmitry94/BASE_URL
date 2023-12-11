@@ -1,6 +1,12 @@
-import { fetchAllProducts, fetchSearchProducts, fetchSearchProductsFilter, fetchSearchProductsFilters } from "../requests/products";
-import { createFiltresCards } from "../services/markup";
-import { dataAsString, refs } from "../services/refs";
+import {
+    fetchAllProducts,
+    fetchSearchProducts,
+    fetchSearchProductsFilter,
+    fetchSearchProductsFilters,
+} from '../requests/products';
+import { apiProducts } from '../services/api';
+import { createFiltresCards } from '../services/markup';
+import { dataAsString, refs } from '../services/refs';
 
 // Функція обробки категорій які приходять з сервера
 export function normalizeCategory(categ) {
@@ -57,10 +63,12 @@ export function handleChange() {
         localStorage.setItem('filter', JSON.stringify(storedData));
         fetchAllProducts().then(data => {
             let test1 = createFiltresCards(data.results);
+            localStorage.setItem('filter', dataAsString);
+            refs.productsFilters.value = '';
             refs.productsCards.innerHTML = test1;
         }).catch;
         localStorage.setItem('filter', data1);
-        refs.productsFilters.value = "";
+        refs.productsFilters.value = '';
     } else if (storedData.category !== null && storedData.keyword !== null) {
         fetchSearchProductsFilters(
             storedData.keyword,
@@ -155,4 +163,14 @@ export function handleSubmit(event) {
                 console.error(error);
             });
     }
+}
+
+// yev
+export async function fetchProduct(id) {
+    const response = await apiProducts({
+        method: 'GET',
+        url: `/${id}`,
+    });
+
+    return response.data;
 }

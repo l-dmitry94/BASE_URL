@@ -1,4 +1,4 @@
-.popular__card {
+.popular__list {
     display: flex;
     flex-direction: column;
     height: auto;
@@ -33,7 +33,9 @@
     flex-direction: row;
 }
 
-.popular__icon__cart {
+.popular__card-button {
+    width: 20px;
+    height: 20px;
     background-color: var(--grey);
     fill: var(--green);
     padding: 4px;
@@ -41,6 +43,19 @@
     position: absolute;
     top: 16px;
     right: 16px;
+}
+
+.popular__icon-cart {
+    width: 12px;
+    height: 12px;
+}
+
+.popular__card-button .icon-checked {
+    width: 12px;
+    height: 12px;
+    fill: transparent;
+    stroke: var(--green);
+
 }
 
 .popular__info-down {
