@@ -4,6 +4,10 @@ import emptyImageMob from '../../img/cart/empty-mobile.png'
 import emptyImageMobRetina from '../../img/cart/empty-mobile@2x.png'
 import emptyImageTab from '../../img/cart/empty-tab.png'
 import emptyImageTabRetina from '../../img/cart/empty-tab@2x.png'
+import emptyImageTabRetina from '../../img/cart/empty-tab@2x.png'
+import emptyImageTabRetina from '../../img/cart/empty-tab@2x.png'
+import orderModalImage from '../../img/checkout-image.png'
+import orderModalImageRetina from '../../img/checkout-image2x.png'
 
 export function createFiltresCards(arr) {
     return arr
@@ -225,21 +229,21 @@ export function createMarkupSuccessOrder(message) {
         <div class="checkout__modal">
             <button class="checkout__close">
                 <svg class="checkout__modal-close-icon">
-                    <use href="./img/icons.svg#icon-close"></use>
+                    <use href="${icons}#icon-close"></use>
                 </svg>
             </button>
             <div class="checkout__modal-image-shadow">
                 <img
                     class="checkout__modal-img"
-                    src="./img/checkout-image.png"
+                    src="${orderModalImage}"
                     srcset="
-                        ./img/checkout-image.png   1x,
-                        ./img/checkout-image2x.png 2x
+                        ${orderModalImage}   1x,
+                        ${orderModalImageRetina} 2x
                     "
                     alt="Order picture"
                 />
                 <svg class="icon-ellipse">
-                    <use href="./img/icons.svg#icon-ellipse-1"></use>
+                    <use href="${icons}#icon-ellipse-1"></use>
                 </svg>
             </div>
 
