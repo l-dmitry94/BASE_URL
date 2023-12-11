@@ -76,7 +76,7 @@ import{a as v,b as C}from"./vendor-4f126749.js";(function(){const s=document.cre
                             <use href="${i}#icon-discount"></use>
                          </svg>  
                  </a>
-                 </li>`).join("")}function oe({_id:e,name:s,img:t,category:a,price:o,size:c,popularity:r,desc:n}){return`<div class="modal__item" data-id="${e}">
+                 </li>`).join("")}function oe({_id:e,name:s,img:t,category:a,price:o,size:c,popularity:r,desc:n}){return`<div class="modal__item cards__item" data-id="${e}">
                 <img class="cards__image-photo" src="${t}" alt="${s}" />
                 <div class="cards__main up">
       <div class="cards__main-modal">
@@ -235,4 +235,4 @@ import{a as v,b as C}from"./vendor-4f126749.js";(function(){const s=document.cre
         </div>
     </div>
 `,{onShow:a=>{window.addEventListener("keydown",t),e=a.element().querySelector(".footer__modal-close"),e.addEventListener("click",()=>a.close()),document.body.classList.add("modal-open")},onClose:()=>{e.removeEventListener("click",()=>s.close()),window.removeEventListener("keydown",t),document.body.classList.remove("modal-open")}});s.show();function t(a){a.code==="Escape"&&s.close()}};R.addEventListener("submit",H);function H(e){e.preventDefault();const{value:s}=e.currentTarget.elements.email;s!==""&&(J(s),e.target.reset())}async function J(e){try{(await A({method:"POST",data:{email:e}})).statusText==="Created"&&S()}catch({response:s}){s.statusText==="Conflict"&&G()}}export{re as a,ce as b,q as c,Y as d,le as e,X as f,I as g,ae as h,x as i,Z as j,se as k,V as l,i as m,oe as n,Q as o,m as p,z as q,l as r,K as s,g as t,h as u,u as v,ee as w,te as x,W as y};
-//# sourceMappingURL=subscription-eccfd341.js.map
+//# sourceMappingURL=subscription-8712326e.js.map
