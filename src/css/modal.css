@@ -1,26 +1,45 @@
 .modal__item {
-    width: 600px;
-    height: 380px;
-    position: fixed;
-    top: 50%;
-    left: 50%;
-    transform: translate(-50%, -50%);
-    background-color: white;
-    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
-    border-radius: 8px;
-    overflow: hidden;
-    z-index: 1000;
-    display: flex;
+    width: 335px;
+    height: auto;
+    border-radius: 20px;
+    background: var(--light-grey);
+    padding: 40px 20px;
 }
 
-/* Image container */
-.modal__item .cards__image-container {
-    width: 240px;
+.cards__image-photo {
+    padding: 26px 68px;
+    width: 295px;
     height: 212px;
-    background-color: #e8e8e2;
-    display: flex;
-    align-items: center;
-    justify-content: center;
     border-radius: 10px;
-    margin-right: 20px;
+    background: var(--grey);
+    margin-bottom: 20px;
+}
+
+.modal__info {
+    padding-bottom: 20px;
+}
+
+.cards__desc-modal {
+    color: rgba(1, 1, 1, 0.7);
+    font-size: 14px;
+    font-weight: 400;
+    line-height: 1.29; 
+    margin-bottom: 40px;
+    overflow-y: auto;
+    max-height: 72px;
+}
+
+.add__to-button {
+    width: 116px;
+    height: 42px;
+    padding: 24px 12px;
+    color: var(--light-grey);
+    gap: 10px;
+}
+
+.modal__info {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 8px;
+    padding-bottom: 20px;
 }
