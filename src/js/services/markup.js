@@ -206,9 +206,9 @@ export function createMarkupEmptyCart() {
     return `
     <div class="empty">
     <picture>
-        <source media="(min-width: 768px)" srcset="../img/cart/empty-tab.png 1x, ../img/cart/empty-tab@2x.png 2x">
-        <source media="(min-width: 320px)" srcset="../img/cart/empty-mobile.png 1x, ../img/cart/empty-mobile@2x.png 2x">
-        <img class="empty__img" src="../img/cart/empty-mobile.png" alt="Empty">
+        <source media="(min-width: 768px)" srcset="./img/cart/empty-tab.png 1x, ./img/cart/empty-tab@2x.png 2x">
+        <source media="(min-width: 320px)" srcset="./img/cart/empty-mobile.png 1x, ./img/cart/empty-mobile@2x.png 2x">
+        <img class="empty__img" src="./img/cart/empty-mobile.png" alt="Empty">
     </picture>
     <h3 class="empty__title">Your basket is <span class="empty__title-color">empty...</span></h3>
     <p class="empty__descr">Go to the main page to select your favorite products and add them to the cart.</p>
