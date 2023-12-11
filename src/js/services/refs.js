@@ -7,6 +7,7 @@ export const refs = {
     discountCards: document.querySelector('.discount__list'),
     popularCards: document.querySelector('.popular__list'),
     cardWrapper: document.querySelector('.cart__wrapper'),
+    pagination: document.querySelector('.tui-pagination'),
     cartProducts: document.querySelector('.cart__products'),
     cartQuantity: document.querySelectorAll(".cart-quantity"),
     deleteAllProductsFromCart: document.querySelector('.cart__delete-button'),
