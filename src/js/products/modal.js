@@ -1,7 +1,6 @@
 import * as basicLightbox from 'basiclightbox';
 import 'basiclightbox/dist/basicLightbox.min.css';
 import { fetchProduct } from '../requests/products';
-import { refs } from '../services/refs';
 import { createModalCards } from '../services/markup';
 
 export async function handleModal(event) {

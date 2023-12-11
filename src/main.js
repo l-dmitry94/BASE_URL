@@ -20,7 +20,7 @@ import { addToCart } from './js/products/add-to-cart';
 import { quantityProduct } from './js/helpers/helpers';
 import { getData } from './js/services/storage';
 import { common } from './js/common/common';
-import { handleModal } from './js/cart/modal';
+import { handleModal } from './js/products/modal.js';
 
 fetchAllCategories().then(data => {
     let modifiedCategories = data.map(data => {

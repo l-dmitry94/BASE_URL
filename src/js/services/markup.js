@@ -59,7 +59,7 @@ export function createPopularCards(arr) {
                     <ul class="cards__info popular__info">
                         <li class="cards__info-item popular__info-up">
                             <p class="cards__info-title">Category:</p>
-                            <p class="cards__info-value">${category}</p>
+                            <p class="cards__info-value">${normalizeCategory(category)}</p>
                         </li>
                         <li class="popular__info-down">
                             <div class="cards__info-item">
