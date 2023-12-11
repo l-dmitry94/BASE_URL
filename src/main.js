@@ -47,7 +47,6 @@ fetchAllProducts()
         let test1 = createFiltresCards(data.results);
         refs.productsCards.innerHTML = test1;
         checkProduct();
-
     })
     .catch();
 
