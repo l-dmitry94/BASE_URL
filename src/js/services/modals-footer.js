@@ -39,15 +39,17 @@ const instance = basicLightbox.create(
 </div>
 `,
     {
-        onShow: instance => {
+        onShow: () => {
             window.addEventListener('keydown', handelClickOnEscap);
             closeBtn = instance.element().querySelector('.footer__modal-close');
             closeBtn.addEventListener('click', () => instance.close());
+            document.body.classList.add('modal-open');
         },
         onClose: () => {
             closeBtn.removeEventListener('click', () => instance.close());
             window.removeEventListener('keydown', handelClickOnEscap);
             mediaQuery.removeEventListener('change', modalFooterNewSubscr);
+            document.body.classList.remove('modal-open');
         },
     }
 );
