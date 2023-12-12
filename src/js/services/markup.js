@@ -74,7 +74,7 @@ export function createPopularCards(arr) {
                             </li>
                         </ul>
                 </div>
-                <button class="popular__card-button" type="button">
+                <button class="popular__card-button cards__button" type="button">
                     <svg class="popular__icon__cart">
                         <use href="${icons}#icon-cart"></use>
                     </svg>

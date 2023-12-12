@@ -7,15 +7,12 @@ export async function checkProduct() {
 
     if (cartArr) {
         cartArr.forEach(({ _id }) => {
-            const products = document.querySelectorAll(`[data-id="${_id}"]`);
+            const product = document.querySelector(`[data-id="${_id}"]`);
+            const productButton = product.querySelector('.cards__button');
 
-            products.forEach(product => {
-                const productButton = product.querySelector('.cards__button');
-
-                if (productButton) {
-                    productButton.innerHTML = `<svg class="icon-checked"><use href="${check}#icon-check"></use></svg>`;
-                }
-            });
+            if (productButton) {
+                productButton.innerHTML = `<svg class="icon-checked"><use href="${check}#icon-check"></use></svg>`;
+            }
         });
     }
 }
