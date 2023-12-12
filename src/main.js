@@ -63,7 +63,7 @@ const options = {
     // below default value of options
     totalItems: 100,
     itemsPerPage: 6,
-    visiblePages: 3,
+    visiblePages: 2,
     page: 1,
     centerAlign: false,
     firstItemClassName: 'tui-first-child',
