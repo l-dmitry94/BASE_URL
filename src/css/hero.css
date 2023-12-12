@@ -36,3 +36,39 @@
     top: -7px;
     right: 8px;
 }
+
+@media screen and (min-width: 768px) {
+    .hero__head {
+        max-width: 658px;
+        text-align: center;
+        margin: 0 auto 40px;
+    }
+    .hero__title {
+        font-size: 80px;
+        margin-bottom: 20px;
+    }
+    .hero__descr {
+        color: rgba(1, 1, 1, 0.8);
+        text-align: center;
+        font-size: 18px;
+        line-height: 1.33;
+        max-width: 492px;
+        margin: 0 auto;
+    }
+    .hero__label {
+        top: -30px;
+        right: 10px;
+    }
+}
+@media screen and (min-width: 1240px) {
+    .hero__head {
+        max-width: 1042px;
+    }
+    .hero__title {
+        line-height: 1;
+    }
+    .hero__label {
+        top: -50px;
+        right: 20px;
+    }
+}

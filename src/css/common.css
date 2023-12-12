@@ -55,8 +55,8 @@ body.modal-open {
     }
 }
 
-@media (min-width: 1240px) {
+@media (min-width: 1304px) {
     .container {
-        max-width: 1240px;
+        max-width: 1304px;
     }
 }
