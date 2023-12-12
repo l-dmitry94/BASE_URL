@@ -51,8 +51,8 @@ export function createPopularCards(arr) {
     return arr
         .map(
             ({ _id, name, img, category, size, popularity }) =>
-                `<li class="popular__item cards__item" data-id="${_id}">
-                    <a class="popular__link cards__link" href="#">
+                `<li class="cards__item popular__item" data-id="${_id}">
+                    <a class="popular__link" href="#">
                 <div class="cards__background-img popular__img">
                     <img class="popular__image-photo-js" src="${img}" alt="${name}" />
                 </div>
