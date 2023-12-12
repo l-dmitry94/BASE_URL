@@ -4,6 +4,9 @@
     height: auto;
     gap: 14px;
 }
+.cards__item.popular__item {
+    padding: 0;
+}
 .popular__item {
     display: block;
     width: 335px;
