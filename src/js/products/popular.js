@@ -1,12 +1,10 @@
-import { apiProducts } from '../services/api';
-import { refs } from '../services/refs';
-import { createPopularCards } from '../services/markup';
+import { fetchAllPopular } from "../requests/products";
+import { createPopularCards } from "../services/markup";
+import { refs } from "../services/refs";
+import { checkProduct } from "./check-products";
 
-export async function fetchAllPopular() {
-    const response = await apiProducts({
-        method: 'GET',
-        url: '/popular',
-    });
-
-    return response.data;
-}
+fetchAllPopular().then(data => {
+    let popular = createPopularCards(data.slice(0, 5));
+    refs.popularCards.innerHTML = popular;
+    checkProduct();
+}).catch;

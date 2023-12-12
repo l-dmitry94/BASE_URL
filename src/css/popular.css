@@ -36,6 +36,8 @@
 }
 
 .popular__card-button {
+    width: 20px;
+    height: 20px;
     background-color: var(--grey);
     fill: var(--green);
     padding: 4px;
@@ -54,6 +56,19 @@
 .popular__card-button svg {
     width: 12px;
     height: 12px;
+}
+
+.popular__icon-cart {
+    width: 12px;
+    height: 12px;
+}
+
+.popular__card-button .icon-checked {
+    width: 12px;
+    height: 12px;
+    fill: transparent;
+    stroke: var(--green);
+
 }
 
 .popular__info-down {

@@ -14,7 +14,10 @@ export async function handleCart() {
         return
     }
 
-    refs.cartProducts.insertAdjacentHTML("beforeend", createMarkupCartList(cartArr))
+    refs.cartProducts.insertAdjacentHTML("beforeend", createMarkupCartList(cartArr));
+
+
+
 
 }
 

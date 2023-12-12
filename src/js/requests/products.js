@@ -25,6 +25,21 @@ export async function fetchAllProducts() {
 
     return response.data;
 }
+export async function fetchAllProductsPagination(page,limit) {
+    const response = await apiProducts({
+        method: 'GET',
+        url: `?page=${page}&limit=${limit}`,
+    });
+
+    console.log(response.data);
+
+    return response.data;
+}
+
+
+
+
+
 export async function fetchSearchProductsFilter(keyword, page, limit) {
     const response = await apiProducts({
         method: 'GET',
@@ -68,6 +83,15 @@ export async function fetchAllDiscount() {
     const response = await apiProducts({
         method: 'GET',
         url: '/discount',
+    });
+
+    return response.data;
+}
+
+export async function fetchAllPopular() {
+    const response = await apiProducts({
+        method: 'GET',
+        url: '/popular',
     });
 
     return response.data;

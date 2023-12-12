@@ -10,6 +10,9 @@ footerFormRef.addEventListener('submit', handleForm);
 export function handleForm(e) {
     e.preventDefault();
     const { value } = e.currentTarget.elements.email;
+    if (value === '') {
+        return;
+    }
 
     postSubscriptionNewProducts(value);
     e.target.reset();
@@ -23,6 +26,7 @@ async function postSubscriptionNewProducts(value) {
                 email: value,
             },
         });
+
         if (response.statusText === 'Created') {
             modalFooterNewSubscr();
         }
@@ -32,4 +36,3 @@ async function postSubscriptionNewProducts(value) {
         }
     }
 }
-// modalFooterNewSubscr();
