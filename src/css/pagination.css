@@ -68,9 +68,17 @@ border-radius: 60px;
  .tui-pagination .tui-first-child, .tui-pagination .tui-prev-is-ellip {
      border-left: 1px solid #ddd
  }
- .tui-page-btn .tui-last {
+
+
+ #pagination1 .tui-page-btn {
+    border: none;
+}
+
+#pagination1 .tui-first,
+#pagination1 .tui-last {
     display: none;
- }
+}
+
  .tui-pagination .tui-last-child, .tui-pagination .tui-next-is-ellip {
      border-right: 1px solid #ddd
  }
