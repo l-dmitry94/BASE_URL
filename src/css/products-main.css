@@ -78,13 +78,13 @@ input[type='search']::-webkit-search-results-decoration {
 .cards__item {
     display: block;
     padding: 20px;
-    width: 335px;
+    width: 280px;
     border-radius: 20px;
     height: auto;
     background: var(--light-grey);
 }
 .cards__background-img {
-    width: 295px;
+    width: 240px;
     height: 178px;
     border-radius: 10px;
     background: var(--grey);
@@ -154,6 +154,30 @@ input[type='search']::-webkit-search-results-decoration {
     height: 18px;
     fill: transparent;
     stroke: var(--light-grey);
+}
+
+@media screen and (min-width: 375px) {
+    .cards__item {
+        display: block;
+        padding: 20px;
+        width: 335px;
+        border-radius: 20px;
+        height: auto;
+        background: var(--light-grey);
+    }
+}
+
+@media screen and (min-width: 375px) {
+    .cards__background-img {
+        width: 295px;
+        height: 178px;
+        border-radius: 10px;
+        background: var(--grey);
+        margin-bottom: 20px;
+        display: flex;
+        justify-content: center;
+        padding: 20px 0;
+    }
 }
 
 @media screen and (min-width: 768px) {

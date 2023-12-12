@@ -1,5 +1,5 @@
 .container {
-    max-width: 375px;
+    max-width: 320px;
     margin: 0 auto;
     padding: 0 20px;
 }
@@ -33,7 +33,11 @@
 body.modal-open {
     overflow: hidden;
 }
-
+@media (min-width: 375px) {
+    .container {
+        max-width: 375px;
+    }
+}
 @media (min-width: 768px) {
     .container {
         max-width: 768px;

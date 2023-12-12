@@ -9,7 +9,7 @@
 }
 .popular__item {
     display: block;
-    width: 335px;
+    width: 280px;
     height: auto;
     background-color: var(--light-grey);
     border-radius: 10px;
@@ -71,18 +71,24 @@
     height: 12px;
     fill: transparent;
     stroke: var(--green);
-
-}
-
-.popular__info-down {
-    display: flex;
-    gap: 9px;
 }
 
 .popular__card-description .cards__info {
     max-width: 155px;
     flex-direction: row;
     flex-wrap: wrap;
+}
+
+@media screen and (min-width: 375px) {
+    .popular__item {
+        width: 335px;
+    }
+    .popular__info {
+        flex-direction: row;
+        margin-bottom: 0;
+        flex-wrap: wrap;
+        gap: 9px;
+    }
 }
 
 @media screen and (min-width: 768px) {
@@ -97,12 +103,7 @@
     .popular__item {
         width: 275px;
     }
-    .popular__info {
-        flex-direction: row;
-        margin-bottom: 0;
-        flex-wrap: wrap;
-        gap: 9px;
-    }
+
     .popular__link .cards__background-img {
         min-width: 74px;
         min-height: 74px;
