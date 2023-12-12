@@ -1,0 +1,48 @@
+.markup {
+    width: 279px;
+    height: auto;
+    display: flex;
+    gap: 14px;
+    flex-direction: column;
+    text-align: center;
+    margin: 0 auto;
+    margin-top: 100px;
+    margin-bottom: 180px;
+}
+.markup-title {
+    width: 261px;
+    font-size: 18px;
+    font-weight: 500;
+    line-height: 1.11; /* 111.111% */
+}
+
+.markup-title-span {
+    color: var(--green);
+}
+.markup-descr {
+    width: 100%;
+    color: rgba(1, 1, 1, 0.7);
+    font-size: 14px;
+    font-style: normal;
+    font-weight: 400;
+    line-height: 1.29; /* 128.571% */
+}
+
+@media screen and (min-width: 768px) {
+    .markup {
+        width: 371px;
+        margin-top: 150px;
+        margin-bottom: 300px;
+    }
+
+    .markup-title {
+        width: 367px;
+        font-size: 20px;
+        line-height: 1.2; /* 120% */
+    }
+
+    .markup-descr {
+        font-size: 18px;
+        line-height: 1.33;
+    }
+}
