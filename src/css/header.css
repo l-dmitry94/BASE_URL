@@ -20,15 +20,15 @@
     line-height: 1.29;
     border-radius: 30px;
     background-color: #6d8434;
-    padding: 10px 20px;
+    padding: 6px 15px;
 }
 
 .header__menu-link-button {
     display: flex;
     align-items: center;
     justify-content: center;
-    width: 38px;
-    height: 38px;
+    width: 30px;
+    height: 30px;
     border-radius: 30px;
     background: #6d8434;
 }
@@ -41,6 +41,17 @@
 
 .header__menu-link-counter {
     display: none;
+}
+
+@media screen and (min-width: 375px) {
+    .header__menu-item:first-child {
+        padding: 10px 20px;
+    }
+
+    .header__menu-link-button {
+        width: 38px;
+        height: 38px;
+    }
 }
 
 @media screen and (min-width: 768px) {
