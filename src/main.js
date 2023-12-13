@@ -15,6 +15,19 @@ import { normalizeCategory } from './js/products/products';
 // Отримуємо всі категорії
 import { fetchAllProductsPagination } from './js/requests/products';
 import Pagination from 'tui-pagination';
+import { options } from './js/services/pagination.js';
+import { container } from './js/services/pagination.js';
+import { handleBeforeMove } from './js/services/pagination.js';
+import { fetchSearchProductsFilter } from './js/requests/products';
+import { fetchSearchProductsFilters } from './js/requests/products';
+import { fetchSearchProducts } from './js/requests/products';
+import { normalizeCategoryServ } from './js/products/products';
+// import { pagination } from './js/services/pagination.js';
+
+
+
+
+
 
 import { addToCart } from './js/products/add-to-cart';
 import { quantityProduct } from './js/helpers/helpers';
@@ -41,11 +54,35 @@ fetchAllCategories().then(data => {
     });
 }).catch;
 
+
+
 // Отримуємо всі продукти
 fetchAllProducts()
     .then(data => {
+        const {
+            totalItems,
+            itemsPerPage,
+            visiblePages,
+            page,
+            centerAlign,
+            firstItemClassName,
+            lastItemClassName,
+        } = options;
+
+        // const newTotalItems = data.perPage * data.totalPages;e
+
+        console.log(options);
+        // pagination = new Pagination(container, options);
+
+        // const pagination = new Pagination(container, options);
+
         let test1 = createFiltresCards(data.results);
         refs.productsCards.innerHTML = test1;
+        options.totalItems = data.perPage * data.totalPages;
+        const pagination = new Pagination(container, options);
+        pagination.on('beforeMove', handleBeforeMove);
+
+        // pagination = new Pagination(container, options);
         checkProduct();
     })
     .catch();
@@ -87,6 +124,15 @@ const options = {
     },
 };
 
+
+// pagination.on('beforeMove', handleBeforeMove);
+
+
+    // const pagination = new Pagination(container, options);
+    // const updatedOptions = {
+    //     ...options, // Копіюємо поточні дані з options
+    //     totalItems: newTotalItems,
+    // }
 const pagination = new Pagination(container, options);
 
 pagination.on('beforeMove', event => {
@@ -122,12 +168,14 @@ pagination.on('beforeMove', event => {
                 // Додаткова обробка помилки
             });
     }
+})
 
     // if (currentPage === currentPage) {
     //     return console.log(currentPage);
     //     // return true;
     // }
-});
+
+
 refs.productsCards.addEventListener('click', event => event.preventDefault());
 
 refs.productsCards.addEventListener('click', addToCart);
