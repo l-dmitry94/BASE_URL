@@ -18,18 +18,19 @@
  }
  
  .tui-pagination {
-     height: 28px;
+     /* height: 28px; */
      margin: 14px 0 12px;
      line-height: normal;
      text-align: center;
      font-size: 0;
+     display: flex;
+    justify-content: center;
+
  }
  
  .tui-pagination .tui-page-btn {
-     display: inline-block;
      position: relative;
      width: 40px;
-     padding: 8px 0 6px;
      margin-left: 0;
      color: #333;
      font-size: 12px;
@@ -38,16 +39,21 @@
      text-decoration: none;
      vertical-align: middle;
      border: 1px solid #ddd;
-     border-width: 1px 0;
+    min-width: 34px;
+    min-height: 34px;
+    max-width: 40px;
+    max-height: 40px;
  }
  
+ .tui-page-btn:not(:last-child) {
+    margin-right: 4px;
+  }
+
  .tui-pagination .tui-page-btn:hover {
      background-color: #f4f4f4;
  }
  
  .tui-pagination .tui-is-selected, .tui-pagination strong {
-    width: 40px;
-height: 40px;
 justify-content: center;
 align-items: center;
 border-radius: 60px;
@@ -62,7 +68,7 @@ border-radius: 60px;
  }
  
  .tui-pagination .tui-first-child.tui-is-selected, .tui-pagination strong.tui-first-child {
-     margin-left: 0
+     margin-left: 0;
  }
  
  .tui-pagination .tui-first-child, .tui-pagination .tui-prev-is-ellip {
@@ -71,6 +77,28 @@ border-radius: 60px;
  .tui-page-btn .tui-last {
     display: none;
  }
+
+ #pagination1 .tui-page-btn {
+    border: none;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+
+}
+
+#pagination1 .tui-page-btn.tui-first,
+#pagination1 .tui-page-btn.tui-prev,
+#pagination1 .tui-page-btn.tui-next,
+#pagination1 .tui-page-btn.tui-last{
+    
+    background: #FAFAFA;
+
+    border-radius: 60px;
+         /* border-color: #6D8434 */
+         cursor: default;
+         
+}
+
  .tui-pagination .tui-last-child, .tui-pagination .tui-next-is-ellip {
      border-right: 1px solid #ddd
  }
@@ -86,12 +114,7 @@ border-radius: 60px;
  .tui-pagination .tui-first, .tui-pagination .tui-prev, .tui-pagination .tui-next, .tui-pagination .tui-last, .tui-pagination .tui-prev-is-ellip, .tui-pagination .tui-next-is-ellip {
      overflow: hidden;
      height: 26px;
-     padding: 0;
-     font-size: 0;
      line-height: 26px;
-     white-space: nowrap;
-     font-weight: normal;
-     border: 1px solid #ddd;
  }
  
  .tui-pagination .tui-prev-is-ellip {
@@ -119,11 +142,11 @@ border-radius: 60px;
  }
  
  .tui-pagination .tui-prev {
-     margin-right: 10px;
+     margin-right: 8px;
  }
  
  .tui-pagination .tui-next {
-     margin-left: 10px;
+     margin-left: 4px;
  }
  
  .tui-pagination .tui-ico-first {
@@ -204,6 +227,6 @@ border-radius: 60px;
      display: inline-block;
      font-size: 12px;
      height: 12px;
-     padding: 8px 0 6px;
+     padding: 8px 0 8px;
      vertical-align: top
  }

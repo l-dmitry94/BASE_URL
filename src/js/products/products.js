@@ -276,7 +276,6 @@ export function handleSubmit(event) {
     }
 }
 
-// yev
 export async function fetchProduct(id) {
     const response = await apiProducts({
         method: 'GET',
