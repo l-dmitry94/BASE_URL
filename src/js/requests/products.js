@@ -10,8 +10,6 @@ export async function fetchAllCategories() {
         url: '/categories',
     });
 
-    // console.log(response.data);
-
     return response.data;
 }
 
@@ -21,8 +19,6 @@ export async function fetchAllProducts() {
     });
     checkProduct();
 
-    // console.log(response.data);
-
     return response.data;
 }
 export async function fetchAllProductsPagination(page,limit) {
@@ -30,8 +26,6 @@ export async function fetchAllProductsPagination(page,limit) {
         method: 'GET',
         url: `?page=${page}&limit=${limit}`,
     });
-
-    console.log(response.data);
 
     return response.data;
 }
@@ -45,7 +39,6 @@ export async function fetchSearchProductsFilter(keyword, page, limit) {
         method: 'GET',
         url: `?keyword=${keyword}&page=${page}&limit=${limit}`,
     });
-    // console.log(response.data);
     return response.data;
 }
 

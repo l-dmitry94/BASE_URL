@@ -49,8 +49,8 @@
     opacity: 0.8;
 }
 .footer__cover-title-text {
-    margin-bottom: 80px;
     width: 295px;
+    margin-bottom: 80px;
 }
 .footer__title {
     color: var(--grey);
@@ -129,11 +129,9 @@
 }
 
 /* !--------------------------modal-New------------------------------ */
-.modal {
-    .footer__cover-title-text {
-        margin-bottom: 80px;
-        width: 295px;
-    }
+.modal .footer__cover-title-text {
+    margin-bottom: 80px;
+    width: 295px;
 }
 .footer__modal {
     width: 295px;

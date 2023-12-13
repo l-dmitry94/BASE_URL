@@ -15,6 +15,5 @@ export async function fetchSendOrder(email, arr) {
         },
     });
 
-
     return response.data;
 }

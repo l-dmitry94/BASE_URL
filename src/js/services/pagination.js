@@ -43,7 +43,6 @@ export const options = {
 
 export function handleBeforeMove(event) {
     const currentPage = event.page;
-    console.log(currentPage);
     const selectedOption =
         refs.productsFiltersSelect.options[
             refs.productsFiltersSelect.selectedIndex
@@ -76,10 +75,7 @@ export function handleBeforeMove(event) {
         fetchAllProductsPagination(currentPage, storedData.limit)
             .then(data => {
                 let markup = createFiltresCards(data.results);
-                // console.log(storedData.page);
                 // const newTotalItems = data.perPage * data.totalPages;
-                // console.log(newTotalItems);
-                console.log();
                 // options.totalItems = data.perPage * data.totalPages;
                 // const pagination = new Pagination(container, options);
                 // options.totalItems = data.perPage * data.totalPages;
@@ -87,7 +83,6 @@ export function handleBeforeMove(event) {
                 //  pagination.on('beforeMove', handleBeforeMove )
                 // localStorage.setItem('filter', data1);
 
-                // console.log(data1);
                 refs.productsCards.innerHTML = markup;
             })
             .catch(error => {
@@ -101,18 +96,11 @@ export function handleBeforeMove(event) {
             storedData.limit
         )
             .then(data => {
-                console.log(
-                    storedData.keyword,
-                    storedData.page,
-                    storedData.page
-                );
+
                 let markup = createFiltresCards(data.results);
-                // console.log(storedData.page);
                 const newTotalItems = data.perPage * data.totalPages;
-                // console.log(newTotalItems);
                 // localStorage.setItem('filter', data1);
 
-                // console.log(data1);
                 refs.productsCards.innerHTML = markup;
             })
             .catch(error => {
@@ -127,18 +115,10 @@ export function handleBeforeMove(event) {
             storedData.limit
         )
             .then(data => {
-                console.log(
-                    storedData.keyword,
-                    storedData.page,
-                    storedData.page
-                );
                 let markup = createFiltresCards(data.results);
-                console.log(storedData.page);
                 const newTotalItems = data.perPage * data.totalPages;
-                console.log(newTotalItems);
                 // localStorage.setItem('filter', data1);
 
-                // console.log(data1);
                 refs.productsCards.innerHTML = markup;
             })
             .catch(error => {
@@ -153,15 +133,12 @@ export function handleBeforeMove(event) {
         )
             .then(data => {
                 let markup = createFiltresCards(data.results);
-                console.log(storedData.page);
                 // const newTotalItems = data.perPage * data.totalPages;
-                // console.log(newTotalItems);
                 // localStorage.setItem('filter', data1);
                 options.totalItems = data.perPage * data.totalPages;
             
                
 
-                console.log(data1);
                 refs.productsCards.innerHTML = markup;
             })
             .catch(error => {

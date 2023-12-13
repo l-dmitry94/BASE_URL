@@ -42,7 +42,6 @@ export function handleChange() {
     storedData.category = inputValue;
 
     
-    // console.log(storedData.category);
     if (storedData.category === null && storedData.keyword === null) {
         // localStorage.setItem('filter', dataAsString);
         storedData.category = null;
@@ -66,14 +65,12 @@ export function handleChange() {
         )
             .then(data => {
                 if (data.totalPages === 0 || data.totalPages === 1) {
-                    console.log(data.results);
                     let test2 = createFiltresCards(data.results);
                     refs.productsCards.innerHTML = test2;
                     refs.paginationElement.style.display = 'none';
                 } else {
                     let test2 = createFiltresCards(data.results);
                     refs.productsCards.innerHTML = test2;
-                    console.log(12);
                     options.totalItems = data.perPage * data.totalPages;
                     const pagination = new Pagination(container, options);
                     pagination.on('beforeMove', handleBeforeMove);
@@ -91,7 +88,6 @@ export function handleChange() {
         localStorage.setItem('filter', JSON.stringify(storedData));
         fetchSearchProductsFilter(storedData.keyword,storedData.page,storedData.limit).then(data => {
             if (data.totalPages === 0 || data.totalPages === 1) {
-                console.log(data.results);
                 let test2 = createFiltresCards(data.results);
                 refs.productsCards.innerHTML = test2;
                 refs.paginationElement.style.display = 'none';
@@ -117,14 +113,12 @@ export function handleChange() {
         )
             .then(data => {
                 if (data.totalPages === 0 || data.totalPages === 1) {
-                    console.log(data.results);
                     let test2 = createFiltresCards(data.results);
                     refs.productsCards.innerHTML = test2;
                     refs.paginationElement.style.display = 'none';
                 } else {
                     let test2 = createFiltresCards(data.results);
                     refs.productsCards.innerHTML = test2;
-                    console.log(data);
                     options.totalItems = data.perPage * data.totalPages;
                     const pagination = new Pagination(container, options);
                     pagination.on('beforeMove', handleBeforeMove);
@@ -132,8 +126,7 @@ export function handleChange() {
                 }
             })
             .catch(error => {
-                console.console.log();
-                error;
+                console.log(error);
             });
     }
     localStorage.setItem('filter', JSON.stringify(storedData));
@@ -144,14 +137,12 @@ export function handleSubmit(event) {
     event.preventDefault();
     const textInput = refs.input.value;
     let local = localStorage.getItem('filter');
-    console.log(textInput);
     let storedData = local ? JSON.parse(local) : {};
     // pagination.movePageTo(1);
     const inputValue = textInput !== '' ? textInput : null;
     // storedData.page = 1;
     storedData.keyword = inputValue;
     localStorage.setItem('filter', JSON.stringify(storedData));
-    // console.log(storedData);
     let data1 = dataAsString;
     // localStorage.setItem('filter', data1);
     if (storedData.keyword === null && storedData.category !== null) {
@@ -161,7 +152,6 @@ export function handleSubmit(event) {
             storedData.limit
         )
             .then(data => {
-                console.log(data);
                 if (data.totalPages === 0 || data.totalPages === 1) {
                     refs.paginationElement.style.display = 'none';
                     let markup = createFiltresCards(data.results);
@@ -172,7 +162,6 @@ export function handleSubmit(event) {
                     refs.paginationElement.style.display = 'block';
                     const pagination = new Pagination(container, options);
                     pagination.on('beforeMove', handleBeforeMove);
-                    // console.log(data1);
                     refs.productsCards.innerHTML = markup;
                 }
             })
@@ -183,14 +172,12 @@ export function handleSubmit(event) {
     } else if (storedData.keyword === null && storedData.category === null) {
         fetchAllProducts()
             .then(data => {
-                console.log(data);
 
                 let markup = createFiltresCards(data.results);
                 options.totalItems = data.perPage * data.totalPages;
                 refs.paginationElement.style.display = 'block';
                 const pagination = new Pagination(container, options);
                 pagination.on('beforeMove', handleBeforeMove);
-                // console.log(data1);
                 refs.productsCards.innerHTML = markup;
             })
             .catch(error => {
@@ -198,7 +185,6 @@ export function handleSubmit(event) {
                 // Додаткова обробка помилки
             });
     } else if (storedData.keyword !== null && storedData.category === null) {
-        // console.log('10');
 
         fetchSearchProductsFilter(
             storedData.keyword,
@@ -207,7 +193,6 @@ export function handleSubmit(event) {
         )
             .then(data => {
                 if (data.totalPages === 0 || data.totalPages === 1) {
-                    console.log(data.results);
                     let test2 = createFiltresCards(data.results);
                     refs.productsCards.innerHTML = test2;
                     refs.paginationElement.style.display = 'none';
@@ -220,13 +205,11 @@ export function handleSubmit(event) {
                     refs.productsCards.innerHTML = test2;
                     refs.paginationElement.style.display = 'block';
                 }
-                // console.log(data);
             })
             .catch(error => {
                 console.error(error);
             });
     } else if (storedData.keyword !== null && storedData.category !== null) {
-        // console.log('10');
         fetchSearchProductsFilters(
             storedData.keyword,
             storedData.category,
@@ -236,11 +219,9 @@ export function handleSubmit(event) {
             .then(data => {
                 if (data.totalPages === 0 || data.totalPages === 1) {
                     refs.paginationElement.style.display = 'none';
-                    console.log(data.results.length);
                     let test2 = createFiltresCards(data.results);
                     refs.productsCards.innerHTML = test2;
                 } else {
-                    // console.log('1');
                     options.totalItems = data.perPage * data.totalPages;
                     const pagination = new Pagination(container, options);
                     // refs.paginationElement.style.display = 'block';
@@ -253,7 +234,6 @@ export function handleSubmit(event) {
                 console.error(error);
             });
     } else if (storedData.keyword !== null && storedData.category === null) {
-        // console.log(2);
         localStorage.setItem('filter', JSON.stringify(storedData));
         fetchSearchProductsFilter(
             storedData.keyword,
@@ -261,14 +241,12 @@ export function handleSubmit(event) {
             storedData.limit
         )
             .then(data => {
-                // console.log('2');
                 let test2 = createFiltresCards(data.results);
                 refs.productsCards.innerHTML = test2;
                 options.totalItems = data.perPage * data.totalPages;
                 refs.paginationElement.style.display = 'block';
                 const pagination = new Pagination(container, options);
                 pagination.on('beforeMove', handleBeforeMove);
-                // console.log(data);
             })
             .catch(error => {
                 console.error(error);

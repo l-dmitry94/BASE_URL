@@ -3,11 +3,11 @@
         <div class="footer__wrap">
             <div class="footer__cover-logo-social">
                 <a class="logo" href="./">
-                    <button class="logo__button">
+                    <span class="logo__button">
                         <svg class="logo__icon">
                             <use href="./img/icons.svg#icon-logo"></use>
                         </svg>
-                    </button>
+                    </span>
                     Food Boutique
                 </a>
 
@@ -71,6 +71,8 @@
                                 type="email"
                                 name="email"
                                 placeholder="Email"
+                                pattern="[a-zA-Z0-9._%+-]+@[a-zA-Z0-9.-]+\.[a-zA-Z]{2,}"
+                                required
                             />
                         </label>
                         <button class="footer__form-submit" type="submit">
