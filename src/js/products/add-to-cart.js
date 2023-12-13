@@ -26,14 +26,15 @@ export async function addToCart(event) {
     const values = [...allValue].map(value => value);
 
     const categoryElement = list.querySelector('[data-category]');
+    const category = categoryElement ? categoryElement.textContent : "";
 
     const priceElement = list.querySelector('.cards__price');
     const price = priceElement ? priceElement.textContent : "";
 
     const obj = {
         _id: id,
-        category: categoryElement.dataset.category
-            ? categoryElement.dataset.category
+        category: category.dataset.category
+            ? category.dataset.category
             : "",
         img: list.querySelector('.cards__image-photo-js').src
             ? list.querySelector('.cards__image-photo-js').src
