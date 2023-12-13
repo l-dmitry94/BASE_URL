@@ -87,6 +87,7 @@
         line-height: 1.29;
         margin-bottom: 0;
         overflow-y: visible;
+        max-height: 125px;
     }
 }
 
