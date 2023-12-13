@@ -1,5 +1,8 @@
 import * as basicLightbox from 'basiclightbox';
 import 'basiclightbox/dist/basicLightbox.min.css';
+import SimpleBar from 'simplebar';
+import 'simplebar/dist/simplebar.css';
+
 import { fetchProduct } from '../requests/products';
 import { createModalCards } from '../services/markup';
 import { refs } from '../services/refs';
@@ -109,4 +112,6 @@ export async function handleModal(event) {
     });
 
     instance.show();
+
+    new SimpleBar(document.querySelector(".cards__desc-modal"));
 }

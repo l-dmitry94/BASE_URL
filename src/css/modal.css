@@ -52,3 +52,12 @@
     top: 14px;
     right: 14px;
 }
+
+.modal__item .simplebar-track.simplebar-vertical {
+    top: 0;
+    width: 5px !important;
+}
+
+.modal__item .simplebar-content-wrapper {
+    padding-right: 10px;
+}

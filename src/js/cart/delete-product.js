@@ -1,3 +1,6 @@
+import SimpleBar from 'simplebar';
+import 'simplebar/dist/simplebar.css';
+
 import { common } from "../common/common";
 import { quantityProduct } from "../helpers/helpers";
 import { createMarkupCartList, createMarkupEmptyCart } from "../services/markup";
@@ -25,6 +28,8 @@ export async function handleDeleteProduct(event) {
     saveData(cartArr, common.CART_KEY)
 
     refs.cartProducts.innerHTML = createMarkupCartList(cartArr)
+
+    new SimpleBar(document.querySelector(".cart__products"));
 
     generalSum();
 

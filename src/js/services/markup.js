@@ -183,19 +183,6 @@ export function createMarkupCartList(arr) {
                     </ul> 
                     <div class="cart__item-main">
                         <span class="cart__item-price">$${price}</span>
-                        <div class="cart__item-quantity">
-                            <button class="cart__item-button">
-                                <svg class="cart__item-minus">
-                                    <use href="${icons}#icon-minus"></use>
-                                </svg>
-                            </button>
-                            <span class="cart__item-number">1</span>
-                            <button class="cart__item-button">
-                                <svg class="cart__item-minus">
-                                    <use href="${icons}#icon-plus"></use>
-                                </svg>
-                            </button>
-                        </div>
                     </div>
                 </div>
                 <button class="cart__item-close">
