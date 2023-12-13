@@ -7,6 +7,12 @@ import {
 import { apiProducts } from '../services/api';
 import { createFiltresCards } from '../services/markup';
 import { dataAsString, refs } from '../services/refs';
+import Pagination from 'tui-pagination';
+// import { pagination } from '../services/pagination';
+import { handleBeforeMove } from '../services/pagination';
+import { options } from '../services/pagination';
+
+import { container } from '../services/pagination';
 import { checkProduct } from './check-products';
 
 // Функція обробки категорій які приходять з сервера
@@ -35,16 +41,22 @@ export function handleChange() {
             : null;
     storedData.category = inputValue;
 
-    localStorage.setItem('filter', JSON.stringify(storedData));
+    
     // console.log(storedData.category);
     if (storedData.category === null && storedData.keyword === null) {
-        localStorage.setItem('filter', dataAsString);
+        // localStorage.setItem('filter', dataAsString);
         storedData.category = null;
 
         fetchAllProducts().then(data => {
+            
             let markup = createFiltresCards(data.results);
-
+           
             refs.productsCards.innerHTML = markup;
+            options.totalItems = data.perPage * data.totalPages;
+            const pagination = new Pagination(container, options);
+            pagination.on('beforeMove', handleBeforeMove);
+            refs.paginationElement.style.display = 'block';
+            
         }).catch;
     } else if (storedData.category !== null && storedData.keyword === null) {
         fetchSearchProducts(
@@ -53,24 +65,49 @@ export function handleChange() {
             storedData.limit
         )
             .then(data => {
-                let test2 = createFiltresCards(data.results);
-                refs.productsCards.innerHTML = test2;
-                console.log(data);
+                if (data.totalPages === 0 || data.totalPages === 1) {
+                    console.log(data.results);
+                    let test2 = createFiltresCards(data.results);
+                    refs.productsCards.innerHTML = test2;
+                    refs.paginationElement.style.display = 'none';
+                } else {
+                    let test2 = createFiltresCards(data.results);
+                    refs.productsCards.innerHTML = test2;
+                    console.log(12);
+                    options.totalItems = data.perPage * data.totalPages;
+                    const pagination = new Pagination(container, options);
+                    pagination.on('beforeMove', handleBeforeMove);
+                    refs.paginationElement.style.display = 'block';
+                }
+                // pagination.movePageTo(1);
+                // options.totalItems = data.perPage * data.totalPages;
+                // const pagination = new Pagination(container, options);
+                // pagination.on('beforeMove', handleBeforeMove);
             })
             .catch(error => {
                 console.log(error);
             });
     } else if (storedData.category === null && storedData.keyword !== null) {
         localStorage.setItem('filter', JSON.stringify(storedData));
-        fetchAllProducts().then(data => {
+        fetchSearchProductsFilter(storedData.keyword,storedData.page,storedData.limit).then(data => {
+            if (data.totalPages === 0 || data.totalPages === 1) {
+                console.log(data.results);
+                let test2 = createFiltresCards(data.results);
+                refs.productsCards.innerHTML = test2;
+                refs.paginationElement.style.display = 'none';
+            } else {
             let test1 = createFiltresCards(data.results);
-            localStorage.setItem('filter', dataAsString);
-            refs.productsFilters.value = '';
+            storedData.category = null;
+            // refs.productsFilters.value = '';
             refs.productsCards.innerHTML = test1;
+            options.totalItems = data.perPage * data.totalPages;
+            const pagination = new Pagination(container, options);
+            pagination.on('beforeMove', handleBeforeMove);
+            }
             checkProduct();
         }).catch;
-        localStorage.setItem('filter', data1);
-        refs.productsFilters.value = '';
+        // localStorage.setItem('filter', data1);
+        // refs.productsFilters.value = '';
     } else if (storedData.category !== null && storedData.keyword !== null) {
         fetchSearchProductsFilters(
             storedData.keyword,
@@ -79,35 +116,80 @@ export function handleChange() {
             storedData.limit
         )
             .then(data => {
-                let test2 = createFiltresCards(data.results);
-                refs.productsCards.innerHTML = test2;
-                console.log(data);
+                if (data.totalPages === 0 || data.totalPages === 1) {
+                    console.log(data.results);
+                    let test2 = createFiltresCards(data.results);
+                    refs.productsCards.innerHTML = test2;
+                    refs.paginationElement.style.display = 'none';
+                } else {
+                    let test2 = createFiltresCards(data.results);
+                    refs.productsCards.innerHTML = test2;
+                    console.log(data);
+                    options.totalItems = data.perPage * data.totalPages;
+                    const pagination = new Pagination(container, options);
+                    pagination.on('beforeMove', handleBeforeMove);
+                    refs.paginationElement.style.display = 'block';
+                }
             })
             .catch(error => {
                 console.console.log();
                 error;
             });
     }
+    localStorage.setItem('filter', JSON.stringify(storedData));
 }
+const zeroResult = [];
 // Функція обробки submit в фукції filters
 export function handleSubmit(event) {
     event.preventDefault();
     const textInput = refs.input.value;
     let local = localStorage.getItem('filter');
+    console.log(textInput);
     let storedData = local ? JSON.parse(local) : {};
-
+    // pagination.movePageTo(1);
     const inputValue = textInput !== '' ? textInput : null;
-
+    // storedData.page = 1;
     storedData.keyword = inputValue;
     localStorage.setItem('filter', JSON.stringify(storedData));
     // console.log(storedData);
     let data1 = dataAsString;
-    if (storedData.keyword === null) {
+    // localStorage.setItem('filter', data1);
+    if (storedData.keyword === null && storedData.category !== null) {
+        fetchSearchProducts(
+            normalizeCategoryServ(storedData.category),
+            1,
+            storedData.limit
+        )
+            .then(data => {
+                console.log(data);
+                if (data.totalPages === 0 || data.totalPages === 1) {
+                    refs.paginationElement.style.display = 'none';
+                    let markup = createFiltresCards(data.results);
+                    refs.productsCards.innerHTML = markup;
+                } else {
+                    let markup = createFiltresCards(data.results);
+                    options.totalItems = data.perPage * data.totalPages;
+                    refs.paginationElement.style.display = 'block';
+                    const pagination = new Pagination(container, options);
+                    pagination.on('beforeMove', handleBeforeMove);
+                    // console.log(data1);
+                    refs.productsCards.innerHTML = markup;
+                }
+            })
+            .catch(error => {
+                console.error(error);
+                // Додаткова обробка помилки
+            });
+    } else if (storedData.keyword === null && storedData.category === null) {
         fetchAllProducts()
             .then(data => {
-                let markup = createFiltresCards(data.results);
-                localStorage.setItem('filter', data1);
+                console.log(data);
 
+                let markup = createFiltresCards(data.results);
+                options.totalItems = data.perPage * data.totalPages;
+                refs.paginationElement.style.display = 'block';
+                const pagination = new Pagination(container, options);
+                pagination.on('beforeMove', handleBeforeMove);
                 // console.log(data1);
                 refs.productsCards.innerHTML = markup;
             })
@@ -117,15 +199,27 @@ export function handleSubmit(event) {
             });
     } else if (storedData.keyword !== null && storedData.category === null) {
         // console.log('10');
+
         fetchSearchProductsFilter(
             storedData.keyword,
             storedData.page,
             storedData.limit
         )
             .then(data => {
-                // console.log('1');
-                let test2 = createFiltresCards(data.results);
-                refs.productsCards.innerHTML = test2;
+                if (data.totalPages === 0 || data.totalPages === 1) {
+                    console.log(data.results);
+                    let test2 = createFiltresCards(data.results);
+                    refs.productsCards.innerHTML = test2;
+                    refs.paginationElement.style.display = 'none';
+                } else {
+                    options.totalItems = data.perPage * data.totalPages;
+                    const pagination = new Pagination(container, options);
+
+                    pagination.on('beforeMove', handleBeforeMove);
+                    let test2 = createFiltresCards(data.results);
+                    refs.productsCards.innerHTML = test2;
+                    refs.paginationElement.style.display = 'block';
+                }
                 // console.log(data);
             })
             .catch(error => {
@@ -140,9 +234,20 @@ export function handleSubmit(event) {
             storedData.limit
         )
             .then(data => {
-                // console.log('1');
-                let test2 = createFiltresCards(data.results);
-                refs.productsCards.innerHTML = test2;
+                if (data.totalPages === 0 || data.totalPages === 1) {
+                    refs.paginationElement.style.display = 'none';
+                    console.log(data.results.length);
+                    let test2 = createFiltresCards(data.results);
+                    refs.productsCards.innerHTML = test2;
+                } else {
+                    // console.log('1');
+                    options.totalItems = data.perPage * data.totalPages;
+                    const pagination = new Pagination(container, options);
+                    // refs.paginationElement.style.display = 'block';
+                    pagination.on('beforeMove', handleBeforeMove);
+                    let test2 = createFiltresCards(data.results);
+                    refs.productsCards.innerHTML = test2;
+                }
             })
             .catch(error => {
                 console.error(error);
@@ -159,6 +264,10 @@ export function handleSubmit(event) {
                 // console.log('2');
                 let test2 = createFiltresCards(data.results);
                 refs.productsCards.innerHTML = test2;
+                options.totalItems = data.perPage * data.totalPages;
+                refs.paginationElement.style.display = 'block';
+                const pagination = new Pagination(container, options);
+                pagination.on('beforeMove', handleBeforeMove);
                 // console.log(data);
             })
             .catch(error => {
