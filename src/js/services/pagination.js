@@ -171,3 +171,21 @@ export function handleBeforeMove(event) {
     }
 }
 // export const pagination = new Pagination(container, options);
+
+function updatePaginationSettings() {
+    if (window.innerWidth >= 375) {
+        options.visiblePages = 4;
+        options.itemsPerPage = 9;
+    } else {
+        options.visiblePages = 2;
+        options.itemsPerPage = 6;
+    }
+
+
+}
+
+
+window.addEventListener('resize', updatePaginationSettings);
+
+
+updatePaginationSettings();
