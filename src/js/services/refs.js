@@ -12,7 +12,8 @@ export const refs = {
     cartQuantity: document.querySelectorAll(".cart-quantity"),
     deleteAllProductsFromCart: document.querySelector('.cart__delete-button'),
     totalPrice: document.querySelector('#cart__total'),
-    sendForm: document.querySelector(".checkout__field")
+    sendForm: document.querySelector(".checkout__field"),
+    paginationElement:document.querySelector('.tui-pagination')
 };
 export let baseDataToStore = {
     keyword: null,

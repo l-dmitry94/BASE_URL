@@ -8,16 +8,26 @@ import { refs } from './js/services/refs';
 import { dataAsString } from './js/services/refs';
 import './js/products/discount.js';
 import './js/products/popular.js';
-import {
-    createFiltresCards,
-    createPopularCards,
-} from './js/services/markup';
+import { createFiltresCards, createPopularCards } from './js/services/markup';
 import { handleChange } from './js/products/products';
 import { handleSubmit } from './js/products/products';
 import { normalizeCategory } from './js/products/products';
 // Отримуємо всі категорії
 import { fetchAllProductsPagination } from './js/requests/products';
 import Pagination from 'tui-pagination';
+import { options } from './js/services/pagination.js';
+import { container } from './js/services/pagination.js';
+import { handleBeforeMove } from './js/services/pagination.js';
+import { fetchSearchProductsFilter } from './js/requests/products';
+import { fetchSearchProductsFilters } from './js/requests/products';
+import { fetchSearchProducts } from './js/requests/products';
+import { normalizeCategoryServ } from './js/products/products';
+// import { pagination } from './js/services/pagination.js';
+
+
+
+
+
 
 
 import { addToCart } from './js/products/add-to-cart';
@@ -44,11 +54,35 @@ fetchAllCategories().then(data => {
     //   })
 }).catch;
 
+
+
 // Отримуємо всі продукти
 fetchAllProducts()
     .then(data => {
+        const {
+            totalItems,
+            itemsPerPage,
+            visiblePages,
+            page,
+            centerAlign,
+            firstItemClassName,
+            lastItemClassName,
+        } = options;
+
+        // const newTotalItems = data.perPage * data.totalPages;e
+
+        console.log(options);
+        // pagination = new Pagination(container, options);
+
+        // const pagination = new Pagination(container, options);
+
         let test1 = createFiltresCards(data.results);
         refs.productsCards.innerHTML = test1;
+        options.totalItems = data.perPage * data.totalPages;
+        const pagination = new Pagination(container, options);
+        pagination.on('beforeMove', handleBeforeMove);
+
+        // pagination = new Pagination(container, options);
     })
     .catch();
 
@@ -60,79 +94,22 @@ refs.btnSubmit.addEventListener('submit', handleSubmit);
 refs.productsFiltersSelect.addEventListener('change', handleChange);
 
 // !!!!!!!
-const container = refs.pagination;
-const options = {
-    // below default value of options
-    totalItems: 100,
-    itemsPerPage: 6,
-    visiblePages: 3,
-    page: 1,
-    centerAlign: false,
-    firstItemClassName: 'tui-first-child',
-    lastItemClassName: 'tui-last-child',
-    template: {
-        page: '<a href="#" class="tui-page-btn">{{page}}</a>',
-        currentPage:
-            '<strong class="tui-page-btn tui-is-selected">{{page}}</strong>',
-        moveButton:
-            '<a href="#" class="tui-page-btn tui-{{type}}">' +
-            '<span class="tui-ico-{{type}}">{{type}}</span>' +
-            '</a>',
-        disabledMoveButton:
-            '<span class="tui-page-btn tui-is-disabled tui-{{type}}">' +
-            '<span class="tui-ico-{{type}}">{{type}}</span>' +
-            '</span>',
-        moreButton:
-            '<a href="#" class="tui-page-btn tui-{{type}}-is-ellip">' +
-            '<span class="tui-ico-ellip">...</span>' +
-            '</a>',
-    },
-};
 
 
+// pagination.on('beforeMove', handleBeforeMove);
 
-const pagination = new Pagination(container, options);
 
-pagination.on('beforeMove', event => {
-    const currentPage = event.page;
-    const selectedOption =
-        refs.productsFiltersSelect.options[
-            refs.productsFiltersSelect.selectedIndex
-        ];
-    let local = localStorage.getItem('filter');
-    let storedData = local ? JSON.parse(local) : {};
-    const inputValue =
-        selectedOption.textContent !== 'Show all'
-            ? selectedOption.textContent
-            : null;
-    storedData.category = inputValue;
-    let data1 = dataAsString;
-    storedData.page = currentPage;
-    localStorage.setItem('filter', JSON.stringify(storedData));
-
-    if (storedData.keyword === null&& storedData.category === null) {
-        fetchAllProductsPagination(currentPage, storedData.limit)
-            .then(data => {
-                let markup = createFiltresCards(data.results);
-                console.log(storedData.page);
-                
-                localStorage.setItem('filter', data1);
-
-                // console.log(data1);
-                refs.productsCards.innerHTML = markup;
-            })
-            .catch(error => {
-                console.error(error);
-                // Додаткова обробка помилки
-            });
-    }
-
-    
+    // const pagination = new Pagination(container, options);
+    // const updatedOptions = {
+    //     ...options, // Копіюємо поточні дані з options
+    //     totalItems: newTotalItems,
+    // }
     // if (currentPage === currentPage) {
     //     return console.log(currentPage);
     //     // return true;
     // }
-});
+
+
 refs.productsCards.addEventListener('click', event => event.preventDefault());
 
 refs.productsCards.addEventListener('click', addToCart);
