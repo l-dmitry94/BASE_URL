@@ -42,7 +42,6 @@
     width: 20px;
     height: 20px;
     background-color: var(--grey);
-    fill: var(--green);
     padding: 4px;
     border-radius: 30px;
     position: absolute;
@@ -51,26 +50,28 @@
     transition: background-color 250ms cubic-bezier(0.4, 0, 0.2, 1);
     transition: fill 250ms cubic-bezier(0.4, 0, 0.2, 1);
 }
-.popular__card-button:hover,
-.popular__card-button:focus {
-    background-color: var(--green);
-    fill: var(--grey);
-}
+
 .popular__card-button svg {
     width: 12px;
     height: 12px;
-}
-
-.popular__icon-cart {
-    width: 12px;
-    height: 12px;
-}
-
-.popular__card-button .icon-checked {
-    width: 12px;
-    height: 12px;
-    fill: transparent;
+    fill: var(--green);
     stroke: var(--green);
+}
+.popular__card-button:hover {
+    background-color: var(--green);
+}
+.popular__card-button:hover svg {
+    fill: var(--grey);
+    /* stroke: var(--grey); */
+}
+
+.popular__card-button svg.icon-checked {
+    fill: var(--grey);
+}
+
+.popular__card-button:hover svg.icon-checked {
+    stroke: var(--grey);
+    fill: var(--green);
 }
 
 .popular__card-description .cards__info {

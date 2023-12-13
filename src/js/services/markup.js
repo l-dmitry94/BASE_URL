@@ -75,7 +75,7 @@ export function createPopularCards(arr) {
                         </ul>
                 </div>
                 <button class="popular__card-button cards__button" type="button">
-                    <svg class="popular__icon__cart">
+                    <svg class="icon__cart">
                         <use href="${icons}#icon-cart"></use>
                     </svg>
                 </button>
@@ -257,5 +257,5 @@ export function createMarkupEmptyKeywordFilter() {
                 criteria to find the perfect product for you.
             </p>
         </div>
-        `
+        `;
 }

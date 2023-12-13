@@ -112,7 +112,7 @@ input[type='search']::-webkit-search-results-decoration {
     color: rgba(1, 1, 1, 0.3);
     font-size: 12px;
     font-weight: 400;
-    line-height: 1.17; 
+    line-height: 1.17;
 }
 .cards__info-value {
     color: var(--black);
@@ -136,14 +136,13 @@ input[type='search']::-webkit-search-results-decoration {
     height: 34px;
     transition: background-color 250ms cubic-bezier(0.4, 0, 0.2, 1);
 }
-
+.cards__button:hover {
+    background-color: var(--dark-green);
+}
 .products__filters-item:last-child .input {
     background-color: var(--light-grey);
 }
-.cards__button:hover,
-.cards__button:focus {
-    background-color: var(--dark-green);
-}
+
 .icon__cart {
     width: 18px;
     height: 18px;
@@ -235,7 +234,6 @@ input[type='search']::-webkit-search-results-decoration {
 }
 
 @media screen and (min-width: 1304px) {
-
     .products__main {
         max-width: 925px;
         width: 100%;
@@ -246,7 +244,7 @@ input[type='search']::-webkit-search-results-decoration {
     .input {
         font-size: 18px;
         font-weight: 400;
-        line-height: 1.33; 
+        line-height: 1.33;
     }
     .cards {
         gap: 40px 20px;
