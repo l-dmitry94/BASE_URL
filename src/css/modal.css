@@ -30,11 +30,14 @@
 }
 
 .add__to-button {
-    width: 116px;
-    height: 42px;
-    padding: 24px 12px;
+    padding: 12px 24px;
     color: var(--light-grey);
     gap: 10px;
+}
+
+.add__to-button.cards__button {
+    width: auto;
+    height: auto;
 }
 
 .modal__info {
