@@ -230,3 +230,12 @@ border-radius: 60px;
      padding: 8px 0 8px;
      vertical-align: top
  }
+
+ /* MEDIA */
+@media screen and (min-width: 375px){
+
+
+    #pagination1 .tui-page-btn  {
+   height: 40px;
+}
+}

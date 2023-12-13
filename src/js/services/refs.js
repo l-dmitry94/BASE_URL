@@ -1,3 +1,4 @@
+// import { options } from "./pagination";
 export const refs = {
     productsFilters: document.querySelector('.products__filters-input'),
     productsFiltersSelect: document.querySelector('.products__filters-select'),
