@@ -32,10 +32,10 @@ export async function addToCart(event) {
     
     localStorage.setItem(common.CART_KEY, JSON.stringify(cartArr));
 
-    // const checkItem = cartArr.some(({_id}) => id === _id);
+    const checkItem = cartArr.some(({_id}) => id === _id);
 
-    // if(checkItem) {
-    //     addBtn.innerHTML = `<svg class="icon-checked"><use href="${check}#icon-check"></use></svg>`
-    // }
+    if(checkItem) {
+        addBtn.innerHTML = `<svg class="icon-checked"><use href="${check}#icon-check"></use></svg>`
+    }
 
 }

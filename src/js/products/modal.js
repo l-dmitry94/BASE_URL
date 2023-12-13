@@ -35,38 +35,36 @@ export async function handleModal(event) {
                 modalBtn.innerHTML = `Remove from <svg class="icon__cart" width="18" height="18"><use href="${icons}#icon-cart"></use></svg>`;
             }
 
-            if(!inStorage) {
-                modalProduct.addEventListener("click", addToCart)
-            } else {
-                modalBtn.addEventListener("click", () => {
-                    if(inStorage) {
-                        const findProductIndex = cartArr.findIndex(({_id}) => _id === id)
-                        if(findProductIndex !== -1) {
-                            cartArr.splice(findProductIndex, 1);
-                        }
-                        
-                        saveData(cartArr, common.CART_KEY)
-                        modalBtn.innerHTML = `Add to <svg class="icon__cart" width="18" height="18"><use href="${icons}#icon-cart"></use></svg>`;
+            modalBtn.addEventListener('click', () => {
+                const cartArr = getData(common.CART_KEY);
+                const inStorage = cartArr.some(({ _id }) => id === _id);
+                
+                if (inStorage) {
+                    const findProductIndex = cartArr.findIndex(
+                        ({ _id }) => _id === id
+                    );
+                    if (findProductIndex !== -1) {
+                        cartArr.splice(findProductIndex, 1);
                     }
-            })
+                    saveData(cartArr, common.CART_KEY);
+                    modalBtn.innerHTML = `Add to <svg class="icon__cart" width="18" height="18"><use href="${icons}#icon-cart"></use></svg>`;
+                } else {
+                    const inStorage = cartArr.some(({ _id }) => id === _id);
 
-            //  else {
+                    if (inStorage) {
+                        return;
+                    }
 
-            //         // cartArr.push(inStorage);
-            //         // saveData(cartArr, common.CART_KEY)
-            //         modalBtn.innerHTML = `Remove from <svg class="icon__cart" width="18" height="18"><use href="${icons}#icon-cart"></use></svg>`;
-            //     }
-            };
+                    cartArr.push(product);
 
+                    saveData(cartArr, common.CART_KEY)
 
-            // const cartArr = getData(common.CART_KEY);
-            // const inStorage = cartArr.some(({ _id }) => _id === id);
+                    modalBtn.innerHTML = `Remove from <svg class="icon__cart" width="18" height="18"><use href="${icons}#icon-cart"></use></svg>`;
 
-            // if (inStorage) {
-            //     modalBtn.innerHTML = `<svg class="icon-checked"><use href="${check}#icon-check"></use></svg>`;
-            // }
+                }
+            });
 
-            // checkProduct();
+            checkProduct();
             instance.element().querySelector('.modal__item-close').onclick =
                 instance.close;
         },
