@@ -13,7 +13,7 @@ export const container = refs.pagination;
 export const options = {
     // below default value of options
     totalItems: 100,
-    itemsPerPage: 6,
+    itemsPerPage: 9,
     visiblePages: 2,
     page: 1,
     centerAlign: false,
@@ -171,3 +171,24 @@ export function handleBeforeMove(event) {
     }
 }
 // export const pagination = new Pagination(container, options);
+
+
+
+
+
+
+// function updatePaginationSettings() {
+//     if (window.innerWidth >= 768) {
+//         options.visiblePages = 4;
+//         options.itemsPerPage = 9;
+//     } else {
+//         options.visiblePages = 2;
+//         options.itemsPerPage = 6;
+//     }
+
+
+// }
+
+// window.addEventListener('resize', updatePaginationSettings);
+
+// updatePaginationSettings();
