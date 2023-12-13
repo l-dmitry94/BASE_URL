@@ -244,3 +244,18 @@ export function createMarkupSuccessOrder(message) {
         </div>
     `;
 }
+
+export function createMarkupEmptyKeywordFilter() {
+    return `
+        <div class="markup">
+            <h3 class="markup-title">
+                Nothing was found for the selected
+                <span class="markup-title-span">filters...</span>
+            </h3>
+            <p class="markup-descr">
+                Try adjusting your search parameters or browse our range by other
+                criteria to find the perfect product for you.
+            </p>
+        </div>
+        `
+}
