@@ -1,9 +1,16 @@
 .modal__item {
+    display: flex;
+    flex-direction: column;
     width: 335px;
     height: auto;
     border-radius: 20px;
     background: var(--light-grey);
     padding: 40px 20px;
+}
+
+.cards__main-upper {
+    display: flex;
+    flex-direction: column;
 }
 
 .cards__image-photo {
@@ -51,4 +58,37 @@
     position: absolute;
     top: 14px;
     right: 14px;
+}
+
+@media screen and (min-width: 768px) {
+    .modal__item {
+        flex-direction: column;
+        width: 600px;
+        padding: 40px;
+    }
+
+    .cards__main-upper {
+        flex-direction: row;
+    }
+
+    .cards__image-photo {
+        padding: 26px 40px;
+        width: 240px;
+        margin-bottom: 48px;
+        margin-right: 24px;
+    }
+
+    .modal__info {
+        padding-bottom: 24px;
+    }
+
+    .cards__desc-modal {
+        font-size: 16px;
+        line-height: 1.29;
+        margin-bottom: 0;
+        overflow-y: visible;
+    }
+}
+
+@media screen and (min-width: 1240px) {
 }

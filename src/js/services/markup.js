@@ -124,8 +124,10 @@ export function createModalCards({
     desc,
 }) {
     return `<div class="modal__item cards__item" data-id="${_id}">
-                <img class="cards__image-photo" src="${img}" alt="${name}" />
-                <div class="cards__main up">
+                <div class="cards__main-upper">
+                    <img class="cards__image-photo" src="${img}" alt="${name}" />
+                    <div class="cards__main up">
+                </div>
       <div class="cards__main-modal">
       <h4 class="cards__title modal">${name}</h4>
                     <ul class="modal__info">
