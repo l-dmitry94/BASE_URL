@@ -20,7 +20,7 @@ export function createFiltresCards(arr) {
                         <h4 class="cards__title">${name}</h4>
                         <ul class="cards__info">
                             <li class="cards__info-item">
-                            <p class="cards__info-title">Category: <span class="cards__info-value">${normalizeCategory(
+                            <p class="cards__info-title">Category: <span class="cards__info-value" data-category="${category}">${normalizeCategory(
                                 category
                             )}</span></p>
                         
@@ -60,7 +60,7 @@ export function createPopularCards(arr) {
                     <h4 class="cards__title">${name}</h4>
                      <ul class="popular__info">
                             <li class="cards__info-item">
-                            <p class="cards__info-title">Category: <span class="cards__info-value">${normalizeCategory(
+                            <p class="cards__info-title">Category: <span class="cards__info-value" data-category="${category}">${normalizeCategory(
                                 category
                             )}</span></p>
                         

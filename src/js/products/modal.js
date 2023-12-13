@@ -52,6 +52,11 @@ export async function handleModal(event) {
 
             productButtons.forEach(productBtn => {
                 productBtn.innerHTML = `<svg class="icon__cart" width="18" height="18"><use href="${icons}#icon-cart"></use></svg>`;
+
+                if(productBtn.closest(".popular__item")) {
+                    productBtn.innerHTML = `<svg class="cart-green" width="18" height="18"><use href="${icons}#icon-cart"></use></svg>`;
+
+                }
             });
 
             modalBtn.innerHTML = `Add to <svg class="icon__cart" width="18" height="18"><use href="${icons}#icon-cart"></use></svg>`;
