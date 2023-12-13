@@ -147,9 +147,6 @@ pagination.on('beforeMove', event => {
     //     // return true;
     // }
 
-
-refs.productsCards.addEventListener('click', event => event.preventDefault());
-
 refs.productsCards.addEventListener('click', addToCart);
 refs.popularCards.addEventListener('click', addToCart);
 refs.discountCards.addEventListener('click', addToCart);

@@ -97,9 +97,6 @@
         flex-wrap: wrap;
         gap: 13px;
     }
-    .popular__card-description {
-        padding: 0 15px 0 0;
-    }
     .popular__item {
         width: 275px;
     }

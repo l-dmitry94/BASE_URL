@@ -64,10 +64,6 @@ input[type='search']::-webkit-search-results-decoration {
     -webkit-appearance: none;
 }
 
-.products__filters-item:last-child .input {
-    background-color: var(--light-grey);
-}
-
 .cards {
     display: inline-flex;
     flex-direction: column;
@@ -235,6 +231,11 @@ input[type='search']::-webkit-search-results-decoration {
 }
 
 @media screen and (min-width: 1304px) {
+
+    .products__main {
+        max-width: 925px;
+        width: 100%;
+    }
     .products__filters {
         margin-bottom: 60px;
     }
@@ -261,7 +262,6 @@ input[type='search']::-webkit-search-results-decoration {
         flex-wrap: wrap;
         align-items: center;
         max-width: 220px;
-        height: auto;
         margin-bottom: 20px;
     }
 }

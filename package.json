@@ -19,6 +19,7 @@
     "basiclightbox": "^5.0.4",
     "modern-normalize": "^2.0.0",
     "notiflix": "^3.2.6",
+    "simplebar": "^6.2.5",
     "slim-select": "^2.7.1",
     "tui-pagination": "^3.4.1",
     "vite-plugin-full-reload": "^1.0.5",
