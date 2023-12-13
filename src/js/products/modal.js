@@ -40,12 +40,22 @@ export async function handleModal(event) {
                 '.header__menu-link-quantity'
             );
             quantity.textContent = cartArr.length;
+
             saveData(cartArr, common.CART_KEY);
             if (!cartArr.length) {
                 localStorage.removeItem(common.CART_KEY);
             }
 
+            const productButtons = document.querySelectorAll(
+                `[data-id="${id}"] .cards__button`
+            );
+
+            productButtons.forEach(productBtn => {
+                productBtn.innerHTML = `<svg class="icon__cart" width="18" height="18"><use href="${icons}#icon-cart"></use></svg>`;
+            });
+
             modalBtn.innerHTML = `Add to <svg class="icon__cart" width="18" height="18"><use href="${icons}#icon-cart"></use></svg>`;
+
         } else {
             const inStorage = cartArr.some(({ _id }) => id === _id);
 
@@ -61,6 +71,16 @@ export async function handleModal(event) {
             quantity.textContent = cartArr.length;
 
             saveData(cartArr, common.CART_KEY);
+
+            cartArr.forEach(({ _id }) => {
+                const products = document.querySelectorAll(
+                    `[data-id="${_id}"]`
+                );
+                products.forEach(product => {
+                    const productBtn = product.querySelector('.cards__button');
+                    productBtn.innerHTML = `<svg class="icon-checked"><use href="${icons}#icon-check"></use></svg>`;
+                });
+            });
 
             modalBtn.innerHTML = `Remove from <svg class="icon__cart" width="18" height="18"><use href="${icons}#icon-cart"></use></svg>`;
         }
@@ -113,5 +133,5 @@ export async function handleModal(event) {
 
     instance.show();
 
-    new SimpleBar(document.querySelector(".cards__desc-modal"));
+    new SimpleBar(document.querySelector('.cards__desc-modal'));
 }

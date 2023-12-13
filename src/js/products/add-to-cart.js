@@ -2,6 +2,7 @@ import { common } from '../common/common';
 import { fetchProduct } from '../requests/products';
 import { getData } from '../services/storage';
 import check from '../../img/icons.svg';
+import icons from '../../img/icons.svg';
 import { checkProduct } from './check-products';
 
 const cartArr = getData(common.CART_KEY);
@@ -32,9 +33,12 @@ export async function addToCart(event) {
 
     localStorage.setItem(common.CART_KEY, JSON.stringify(cartArr));
 
-    const checkItem = cartArr.some(({ _id }) => id === _id);
+    cartArr.forEach(({_id}) => {
+        const products = document.querySelectorAll(`[data-id="${_id}"]`);
+        products.forEach(product => {
+            const productBtn = product.querySelector(".cards__button");
+            productBtn.innerHTML = `<svg class="icon-checked"><use href="${check}#icon-check"></use></svg>`;
+        })
+    })
 
-    if (checkItem) {
-        addBtn.innerHTML = `<svg class="icon-checked"><use href="${check}#icon-check"></use></svg>`;
-    }
 }

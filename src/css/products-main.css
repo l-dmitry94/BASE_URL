@@ -136,6 +136,10 @@ input[type='search']::-webkit-search-results-decoration {
     height: 34px;
     transition: background-color 250ms cubic-bezier(0.4, 0, 0.2, 1);
 }
+
+.products__filters-item:last-child .input {
+    background-color: var(--light-grey);
+}
 .cards__button:hover,
 .cards__button:focus {
     background-color: var(--dark-green);
