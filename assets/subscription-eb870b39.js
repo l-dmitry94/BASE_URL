@@ -222,4 +222,4 @@ import{a as $,P as p,b as I}from"./vendor-59e0408b.js";(function(){const a=docum
         </div>
     </div>
 `,{onShow:n=>{window.addEventListener("keydown",o),s=n.element().querySelector(".footer__modal-close"),s.addEventListener("click",()=>n.close()),document.body.classList.add("modal-open")},onClose:()=>{s.removeEventListener("click",()=>a.close()),window.removeEventListener("keydown",o),document.body.classList.remove("modal-open")}});a.show();function o(n){n.code==="Escape"&&a.close()}};H.addEventListener("submit",K);function K(s){s.preventDefault();const{value:a}=s.currentTarget.elements.email;a!==""&&(Q(a),s.target.reset())}async function Q(s){try{(await B({method:"POST",data:{email:s}})).statusText==="Created"&&C()}catch({response:a}){a.statusText==="Conflict"&&Y()}}export{le as A,U as B,de as a,ue as b,O as c,Z as d,pe as e,oe as f,N as g,ce as h,q as i,ae as j,re as k,se as l,d as m,ie as n,te as o,S as p,X as q,l as r,ee as s,W as t,A as u,u as v,m as w,i as x,_ as y,ne as z};
-//# sourceMappingURL=subscription-04da1f98.js.map
+//# sourceMappingURL=subscription-eb870b39.js.map
