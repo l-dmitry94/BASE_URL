@@ -3,6 +3,7 @@ import { refs } from '../services/refs';
 import { createFiltresCards } from '../services/markup';
 import { dataAsString } from '../services/refs';
 import { checkProduct } from '../products/check-products';
+import { options } from '../services/pagination';
 
 export async function fetchAllCategories() {
     const response = await apiProducts({
@@ -18,11 +19,12 @@ export async function fetchAllCategories() {
 export async function fetchAllProducts() {
     const response = await apiProducts({
         method: 'GET',
+        url: `?page=1&limit=${options.itemsPerPage}`,
     });
     checkProduct();
 
     // console.log(response.data);
-
+   
     return response.data;
 }
 export async function fetchAllProductsPagination(page,limit) {

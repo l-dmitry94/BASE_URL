@@ -73,7 +73,7 @@ export function handleBeforeMove(event) {
     const inputSelectet1 = refs.productsFiltersSelect.value;
 
     if (storedData.keyword === null && inputSelectet1 === 'Show all') {
-        fetchAllProductsPagination(currentPage, storedData.limit)
+        fetchAllProductsPagination(currentPage, options.itemsPerPage)
             .then(data => {
                 let markup = createFiltresCards(data.results);
                 // console.log(storedData.page);
@@ -98,7 +98,7 @@ export function handleBeforeMove(event) {
         fetchSearchProductsFilter(
             storedData.keyword,
             currentPage,
-            storedData.limit
+            options.itemsPerPage
         )
             .then(data => {
                 console.log(
@@ -124,7 +124,7 @@ export function handleBeforeMove(event) {
             storedData.keyword,
             storedData.category,
             currentPage,
-            storedData.limit
+            options.itemsPerPage
         )
             .then(data => {
                 console.log(
@@ -149,7 +149,7 @@ export function handleBeforeMove(event) {
         fetchSearchProducts(
             normalizeCategoryServ(storedData.category),
             currentPage,
-            storedData.limit
+            options.itemsPerPage
         )
             .then(data => {
                 let markup = createFiltresCards(data.results);
@@ -177,18 +177,19 @@ export function handleBeforeMove(event) {
 
 
 
-// function updatePaginationSettings() {
-//     if (window.innerWidth >= 768) {
-//         options.visiblePages = 4;
-//         options.itemsPerPage = 9;
-//     } else {
-//         options.visiblePages = 2;
-//         options.itemsPerPage = 6;
-//     }
+function updatePaginationSettings() {
+    if (window.innerWidth < 376) {
+        options.visiblePages = 2;
+        options.itemsPerPage = 6;
+    } else if (window.innerWidth >= 376 && window.innerWidth <= 1303) {
+        options.visiblePages = 3;
+        options.itemsPerPage = 8;
+    } else {
+        options.visiblePages = 4;
+        options.itemsPerPage = 9;
+    }
+}
 
+window.addEventListener('resize', updatePaginationSettings);
 
-// }
-
-// window.addEventListener('resize', updatePaginationSettings);
-
-// updatePaginationSettings();
+updatePaginationSettings();
