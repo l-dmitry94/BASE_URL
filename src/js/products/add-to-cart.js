@@ -27,33 +27,36 @@ export async function addToCart(event) {
 
     const categoryElement = list.querySelector('[data-category]');
 
-    const price = list.querySelector('.cards__price').textContent;
+    const priceElement = list.querySelector('.cards__price');
+    const price = priceElement ? priceElement.textContent : "";
 
     const obj = {
         _id: id,
         category: categoryElement.dataset.category
             ? categoryElement.dataset.category
-            : null,
+            : "",
         img: list.querySelector('.cards__image-photo-js').src
             ? list.querySelector('.cards__image-photo-js').src
-            : null,
+            : "",
         name: list.querySelector('.cards__title').textContent
             ? list.querySelector('.cards__title').textContent
-            : null,
-        popularity: values[2].textContent ? values[2].textContent : null,
-        price: Number(price.slice(1)) ? Number(price.slice(1)) : null,
-        size: values[1].textContent ? values[1].textContent : null,
+            : "",
+        popularity: values[2].textContent ? values[2].textContent : "",
+        price: Number(price.slice(1)) ? Number(price.slice(1)) : "",
+        size: values[1].textContent ? values[1].textContent : "",
     };
 
-    const existingIndex = cartArr.findIndex(item => item._id === obj._id);
+    if(obj) {
+        console.log(true)
+    } else console.log(false)
 
-    if (existingIndex !== -1) {
-        // Update existing object if it already exists
-        cartArr[existingIndex] = obj;
-    } else {
-        // Add the new object to cartArr
-        cartArr.push(obj);
+    const inStorage = cartArr.some(({ _id }) => id === _id);
+
+    if (inStorage) {
+        return;
     }
+
+    cartArr.push(obj);
 
     const quantity = document.querySelector('.header__menu-link-quantity');
     quantity.textContent = cartArr.length;

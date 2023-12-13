@@ -54,7 +54,7 @@ export function createPopularCards(arr) {
                 `<li class="cards__item popular__item" data-id="${_id}">
                     <a class="popular__link" href="#">
                 <div class="cards__background-img popular__img">
-                    <img class="popular__image-photo-js" src="${img}" alt="${name}" />
+                    <img class="cards__image-photo-js" src="${img}" alt="${name}" />
                 </div>
                 <div class="popular__card-description">
                     <h4 class="cards__title">${name}</h4>
@@ -92,7 +92,7 @@ export function createDiscountCards(arr) {
                 `<li class="discount__item cards__item" data-id="${_id}">
                  <a class="discount__link cards__link" href="#">
                   <div class="discount__image">
-            <img class="discount__image-photo-js" src="${img}" alt="${name}" /> </div>
+            <img class="cards__image-photo-js" src="${img}" alt="${name}" /> </div>
             <div class="discount__descr">
             <p class="cards__title">${name}</p>
                     <div class="discount__price-container">
