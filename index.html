@@ -9,8 +9,8 @@
         
       <script type="module" crossorigin src="/BASE_URL/commonHelpers2.js"></script>
       <link rel="modulepreload" crossorigin href="/BASE_URL/assets/vendor-59e0408b.js">
-      <link rel="modulepreload" crossorigin href="/BASE_URL/assets/subscription-647d1d30.js">
-      <link rel="stylesheet" href="/BASE_URL/assets/subscription-0fe644cf.css">
+      <link rel="modulepreload" crossorigin href="/BASE_URL/assets/subscription-04da1f98.js">
+      <link rel="stylesheet" href="/BASE_URL/assets/subscription-1c002d4d.css">
       <link rel="stylesheet" href="/BASE_URL/assets/vendor-3dc8c308.css">
     </head>
     <body>
@@ -18,11 +18,11 @@
     <div class="container">
         <div class="header__wrapper">
             <a class="logo" href="./">
-                <button class="logo__button">
+                <span class="logo__button">
                     <svg class="logo__icon">
                         <use href="/BASE_URL/assets/icons-30be3c26.svg#icon-logo"></use>
                     </svg>
-                </button>
+                </span>
                 Food Boutique
             </a>
             <nav>
@@ -32,14 +32,13 @@
                     </li>
                     <li class="header__menu-item">
                         <a class="header__menu-link" href="./cart-main.html">
-                            <button
+                            <span
                                 class="header__menu-link-button"
-                                type="button"
                             >
                                 <svg class="header__menu-link-icon">
                                     <use href="/BASE_URL/assets/icons-30be3c26.svg#icon-cart"></use>
                                 </svg>
-                            </button>
+                            </span>
                             <span class="header__menu-link-counter">
                                 Cart (<span class="cart-quantity header__menu-link-quantity"
                                     >0</span
@@ -126,7 +125,7 @@
                     class="products__filters-select input"
                     name="categories"
                 >
-                    <option selected value="Show All">Show all</option>;
+                    <option selected value="Show All">Show all</option>
                 </select>
             </li>
             <li class="products__filters-item">
@@ -169,11 +168,11 @@
         <div class="footer__wrap">
             <div class="footer__cover-logo-social">
                 <a class="logo" href="./">
-                    <button class="logo__button">
+                    <span class="logo__button">
                         <svg class="logo__icon">
                             <use href="/BASE_URL/assets/icons-30be3c26.svg#icon-logo"></use>
                         </svg>
-                    </button>
+                    </span>
                     Food Boutique
                 </a>
 
@@ -237,6 +236,8 @@
                                 type="email"
                                 name="email"
                                 placeholder="Email"
+                                pattern="[a-zA-Z0-9._%+-]+@[a-zA-Z0-9.-]+\.[a-zA-Z]{2,}"
+                                required
                             />
                         </label>
                         <button class="footer__form-submit" type="submit">

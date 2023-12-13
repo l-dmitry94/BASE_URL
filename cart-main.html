@@ -4,24 +4,24 @@
         <meta charset="UTF-8" />
         <link rel="icon" type="image/svg+xml" href="/BASE_URL/favicon.svg" />
         <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-        <title>Food Cart</title>
+        <title>Food Boutique</title>
         
       <script type="module" crossorigin src="/BASE_URL/commonHelpers.js"></script>
       <link rel="modulepreload" crossorigin href="/BASE_URL/assets/vendor-59e0408b.js">
-      <link rel="modulepreload" crossorigin href="/BASE_URL/assets/subscription-647d1d30.js">
+      <link rel="modulepreload" crossorigin href="/BASE_URL/assets/subscription-04da1f98.js">
       <link rel="stylesheet" href="/BASE_URL/assets/vendor-3dc8c308.css">
-      <link rel="stylesheet" href="/BASE_URL/assets/subscription-0fe644cf.css">
+      <link rel="stylesheet" href="/BASE_URL/assets/subscription-1c002d4d.css">
     </head>
     <body>
         <header class="header">
     <div class="container">
         <div class="header__wrapper">
             <a class="logo" href="./">
-                <button class="logo__button">
+                <span class="logo__button">
                     <svg class="logo__icon">
                         <use href="/BASE_URL/assets/icons-30be3c26.svg#icon-logo"></use>
                     </svg>
-                </button>
+                </span>
                 Food Boutique
             </a>
             <nav>
@@ -31,14 +31,13 @@
                     </li>
                     <li class="header__menu-item">
                         <a class="header__menu-link" href="./cart-main.html">
-                            <button
+                            <span
                                 class="header__menu-link-button"
-                                type="button"
                             >
                                 <svg class="header__menu-link-icon">
                                     <use href="/BASE_URL/assets/icons-30be3c26.svg#icon-cart"></use>
                                 </svg>
-                            </button>
+                            </span>
                             <span class="header__menu-link-counter">
                                 Cart (<span class="cart-quantity header__menu-link-quantity"
                                     >0</span
@@ -103,6 +102,7 @@
                                 name="email"
                                 placeholder="Enter your email"
                                 id="cart__client-email"
+                                pattern="[a-zA-Z0-9._%+\-]+@[a-zA-Z0-9.\-]+\.[a-zA-Z]{2,4}$"
                             />
                         </label>
 
@@ -126,11 +126,11 @@
         <div class="footer__wrap">
             <div class="footer__cover-logo-social">
                 <a class="logo" href="./">
-                    <button class="logo__button">
+                    <span class="logo__button">
                         <svg class="logo__icon">
                             <use href="/BASE_URL/assets/icons-30be3c26.svg#icon-logo"></use>
                         </svg>
-                    </button>
+                    </span>
                     Food Boutique
                 </a>
 
@@ -194,6 +194,8 @@
                                 type="email"
                                 name="email"
                                 placeholder="Email"
+                                pattern="[a-zA-Z0-9._%+-]+@[a-zA-Z0-9.-]+\.[a-zA-Z]{2,}"
+                                required
                             />
                         </label>
                         <button class="footer__form-submit" type="submit">
