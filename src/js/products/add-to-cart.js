@@ -16,7 +16,6 @@ export async function addToCart(event) {
         return;
     }
 
-    console.log(addBtn);
     const { id } = addBtn.closest('.cards__item').dataset;
 
     const list = addBtn.closest('.cards__item');
@@ -26,25 +25,26 @@ export async function addToCart(event) {
     const values = [...allValue].map(value => value);
 
     const categoryElement = list.querySelector('[data-category]');
-    const category = categoryElement ? categoryElement.textContent : "";
+    const category = categoryElement?.textContent || "";
 
     const priceElement = list.querySelector('.cards__price');
     const price = priceElement ? priceElement.textContent : "";
 
+    const popularity = values[2]?.textContent || "";
+    const size = values[1]?.textContent || "";
+
     const obj = {
         _id: id,
-        category: category.dataset.category
-            ? category.dataset.category
-            : "",
+        category: category,
         img: list.querySelector('.cards__image-photo-js').src
             ? list.querySelector('.cards__image-photo-js').src
             : "",
         name: list.querySelector('.cards__title').textContent
             ? list.querySelector('.cards__title').textContent
             : "",
-        popularity: values[2].textContent ? values[2].textContent : "",
-        price: Number(price.slice(1)) ? Number(price.slice(1)) : "",
-        size: values[1].textContent ? values[1].textContent : "",
+        popularity: popularity,
+        price: Number(price.slice(1)),
+        size: size,
     };
 
     if(obj) {
