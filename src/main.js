@@ -71,7 +71,6 @@ fetchAllProducts()
 
         // const newTotalItems = data.perPage * data.totalPages;e
 
-        console.log(options);
         // pagination = new Pagination(container, options);
 
         // const pagination = new Pagination(container, options);
@@ -128,11 +127,9 @@ pagination.on('beforeMove', event => {
         fetchAllProductsPagination(currentPage, storedData.limit)
             .then(data => {
                 let markup = createFiltresCards(data.results);
-                console.log(storedData.page);
 
                 localStorage.setItem('filter', data1);
 
-                // console.log(data1);
                 refs.productsCards.innerHTML = markup;
             })
             .catch(error => {
@@ -143,7 +140,6 @@ pagination.on('beforeMove', event => {
 })
 
     // if (currentPage === currentPage) {
-    //     return console.log(currentPage);
     //     // return true;
     // }
 

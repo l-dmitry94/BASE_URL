@@ -15,12 +15,12 @@ export function createFiltresCards(arr) {
                 <li class="cards__item" data-id="${_id}">
                 <a class="cards__link" href="#">
                         <div class="cards__background-img">
-                            <img class="cards__image-photo-js" src="${img}" alt="${name}" />
+                            <img class="cards__image-photo-js" loading="lazy" src="${img}" alt="${name}" />
                         </div>
                         <h4 class="cards__title">${name}</h4>
                         <ul class="cards__info">
                             <li class="cards__info-item">
-                            <p class="cards__info-title">Category: <span class="cards__info-value" data-category="${category}">${normalizeCategory(
+                            <p class="cards__info-title">Category: <span class="cards__info-value">${normalizeCategory(
                                 category
                             )}</span></p>
                         
@@ -54,13 +54,13 @@ export function createPopularCards(arr) {
                 `<li class="cards__item popular__item" data-id="${_id}">
                     <a class="popular__link" href="#">
                 <div class="cards__background-img popular__img">
-                    <img class="cards__image-photo-js" src="${img}" alt="${name}" />
+                    <img class="cards__image-photo-js" loading="lazy" src="${img}" alt="${name}" />
                 </div>
                 <div class="popular__card-description">
                     <h4 class="cards__title">${name}</h4>
                      <ul class="popular__info">
                             <li class="cards__info-item">
-                            <p class="cards__info-title">Category: <span class="cards__info-value" data-category="${category}">${normalizeCategory(
+                            <p class="cards__info-title">Category: <span class="cards__info-value">${normalizeCategory(
                                 category
                             )}</span></p>
                         
@@ -92,7 +92,7 @@ export function createDiscountCards(arr) {
                 `<li class="discount__item cards__item" data-id="${_id}">
                  <a class="discount__link cards__link" href="#">
                   <div class="discount__image">
-            <img class="cards__image-photo-js" src="${img}" alt="${name}" /> </div>
+            <img class="cards__image-photo-js" loading="lazy" src="${img}" alt="${name}" /> </div>
             <div class="discount__descr">
             <p class="cards__title">${name}</p>
                     <div class="discount__price-container">
@@ -125,7 +125,7 @@ export function createModalCards({
 }) {
     return `<div class="modal__item cards__item" data-id="${_id}">
                 <div class="cards__main-upper">
-                    <img class="cards__image-photo" src="${img}" alt="${name}" />
+                    <img class="cards__image-photo" loading="lazy" src="${img}" alt="${name}" />
                     <div class="cards__main up">
                 </div>
       <div class="cards__main-modal">
@@ -167,7 +167,7 @@ export function createMarkupCartList(arr) {
             ({ _id, name, img, category, price, size }) => `
             <li class="cart__products-item" data-id="${_id}">
                 <div class="cart__item-space">
-                    <img src="${img}" alt="${name}" class="cart__item-img">
+                    <img src="${img}" alt="${name}" loading="lazy" class="cart__item-img">
                 </div>
                 <div class="cart__item-info">
                     <h3 class="cart__item-title">${name}</h3>
@@ -204,7 +204,7 @@ export function createMarkupEmptyCart() {
     <picture>
         <source media="(min-width: 768px)" srcset="${emptyImageTab} 1x, ${emptyImageTabRetina} 2x">
         <source media="(min-width: 320px)" srcset="${emptyImageMob} 1x, ${emptyImageMobRetina} 2x">
-        <img class="empty__img" src="${emptyImageMob}" alt="Empty">
+        <img class="empty__img" loading="lazy" src="${emptyImageMob}" alt="Empty">
     </picture>
     <h3 class="empty__title">Your basket is <span class="empty__title-color">empty...</span></h3>
     <p class="empty__descr">Go to the main page to select your favorite products and add them to the cart.</p>
@@ -223,6 +223,7 @@ export function createMarkupSuccessOrder(message) {
             <div class="checkout__modal-image-shadow">
                 <img
                     class="checkout__modal-img"
+                    loading="lazy"
                     src="${orderModalImage}"
                     srcset="
                         ${orderModalImage}   1x,
