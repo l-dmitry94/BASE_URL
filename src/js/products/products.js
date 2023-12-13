@@ -89,9 +89,7 @@ export function handleChange() {
     } else if (storedData.category === null && storedData.keyword !== null) {
         localStorage.setItem('filter', JSON.stringify(storedData));
         fetchSearchProductsFilter(storedData.keyword,storedData.page,storedData.limit).then(data => {
-            if (data.totalPages === 0 ){
-            //   customFunction
-            }else if (data.totalPages === 1) {
+            if (data.totalPages === 0 || data.totalPages === 1) {
                 console.log(data.results);
                 let test2 = createFiltresCards(data.results);
                 refs.productsCards.innerHTML = test2;
