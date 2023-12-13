@@ -23,7 +23,7 @@
      line-height: normal;
      text-align: center;
      font-size: 0;
-     display: flex;
+     display: flex !important;
     justify-content: center;
 
  }
