@@ -7,7 +7,7 @@ import{a as P,P as _,b as q}from"./vendor-59e0408b.js";(function(){const a=docum
                         <h4 class="cards__title">${o}</h4>
                         <ul class="cards__info">
                             <li class="cards__info-item">
-                            <p class="cards__info-title">Category: <span class="cards__info-value">${w(e)}</span></p>
+                            <p class="cards__info-title">Category: <span class="cards__info-value" data-category="${e}">${w(e)}</span></p>
                         
                             </li>
                             <li class="cards__info-item">
@@ -36,7 +36,7 @@ import{a as P,P as _,b as q}from"./vendor-59e0408b.js";(function(){const a=docum
                     <h4 class="cards__title">${o}</h4>
                      <ul class="popular__info">
                             <li class="cards__info-item">
-                            <p class="cards__info-title">Category: <span class="cards__info-value">${w(e)}</span></p>
+                            <p class="cards__info-title">Category: <span class="cards__info-value" data-category="${e}">${w(e)}</span></p>
                         
                             </li>
                             <li class="cards__info-item">
@@ -220,5 +220,5 @@ import{a as P,P as _,b as q}from"./vendor-59e0408b.js";(function(){const a=docum
             </div>
         </div>
     </div>
-`,{onShow:l=>{window.addEventListener("keydown",o),s=l.element().querySelector(".footer__modal-close"),s.addEventListener("click",()=>l.close()),document.body.classList.add("modal-open")},onClose:()=>{s.removeEventListener("click",()=>a.close()),window.removeEventListener("keydown",o),document.body.classList.remove("modal-open")}});a.show();function o(l){l.code==="Escape"&&a.close()}};U.addEventListener("submit",W);function W(s){s.preventDefault();const{value:a}=s.currentTarget.elements.email;a!==""&&(X(a),s.target.reset())}async function X(s){try{(await F({method:"POST",data:{email:s}})).statusText==="Created"&&M()}catch({response:a}){a.statusText==="Conflict"&&V()}}export{re as A,J as B,_e as a,pe as b,H as c,te as d,me as e,le as f,D as g,ue as h,A as i,ne as j,ie as k,ae as l,p as m,de as n,oe as o,w as p,ee as q,n as r,se as s,N as t,O as u,i as v,u as w,m as x,g as y,ce as z};
-//# sourceMappingURL=subscription-5b33a1c9.js.map
+`,{onShow:l=>{window.addEventListener("keydown",o),s=l.element().querySelector(".footer__modal-close"),s.addEventListener("click",()=>l.close()),document.body.classList.add("modal-open")},onClose:()=>{s.removeEventListener("click",()=>a.close()),window.removeEventListener("keydown",o),document.body.classList.remove("modal-open")}});a.show();function o(l){l.code==="Escape"&&a.close()}};U.addEventListener("submit",W);function W(s){s.preventDefault();const{value:a}=s.currentTarget.elements.email;a!==""&&(X(a),s.target.reset())}async function X(s){try{(await F({method:"POST",data:{email:s}})).statusText==="Created"&&M()}catch({response:a}){a.statusText==="Conflict"&&V()}}export{re as A,J as B,_e as a,pe as b,H as c,te as d,me as e,le as f,D as g,ue as h,A as i,ne as j,ie as k,p as l,ae as m,de as n,oe as o,w as p,ee as q,n as r,se as s,N as t,O as u,i as v,u as w,m as x,g as y,ce as z};
+//# sourceMappingURL=subscription-d1388f9b.js.map
