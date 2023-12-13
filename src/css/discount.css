@@ -5,7 +5,9 @@
     line-height: 1.17;
     margin-bottom: 20px;
 }
-
+.cards__item.discount__item {
+    padding: 0;
+}
 .discount-popular__products {
     font-size: 24px;
     font-weight: 500;
@@ -18,18 +20,22 @@
     flex-direction: column;
     gap: 20px;
 }
-
-.discount__link {
-    position: relative;
+.discount__item {
     display: block;
-    padding: 16px;
-    width: 335px;
+    width: 280px;
+    position: relative;
+    background-color: var(--light-grey);
     border-radius: 15px;
     height: auto;
-    background: var(--light-grey);
+    padding: 16px;
+}
+.discount__link {
+    display: flex;
+    flex-direction: column;
+    padding: 16px;
 }
 .discount__image {
-    width: 304px;
+    width: 248px;
     height: 150px;
     border-radius: 10px;
     background: var(--grey);
@@ -54,7 +60,9 @@
     font-size: 18px;
     line-height: 1.1;
 }
-
+.discount__descr .cards__title {
+    margin-bottom: 0;
+}
 .discount__price {
     color: var(--black);
     font-size: 18px;
@@ -64,4 +72,48 @@
     display: flex;
     gap: 8px;
     align-items: center;
+}
+
+@media screen and (min-width: 375px) {
+    .discount__item {
+        width: 335px;
+    }
+    .discount__image {
+        width: 304px;
+        height: 150px;
+    }
+}
+
+@media screen and (min-width: 768px) {
+    .discount__list {
+        flex-direction: row;
+        gap: 32px;
+    }
+    .discount__descr {
+        display: flex;
+        justify-content: space-between;
+        align-items: center;
+        color: var(--black);
+        font-size: 20px;
+        line-height: 1.2;
+    }
+}
+@media screen and (min-width: 1304px) {
+    .discount__list {
+        flex-direction: column;
+        gap: 20px;
+    }
+    .discount__item {
+        width: 275px;
+    }
+    .discount__image {
+        width: 243px;
+        margin-bottom: 21px;
+        display: flex;
+        justify-content: center;
+        padding: 22px 0;
+    }
+    .discount__descr {
+        width: 243px;
+    }
 }

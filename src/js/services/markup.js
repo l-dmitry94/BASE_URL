@@ -1,11 +1,11 @@
 import { normalizeCategory } from '../products/products';
 import icons from '../../img/icons.svg';
-import emptyImageMob from '../../img/cart/empty-mobile.png'
-import emptyImageMobRetina from '../../img/cart/empty-mobile@2x.png'
-import emptyImageTab from '../../img/cart/empty-tab.png'
-import emptyImageTabRetina from '../../img/cart/empty-tab@2x.png'
-import orderModalImage from '../../img/checkout-image.png'
-import orderModalImageRetina from '../../img/checkout-image2x.png'
+import emptyImageMob from '../../img/cart/empty-mobile.png';
+import emptyImageMobRetina from '../../img/cart/empty-mobile@2x.png';
+import emptyImageTab from '../../img/cart/empty-tab.png';
+import emptyImageTabRetina from '../../img/cart/empty-tab@2x.png';
+import orderModalImage from '../../img/checkout-image.png';
+import orderModalImageRetina from '../../img/checkout-image2x.png';
 
 export function createFiltresCards(arr) {
     return arr
@@ -51,32 +51,31 @@ export function createPopularCards(arr) {
     return arr
         .map(
             ({ _id, name, img, category, size, popularity }) =>
-                `<li class="cards__item" data-id="${_id}">
-                    <a class="popular__link cards__link" href="#">
+                `<li class="cards__item popular__item" data-id="${_id}">
+                    <a class="popular__link" href="#">
                 <div class="cards__background-img popular__img">
                     <img class="popular__image-photo-js" src="${img}" alt="${name}" />
                 </div>
                 <div class="popular__card-description">
                     <h4 class="cards__title">${name}</h4>
-                    <ul class="cards__info popular__info">
-                        <li class="cards__info-item popular__info-up">
-                            <p class="cards__info-title">Category:</p>
-                            <p class="cards__info-value">${normalizeCategory(category)}</p>
-                        </li>
-                        <li class="popular__info-down">
-                            <div class="cards__info-item">
-                                <p class="cards__info-title">Size:</p>
-                                <p class="cards__info-value">${size}</p>
-                            </div>
-                            <div class="cards__info-item">
-                                <p class="cards__info-title">Popularity:</p>
-                                <p class="cards__info-value">${popularity}</p>
-                            </div>
-                        </li>
-                    </ul>
+                     <ul class="popular__info">
+                            <li class="cards__info-item">
+                            <p class="cards__info-title">Category: <span class="cards__info-value">${normalizeCategory(
+                                category
+                            )}</span></p>
+                        
+                            </li>
+                            <li class="cards__info-item">
+                            <p class="cards__info-title">Size: <span class="cards__info-value">${size}</span></p>
+                               
+                            </li>
+                            <li class="cards__info-item">
+                            <p class="cards__info-title">Popularity: <span class="cards__info-value">${popularity}</span></p>
+                            </li>
+                        </ul>
                 </div>
                 <button class="popular__card-button cards__button" type="button">
-                    <svg class="popular__icon-cart">
+                    <svg class="popular__icon__cart">
                         <use href="${icons}#icon-cart"></use>
                     </svg>
                 </button>
@@ -124,14 +123,16 @@ export function createModalCards({
     popularity,
     desc,
 }) {
-    return `<div class="modal__item" data-id="${_id}">
+    return `<div class="modal__item cards__item" data-id="${_id}">
                 <img class="cards__image-photo" src="${img}" alt="${name}" />
                 <div class="cards__main up">
       <div class="cards__main-modal">
       <h4 class="cards__title modal">${name}</h4>
                     <ul class="modal__info">
                         <li class="cards__info-item">
-                            <p class="cards__info-title">Category: <span class="cards__info-value">${normalizeCategory(category)}</span></p>
+                            <p class="cards__info-title">Category: <span class="cards__info-value">${normalizeCategory(
+                                category
+                            )}</span></p>
                         </li>
                         <li class="cards__info-item">
                             <p class="cards__info-title">Size: <span class="cards__info-value">${size}</span></p>
@@ -252,5 +253,5 @@ export function createMarkupSuccessOrder(message) {
                 </p>
             </div>
         </div>
-    `
+    `;
 }

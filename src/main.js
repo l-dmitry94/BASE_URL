@@ -1,7 +1,7 @@
-// import SlimSelect from 'slim-select';
-// import "slim-select/dist/slimselect.css"
+import SlimSelect from 'slim-select';
+// import 'slim-select/dist/slimeselect.css';
 
-import { handleForm } from './js/requests/subscription';
+import './js/requests/subscription';
 import { fetchAllCategories } from './js/requests/products';
 import { fetchAllProducts } from './js/requests/products';
 import { refs } from './js/services/refs';
@@ -29,12 +29,12 @@ import { normalizeCategoryServ } from './js/products/products';
 
 
 
-
 import { addToCart } from './js/products/add-to-cart';
 import { quantityProduct } from './js/helpers/helpers';
 import { getData } from './js/services/storage';
 import { common } from './js/common/common';
 import { handleModal } from './js/products/modal.js';
+import { checkProduct } from './js/products/check-products.js';
 
 // !!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!
 fetchAllCategories().then(data => {
@@ -48,10 +48,10 @@ fetchAllCategories().then(data => {
 
     let additionalGender = `<option  selected  >Show all</option>`;
     refs.productsFiltersSelect.innerHTML = markupList + additionalGender;
-    // new SlimSelect({
-    //     select: refs.productsFiltersSelect,
-    //     showSearch: false,
-    //   })
+    new SlimSelect({
+        select: refs.productsFiltersSelect,
+        showSearch: false,
+    });
 }).catch;
 
 
@@ -83,6 +83,7 @@ fetchAllProducts()
         pagination.on('beforeMove', handleBeforeMove);
 
         // pagination = new Pagination(container, options);
+        checkProduct();
     })
     .catch();
 
@@ -104,6 +105,43 @@ refs.productsFiltersSelect.addEventListener('change', handleChange);
     //     ...options, // Копіюємо поточні дані з options
     //     totalItems: newTotalItems,
     // }
+const pagination = new Pagination(container, options);
+
+pagination.on('beforeMove', event => {
+    const currentPage = event.page;
+    const selectedOption =
+        refs.productsFiltersSelect.options[
+            refs.productsFiltersSelect.selectedIndex
+        ];
+    let local = localStorage.getItem('filter');
+    let storedData = local ? JSON.parse(local) : {};
+    const inputValue =
+        selectedOption.textContent !== 'Show all'
+            ? selectedOption.textContent
+            : null;
+    storedData.category = inputValue;
+    let data1 = dataAsString;
+    storedData.page = currentPage;
+    localStorage.setItem('filter', JSON.stringify(storedData));
+
+    if (storedData.keyword === null && storedData.category === null) {
+        fetchAllProductsPagination(currentPage, storedData.limit)
+            .then(data => {
+                let markup = createFiltresCards(data.results);
+                console.log(storedData.page);
+
+                localStorage.setItem('filter', data1);
+
+                // console.log(data1);
+                refs.productsCards.innerHTML = markup;
+            })
+            .catch(error => {
+                console.error(error);
+                // Додаткова обробка помилки
+            });
+    }
+})
+
     // if (currentPage === currentPage) {
     //     return console.log(currentPage);
     //     // return true;

@@ -2,6 +2,7 @@ import { common } from "../common/common";
 import { fetchProduct } from "../requests/products";
 import {getData} from '../services/storage';
 import check from '../../img/icons.svg'
+import { checkProduct } from "./check-products";
 
 const cartArr = getData(common.CART_KEY)
 
@@ -36,4 +37,5 @@ export async function addToCart(event) {
     if(checkItem) {
         addBtn.innerHTML = `<svg class="icon-checked"><use href="${check}#icon-check"></use></svg>`
     }
+
 }

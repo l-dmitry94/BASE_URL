@@ -13,6 +13,7 @@ import { handleBeforeMove } from '../services/pagination';
 import { options } from '../services/pagination';
 
 import { container } from '../services/pagination';
+import { checkProduct } from './check-products';
 
 // Функція обробки категорій які приходять з сервера
 export function normalizeCategory(categ) {
@@ -103,6 +104,7 @@ export function handleChange() {
             const pagination = new Pagination(container, options);
             pagination.on('beforeMove', handleBeforeMove);
             }
+            checkProduct();
         }).catch;
         // localStorage.setItem('filter', data1);
         // refs.productsFilters.value = '';

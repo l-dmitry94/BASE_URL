@@ -9,12 +9,10 @@ export async function checkProduct() {
         cartArr.forEach(({ _id }) => {
             const product = document.querySelector(`[data-id="${_id}"]`);
 
-            if (product) {
+            if(product) {
                 const productButton = product.querySelector('.cards__button');
+                productButton.innerHTML = `<svg class="icon-checked"><use href="${check}#icon-check"></use></svg>`;
 
-                if (productButton) {
-                    productButton.innerHTML = `<svg class="icon-checked"><use href="${check}#icon-check"></use></svg>`;
-                } 
             }
         });
     }
