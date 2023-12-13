@@ -14,6 +14,7 @@ import { options } from '../services/pagination';
 
 import { container } from '../services/pagination';
 import { checkProduct } from './check-products';
+import { createMarkupEmptyKeywordFilter } from '../services/markup';
 
 // Функція обробки категорій які приходять з сервера
 export function normalizeCategory(categ) {
@@ -60,17 +61,19 @@ export function handleChange() {
     } else if (storedData.category !== null && storedData.keyword === null) {
         fetchSearchProducts(
             normalizeCategoryServ(storedData.category),
-            storedData.page,
-            storedData.limit
+            1,
+            options.itemsPerPage
         )
             .then(data => {
                 if (data.totalPages === 0 || data.totalPages === 1) {
                     let test2 = createFiltresCards(data.results);
                     refs.productsCards.innerHTML = test2;
                     refs.paginationElement.style.display = 'none';
+                  
                 } else {
                     let test2 = createFiltresCards(data.results);
                     refs.productsCards.innerHTML = test2;
+                    options.totalPages = 1;
                     options.totalItems = data.perPage * data.totalPages;
                     const pagination = new Pagination(container, options);
                     pagination.on('beforeMove', handleBeforeMove);
@@ -86,11 +89,12 @@ export function handleChange() {
             });
     } else if (storedData.category === null && storedData.keyword !== null) {
         localStorage.setItem('filter', JSON.stringify(storedData));
-        fetchSearchProductsFilter(storedData.keyword,storedData.page,storedData.limit).then(data => {
+        fetchSearchProductsFilter(storedData.keyword,storedData.page,options.itemsPerPage).then(data => {
             if (data.totalPages === 0 || data.totalPages === 1) {
                 let test2 = createFiltresCards(data.results);
                 refs.productsCards.innerHTML = test2;
                 refs.paginationElement.style.display = 'none';
+                refs.productsCards.innerHTML = createMarkupEmptyKeywordFilter()
             } else {
             let test1 = createFiltresCards(data.results);
             storedData.category = null;
@@ -99,6 +103,7 @@ export function handleChange() {
             options.totalItems = data.perPage * data.totalPages;
             const pagination = new Pagination(container, options);
             pagination.on('beforeMove', handleBeforeMove);
+            refs.paginationElement.style.display = 'block';
             }
             checkProduct();
         }).catch;
@@ -109,13 +114,15 @@ export function handleChange() {
             storedData.keyword,
             normalizeCategoryServ(storedData.category),
             storedData.page,
-            storedData.limit
+            options.itemsPerPage
         )
             .then(data => {
-                if (data.totalPages === 0 || data.totalPages === 1) {
+                if (data.totalPages === 0 && data.totalPages === 1) {
+                    console.log(data.results);
                     let test2 = createFiltresCards(data.results);
                     refs.productsCards.innerHTML = test2;
                     refs.paginationElement.style.display = 'none';
+                    refs.productsCards.innerHTML = createMarkupEmptyKeywordFilter()
                 } else {
                     let test2 = createFiltresCards(data.results);
                     refs.productsCards.innerHTML = test2;
@@ -149,13 +156,14 @@ export function handleSubmit(event) {
         fetchSearchProducts(
             normalizeCategoryServ(storedData.category),
             1,
-            storedData.limit
+            options.itemsPerPage
         )
             .then(data => {
                 if (data.totalPages === 0 || data.totalPages === 1) {
                     refs.paginationElement.style.display = 'none';
                     let markup = createFiltresCards(data.results);
                     refs.productsCards.innerHTML = markup;
+                   
                 } else {
                     let markup = createFiltresCards(data.results);
                     options.totalItems = data.perPage * data.totalPages;
@@ -179,6 +187,7 @@ export function handleSubmit(event) {
                 const pagination = new Pagination(container, options);
                 pagination.on('beforeMove', handleBeforeMove);
                 refs.productsCards.innerHTML = markup;
+                
             })
             .catch(error => {
                 console.error(error);
@@ -188,18 +197,20 @@ export function handleSubmit(event) {
 
         fetchSearchProductsFilter(
             storedData.keyword,
-            storedData.page,
-            storedData.limit
+            1,
+            options.itemsPerPage
         )
             .then(data => {
                 if (data.totalPages === 0 || data.totalPages === 1) {
                     let test2 = createFiltresCards(data.results);
                     refs.productsCards.innerHTML = test2;
                     refs.paginationElement.style.display = 'none';
+                    console.log(850);
+                    refs.productsCards.innerHTML = createMarkupEmptyKeywordFilter()
                 } else {
                     options.totalItems = data.perPage * data.totalPages;
                     const pagination = new Pagination(container, options);
-
+console.log(900);
                     pagination.on('beforeMove', handleBeforeMove);
                     let test2 = createFiltresCards(data.results);
                     refs.productsCards.innerHTML = test2;
@@ -213,20 +224,22 @@ export function handleSubmit(event) {
         fetchSearchProductsFilters(
             storedData.keyword,
             storedData.category,
-            storedData.page,
-            storedData.limit
+            1,
+            options.itemsPerPage
         )
             .then(data => {
                 if (data.totalPages === 0 || data.totalPages === 1) {
                     refs.paginationElement.style.display = 'none';
                     let test2 = createFiltresCards(data.results);
                     refs.productsCards.innerHTML = test2;
+                    refs.productsCards.innerHTML = createMarkupEmptyKeywordFilter()
+                
                 } else {
                     options.totalItems = data.perPage * data.totalPages;
                     const pagination = new Pagination(container, options);
                     // refs.paginationElement.style.display = 'block';
                     pagination.on('beforeMove', handleBeforeMove);
-                    let test2 = createFiltresCards(data.results);
+                    // let test2 = createFiltresCards(data.results);
                     refs.productsCards.innerHTML = test2;
                 }
             })
@@ -237,16 +250,28 @@ export function handleSubmit(event) {
         localStorage.setItem('filter', JSON.stringify(storedData));
         fetchSearchProductsFilter(
             storedData.keyword,
-            storedData.page,
-            storedData.limit
+            1,
+            options.itemsPerPage
         )
             .then(data => {
+                if (data.totalPages === 0 || data.totalPages === 1) {
+                    refs.paginationElement.style.display = 'none';
+                    console.log(data.results.length);
+                    let test2 = createFiltresCards(data.results);
+                    refs.productsCards.innerHTML = test2;
+                    console.log(500);
+                  
+                    
+                } else  {
+                // console.log('2');
                 let test2 = createFiltresCards(data.results);
                 refs.productsCards.innerHTML = test2;
                 options.totalItems = data.perPage * data.totalPages;
                 refs.paginationElement.style.display = 'block';
                 const pagination = new Pagination(container, options);
                 pagination.on('beforeMove', handleBeforeMove);
+                console.log(600);
+                }
             })
             .catch(error => {
                 console.error(error);
