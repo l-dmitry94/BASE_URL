@@ -25,7 +25,7 @@ export async function handleModal(event) {
 
     const modalBtnClickHandler = modalBtn => {
         const cartArr = getData(common.CART_KEY);
-        const inStorage = cartArr.some(({ _id }) => id === _id);
+        const inStorage = cartArr.find(({ _id }) => id === _id);
 
         if (inStorage) {
             const findProductIndex = cartArr.findIndex(({ _id }) => _id === id);
@@ -38,6 +38,10 @@ export async function handleModal(event) {
             );
             quantity.textContent = cartArr.length;
             saveData(cartArr, common.CART_KEY);
+            if (!cartArr.length) {
+                localStorage.removeItem(common.CART_KEY);
+            }
+
             modalBtn.innerHTML = `Add to <svg class="icon__cart" width="18" height="18"><use href="${icons}#icon-cart"></use></svg>`;
         } else {
             const inStorage = cartArr.some(({ _id }) => id === _id);
