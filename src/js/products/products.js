@@ -122,7 +122,6 @@ export function handleChange() {
                     let test2 = createFiltresCards(data.results);
                     refs.productsCards.innerHTML = test2;
                     refs.paginationElement.style.display = 'none';
-                    console.log(300);
                     refs.productsCards.innerHTML = createMarkupEmptyKeywordFilter()
                 } else {
                     let test2 = createFiltresCards(data.results);
@@ -233,7 +232,6 @@ console.log(900);
                     refs.paginationElement.style.display = 'none';
                     let test2 = createFiltresCards(data.results);
                     refs.productsCards.innerHTML = test2;
-                    console.log(300);
                     refs.productsCards.innerHTML = createMarkupEmptyKeywordFilter()
                 
                 } else {
