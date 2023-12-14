@@ -41,6 +41,9 @@ export function createFiltresCards(arr) {
                                 </svg>
                             </button>
                         </div>
+                        <svg class="icon__cart-discount">
+                        <use href="${icons}#icon-discount"></use>
+                   </svg>
                     </a>
                 </li>`
         )

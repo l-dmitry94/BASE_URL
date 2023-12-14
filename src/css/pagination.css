@@ -91,6 +91,7 @@ border-radius: 60px;
 #pagination1 .tui-page-btn.tui-prev,
 #pagination1 .tui-page-btn.tui-next,
 #pagination1 .tui-page-btn.tui-last{
+    cursor: pointer !important;
     
     background: #FAFAFA;
 
