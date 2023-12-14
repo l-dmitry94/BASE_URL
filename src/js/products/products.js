@@ -99,14 +99,14 @@ console.log(960);
             });
     } else if (storedData.category === null && storedData.keyword !== null) {
         localStorage.setItem('filter', JSON.stringify(storedData));
-        fetchSearchProductsFilter(storedData.keyword,storedData.page,options.itemsPerPage).then(data => {
+        fetchSearchProductsFilter(storedData.keyword,options.page,options.itemsPerPage).then(data => {
             if (data.totalPages === 0 ) {
                 let test2 = createFiltresCards(data.results);
                 refs.productsCards.innerHTML = test2;
                 refs.paginationElement.setAttribute('style', 'display:none !important');
                 console.log(850);
                 refs.productsCards.innerHTML = createMarkupEmptyKeywordFilter()
-            } else if (data.results * data.totalPages <= options.itemsPerPage) {
+            } else if (data.perPage * data.totalPages <= options.itemsPerPage) {
                 options.totalItems = data.perPage * data.totalPages;
                 refs.paginationElement.setAttribute('style', 'display:none !important');
                 const pagination = new Pagination(container, options);
