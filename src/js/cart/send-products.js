@@ -27,6 +27,15 @@ export async function handleSendProducts(event) {
 
     const cartArr = getData(common.CART_KEY);
     try {
+        const products = cartArr.map(({ _id }) => ({ productId: _id, amount: 1 }));
+
+        const orders = {
+            emailValue,
+            products,
+        }
+
+        console.log(orders)
+
         const data = await fetchSendOrder(emailValue, cartArr);
 
         const instance = basicLightbox.create(

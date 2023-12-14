@@ -87,7 +87,7 @@ export const modalFooterExistedSubscr = function () {
         <div class="footer__modal-Existed">
             <button type="button" class="footer__modal-close">
                 <svg class="footer__modal-icon">
-                    <use href="../../img/icons.svg#icon-close"></use>
+                    <use href="${icons}#icon-close"></use>
                 </svg>
             </button>
             <div class="footer__modal-title-text-Existed">
