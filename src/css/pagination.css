@@ -233,7 +233,7 @@ border-radius: 60px;
  }
 
  /* MEDIA */
-@media screen and (min-width: 375px){
+@media screen and (min-width: 768px){
 
 
     #pagination1 .tui-page-btn  {
