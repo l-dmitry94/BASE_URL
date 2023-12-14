@@ -170,4 +170,3 @@ function updatePaginationSettings() {
 window.addEventListener('resize', updatePaginationSettings);
 
 updatePaginationSettings();
-console.log(0);
