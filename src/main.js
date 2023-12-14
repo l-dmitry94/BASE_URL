@@ -24,11 +24,6 @@ import { fetchSearchProducts } from './js/requests/products';
 import { normalizeCategoryServ } from './js/products/products';
 // import { pagination } from './js/services/pagination.js';
 
-
-
-
-
-
 import { addToCart } from './js/products/add-to-cart';
 import { quantityProduct } from './js/helpers/helpers';
 import { getData } from './js/services/storage';
@@ -48,13 +43,18 @@ fetchAllCategories().then(data => {
 
     let additionalGender = `<option  selected  >Show all</option>`;
     refs.productsFiltersSelect.innerHTML = markupList + additionalGender;
-    new SlimSelect({
+    const slim = new SlimSelect({
         select: refs.productsFiltersSelect,
-        showSearch: false,
+        settings: {
+            showSearch: false,
+            openPosition: 'down',
+        },
     });
+
+    slim.setData(
+        (document.querySelector('.ss-single').textContent = 'Categories')
+    );
 }).catch;
-
-
 
 // Отримуємо всі продукти
 fetchAllProducts()
@@ -95,15 +95,13 @@ refs.productsFiltersSelect.addEventListener('change', handleChange);
 
 // !!!!!!!
 
-
 // pagination.on('beforeMove', handleBeforeMove);
 
-
-    // const pagination = new Pagination(container, options);
-    // const updatedOptions = {
-    //     ...options, // Копіюємо поточні дані з options
-    //     totalItems: newTotalItems,
-    // }
+// const pagination = new Pagination(container, options);
+// const updatedOptions = {
+//     ...options, // Копіюємо поточні дані з options
+//     totalItems: newTotalItems,
+// }
 const pagination = new Pagination(container, options);
 
 pagination.on('beforeMove', event => {
@@ -137,11 +135,11 @@ pagination.on('beforeMove', event => {
                 // Додаткова обробка помилки
             });
     }
-})
+});
 
-    // if (currentPage === currentPage) {
-    //     // return true;
-    // }
+// if (currentPage === currentPage) {
+//     // return true;
+// }
 
 refs.productsCards.addEventListener('click', addToCart);
 refs.popularCards.addEventListener('click', addToCart);
