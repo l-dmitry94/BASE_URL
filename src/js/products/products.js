@@ -66,13 +66,11 @@ export function handleChange() {
                     let test2 = createFiltresCards(data.results);
                     refs.productsCards.innerHTML = test2;
                     refs.paginationElement.setAttribute('style', 'display:none !important');
-                    console.log(850);
                     refs.productsCards.innerHTML = createMarkupEmptyKeywordFilter()
                 } else if (data.perPage * data.totalPages <= options.itemsPerPage) {
                     options.totalItems = data.perPage * data.totalPages;
                     refs.paginationElement.setAttribute('style', 'display:none !important');
                     const pagination = new Pagination(container, options);
-console.log(900);
                     pagination.on('beforeMove', handleBeforeMove);
                     let test2 = createFiltresCards(data.results);
                     refs.productsCards.innerHTML = test2;
@@ -80,7 +78,6 @@ console.log(900);
                 } else {
                     options.totalItems = data.perPage * data.totalPages;
                     const pagination = new Pagination(container, options);
-console.log(960);
                     pagination.on('beforeMove', handleBeforeMove);
                     let test2 = createFiltresCards(data.results);
                     refs.productsCards.innerHTML = test2;
@@ -101,13 +98,11 @@ console.log(960);
                 let test2 = createFiltresCards(data.results);
                 refs.productsCards.innerHTML = test2;
                 refs.paginationElement.setAttribute('style', 'display:none !important');
-                console.log(850);
                 refs.productsCards.innerHTML = createMarkupEmptyKeywordFilter()
             } else if (data.perPage * data.totalPages <= options.itemsPerPage) {
                 options.totalItems = data.perPage * data.totalPages;
                 refs.paginationElement.setAttribute('style', 'display:none !important');
                 const pagination = new Pagination(container, options);
-console.log(900);
                 pagination.on('beforeMove', handleBeforeMove);
                 let test2 = createFiltresCards(data.results);
                 refs.productsCards.innerHTML = test2;
@@ -115,7 +110,6 @@ console.log(900);
             } else {
                 options.totalItems = data.perPage * data.totalPages;
                 const pagination = new Pagination(container, options);
-console.log(960);
                 pagination.on('beforeMove', handleBeforeMove);
                 let test2 = createFiltresCards(data.results);
                 refs.productsCards.innerHTML = test2;
@@ -136,13 +130,11 @@ console.log(960);
                     let test2 = createFiltresCards(data.results);
                     refs.productsCards.innerHTML = test2;
                     refs.paginationElement.setAttribute('style', 'display:none !important');
-                    console.log(850);
                     refs.productsCards.innerHTML = createMarkupEmptyKeywordFilter()
                 } else if (data.perPage * data.totalPages <= options.itemsPerPage) {
                     options.totalItems = data.perPage * data.totalPages;
                     refs.paginationElement.setAttribute('style', 'display:none !important');
                     const pagination = new Pagination(container, options);
-console.log(900);
                     pagination.on('beforeMove', handleBeforeMove);
                     let test2 = createFiltresCards(data.results);
                     refs.productsCards.innerHTML = test2;
@@ -150,7 +142,6 @@ console.log(900);
                 } else {
                     options.totalItems = data.perPage * data.totalPages;
                     const pagination = new Pagination(container, options);
-console.log(960);
                     pagination.on('beforeMove', handleBeforeMove);
                     let test2 = createFiltresCards(data.results);
                     refs.productsCards.innerHTML = test2;
@@ -188,13 +179,11 @@ export function handleSubmit(event) {
                     let test2 = createFiltresCards(data.results);
                     refs.productsCards.innerHTML = test2;
                     refs.paginationElement.setAttribute('style', 'display:none !important');
-                    console.log(850);
                     refs.productsCards.innerHTML = createMarkupEmptyKeywordFilter()
                 } else if (data.perPage * data.totalPages <= options.itemsPerPage) {
                     options.totalItems = data.perPage * data.totalPages;
                     refs.paginationElement.setAttribute('style', 'display:none !important');
                     const pagination = new Pagination(container, options);
-console.log(900);
                     pagination.on('beforeMove', handleBeforeMove);
                     let test2 = createFiltresCards(data.results);
                     refs.productsCards.innerHTML = test2;
@@ -202,7 +191,6 @@ console.log(900);
                 } else {
                     options.totalItems = data.perPage * data.totalPages;
                     const pagination = new Pagination(container, options);
-console.log(960);
                     pagination.on('beforeMove', handleBeforeMove);
                     let test2 = createFiltresCards(data.results);
                     refs.productsCards.innerHTML = test2;
@@ -239,13 +227,11 @@ console.log(960);
                     let test2 = createFiltresCards(data.results);
                     refs.productsCards.innerHTML = test2;
                     refs.paginationElement.setAttribute('style', 'display:none !important');
-                    console.log(850);
                     refs.productsCards.innerHTML = createMarkupEmptyKeywordFilter()
                 } else if (data.perPage * data.totalPages <= options.itemsPerPage) {
                     options.totalItems = data.perPage * data.totalPages;
                     refs.paginationElement.setAttribute('style', 'display:none !important');
                     const pagination = new Pagination(container, options);
-console.log(900);
                     pagination.on('beforeMove', handleBeforeMove);
                     let test2 = createFiltresCards(data.results);
                     refs.productsCards.innerHTML = test2;
@@ -253,7 +239,6 @@ console.log(900);
                 } else {
                     options.totalItems = data.perPage * data.totalPages;
                     const pagination = new Pagination(container, options);
-console.log(960);
                     pagination.on('beforeMove', handleBeforeMove);
                     let test2 = createFiltresCards(data.results);
                     refs.productsCards.innerHTML = test2;
@@ -275,13 +260,11 @@ console.log(960);
                     let test2 = createFiltresCards(data.results);
                     refs.productsCards.innerHTML = test2;
                     refs.paginationElement.setAttribute('style', 'display:none !important');
-                    console.log(850);
                     refs.productsCards.innerHTML = createMarkupEmptyKeywordFilter()
                 } else if (data.perPage * data.totalPages <= options.itemsPerPage) {
                     options.totalItems = data.perPage * data.totalPages;
                     refs.paginationElement.setAttribute('style', 'display:none !important');
                     const pagination = new Pagination(container, options);
-console.log(900);
                     pagination.on('beforeMove', handleBeforeMove);
                     let test2 = createFiltresCards(data.results);
                     refs.productsCards.innerHTML = test2;
@@ -289,7 +272,6 @@ console.log(900);
                 } else {
                     options.totalItems = data.perPage * data.totalPages;
                     const pagination = new Pagination(container, options);
-console.log(960);
                     pagination.on('beforeMove', handleBeforeMove);
                     let test2 = createFiltresCards(data.results);
                     refs.productsCards.innerHTML = test2;
@@ -311,13 +293,11 @@ console.log(960);
                     let test2 = createFiltresCards(data.results);
                     refs.productsCards.innerHTML = test2;
                     refs.paginationElement.setAttribute('style', 'display:none !important');
-                    console.log(850);
                     refs.productsCards.innerHTML = createMarkupEmptyKeywordFilter()
                 } else if (data.perPage * data.totalPages <= options.itemsPerPage) {
                     options.totalItems = data.perPage * data.totalPages;
                     refs.paginationElement.setAttribute('style', 'display:none !important');
                     const pagination = new Pagination(container, options);
-console.log(900);
                     pagination.on('beforeMove', handleBeforeMove);
                     let test2 = createFiltresCards(data.results);
                     refs.productsCards.innerHTML = test2;
@@ -325,7 +305,6 @@ console.log(900);
                 } else {
                     options.totalItems = data.perPage * data.totalPages;
                     const pagination = new Pagination(container, options);
-console.log(960);
                     pagination.on('beforeMove', handleBeforeMove);
                     let test2 = createFiltresCards(data.results);
                     refs.productsCards.innerHTML = test2;
