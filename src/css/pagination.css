@@ -101,6 +101,13 @@ border-radius: 60px;
          
 }
 
+#pagination1 .tui-page-btn.tui-first:hover,
+#pagination1 .tui-page-btn.tui-prev:hover,
+#pagination1 .tui-page-btn.tui-next:hover,
+#pagination1 .tui-page-btn.tui-last:hover{
+    background-color: #6D8434;
+}
+
  .tui-pagination .tui-last-child, .tui-pagination .tui-next-is-ellip {
      border-right: 1px solid #ddd
  }
