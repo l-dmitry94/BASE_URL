@@ -42,21 +42,18 @@ export function handleChange() {
             : null;
     storedData.category = inputValue;
 
-    
     if (storedData.category === null && storedData.keyword === null) {
         // localStorage.setItem('filter', dataAsString);
         storedData.category = null;
 
         fetchAllProducts().then(data => {
-            
             let markup = createFiltresCards(data.results);
-           
+
             refs.productsCards.innerHTML = markup;
             options.totalItems = data.perPage * data.totalPages;
             const pagination = new Pagination(container, options);
             pagination.on('beforeMove', handleBeforeMove);
             refs.paginationElement.style.display = 'block';
-            
         }).catch;
     } else if (storedData.category !== null && storedData.keyword === null) {
         fetchSearchProducts(
@@ -219,14 +216,12 @@ console.log(960);
     } else if (storedData.keyword === null && storedData.category === null) {
         fetchAllProducts()
             .then(data => {
-
                 let markup = createFiltresCards(data.results);
                 options.totalItems = data.perPage * data.totalPages;
                 refs.paginationElement.style.display = 'block';
                 const pagination = new Pagination(container, options);
                 pagination.on('beforeMove', handleBeforeMove);
                 refs.productsCards.innerHTML = markup;
-                
             })
             .catch(error => {
                 console.error(error);
