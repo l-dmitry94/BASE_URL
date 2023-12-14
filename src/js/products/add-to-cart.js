@@ -27,10 +27,11 @@ export async function addToCart(event) {
         return;
     }
 
+    
+    cartArr.push(product);
+    
     const quantity = document.querySelector('.header__menu-link-quantity');
     quantity.textContent = cartArr.length;
-
-    cartArr.push(product);
 
     localStorage.setItem(common.CART_KEY, JSON.stringify(cartArr));
 
