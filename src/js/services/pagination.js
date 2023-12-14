@@ -155,10 +155,10 @@ export function handleBeforeMove(event) {
 
 
 function updatePaginationSettings() {
-    if (window.innerWidth < 376) {
+    if (window.innerWidth < 768) {
         options.visiblePages = 2;
         options.itemsPerPage = 6;
-    } else if (window.innerWidth >= 376 && window.innerWidth <= 1303) {
+    } else if (window.innerWidth >= 768 && window.innerWidth <= 1303) {
         options.visiblePages = 3;
         options.itemsPerPage = 8;
     } else {
