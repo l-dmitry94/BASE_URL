@@ -42,21 +42,18 @@ export function handleChange() {
             : null;
     storedData.category = inputValue;
 
-    
     if (storedData.category === null && storedData.keyword === null) {
         // localStorage.setItem('filter', dataAsString);
         storedData.category = null;
 
         fetchAllProducts().then(data => {
-            
             let markup = createFiltresCards(data.results);
-           
+
             refs.productsCards.innerHTML = markup;
             options.totalItems = data.perPage * data.totalPages;
             const pagination = new Pagination(container, options);
             pagination.on('beforeMove', handleBeforeMove);
             refs.paginationElement.style.display = 'block';
-            
         }).catch;
     } else if (storedData.category !== null && storedData.keyword === null) {
         fetchSearchProducts(
@@ -69,7 +66,6 @@ export function handleChange() {
                     let test2 = createFiltresCards(data.results);
                     refs.productsCards.innerHTML = test2;
                     refs.paginationElement.style.display = 'none';
-                  
                 } else {
                     let test2 = createFiltresCards(data.results);
                     refs.productsCards.innerHTML = test2;
@@ -89,21 +85,25 @@ export function handleChange() {
             });
     } else if (storedData.category === null && storedData.keyword !== null) {
         localStorage.setItem('filter', JSON.stringify(storedData));
-        fetchSearchProductsFilter(storedData.keyword,storedData.page,options.itemsPerPage).then(data => {
+        fetchSearchProductsFilter(
+            storedData.keyword,
+            storedData.page,
+            options.itemsPerPage
+        ).then(data => {
             if (data.totalPages === 0 || data.totalPages === 1) {
                 let test2 = createFiltresCards(data.results);
                 refs.productsCards.innerHTML = test2;
                 refs.paginationElement.style.display = 'none';
-                refs.productsCards.innerHTML = createMarkupEmptyKeywordFilter()
+                refs.productsCards.innerHTML = createMarkupEmptyKeywordFilter();
             } else {
-            let test1 = createFiltresCards(data.results);
-            storedData.category = null;
-            // refs.productsFilters.value = '';
-            refs.productsCards.innerHTML = test1;
-            options.totalItems = data.perPage * data.totalPages;
-            const pagination = new Pagination(container, options);
-            pagination.on('beforeMove', handleBeforeMove);
-            refs.paginationElement.style.display = 'block';
+                let test1 = createFiltresCards(data.results);
+                storedData.category = null;
+                // refs.productsFilters.value = '';
+                refs.productsCards.innerHTML = test1;
+                options.totalItems = data.perPage * data.totalPages;
+                const pagination = new Pagination(container, options);
+                pagination.on('beforeMove', handleBeforeMove);
+                refs.paginationElement.style.display = 'block';
             }
             checkProduct();
         }).catch;
@@ -122,7 +122,8 @@ export function handleChange() {
                     let test2 = createFiltresCards(data.results);
                     refs.productsCards.innerHTML = test2;
                     refs.paginationElement.style.display = 'none';
-                    refs.productsCards.innerHTML = createMarkupEmptyKeywordFilter()
+                    refs.productsCards.innerHTML =
+                        createMarkupEmptyKeywordFilter();
                 } else {
                     let test2 = createFiltresCards(data.results);
                     refs.productsCards.innerHTML = test2;
@@ -163,7 +164,6 @@ export function handleSubmit(event) {
                     refs.paginationElement.style.display = 'none';
                     let markup = createFiltresCards(data.results);
                     refs.productsCards.innerHTML = markup;
-                   
                 } else {
                     let markup = createFiltresCards(data.results);
                     options.totalItems = data.perPage * data.totalPages;
@@ -180,37 +180,31 @@ export function handleSubmit(event) {
     } else if (storedData.keyword === null && storedData.category === null) {
         fetchAllProducts()
             .then(data => {
-
                 let markup = createFiltresCards(data.results);
                 options.totalItems = data.perPage * data.totalPages;
                 refs.paginationElement.style.display = 'block';
                 const pagination = new Pagination(container, options);
                 pagination.on('beforeMove', handleBeforeMove);
                 refs.productsCards.innerHTML = markup;
-                
             })
             .catch(error => {
                 console.error(error);
                 // Додаткова обробка помилки
             });
     } else if (storedData.keyword !== null && storedData.category === null) {
-
-        fetchSearchProductsFilter(
-            storedData.keyword,
-            1,
-            options.itemsPerPage
-        )
+        fetchSearchProductsFilter(storedData.keyword, 1, options.itemsPerPage)
             .then(data => {
                 if (data.totalPages === 0 || data.totalPages === 1) {
                     let test2 = createFiltresCards(data.results);
                     refs.productsCards.innerHTML = test2;
                     refs.paginationElement.style.display = 'none';
                     console.log(850);
-                    refs.productsCards.innerHTML = createMarkupEmptyKeywordFilter()
+                    refs.productsCards.innerHTML =
+                        createMarkupEmptyKeywordFilter();
                 } else {
                     options.totalItems = data.perPage * data.totalPages;
                     const pagination = new Pagination(container, options);
-console.log(900);
+                    console.log(900);
                     pagination.on('beforeMove', handleBeforeMove);
                     let test2 = createFiltresCards(data.results);
                     refs.productsCards.innerHTML = test2;
@@ -232,8 +226,8 @@ console.log(900);
                     refs.paginationElement.style.display = 'none';
                     let test2 = createFiltresCards(data.results);
                     refs.productsCards.innerHTML = test2;
-                    refs.productsCards.innerHTML = createMarkupEmptyKeywordFilter()
-                
+                    refs.productsCards.innerHTML =
+                        createMarkupEmptyKeywordFilter();
                 } else {
                     options.totalItems = data.perPage * data.totalPages;
                     const pagination = new Pagination(container, options);
@@ -248,11 +242,7 @@ console.log(900);
             });
     } else if (storedData.keyword !== null && storedData.category === null) {
         localStorage.setItem('filter', JSON.stringify(storedData));
-        fetchSearchProductsFilter(
-            storedData.keyword,
-            1,
-            options.itemsPerPage
-        )
+        fetchSearchProductsFilter(storedData.keyword, 1, options.itemsPerPage)
             .then(data => {
                 if (data.totalPages === 0 || data.totalPages === 1) {
                     refs.paginationElement.style.display = 'none';
@@ -260,17 +250,15 @@ console.log(900);
                     let test2 = createFiltresCards(data.results);
                     refs.productsCards.innerHTML = test2;
                     console.log(500);
-                  
-                    
-                } else  {
-                // console.log('2');
-                let test2 = createFiltresCards(data.results);
-                refs.productsCards.innerHTML = test2;
-                options.totalItems = data.perPage * data.totalPages;
-                refs.paginationElement.style.display = 'block';
-                const pagination = new Pagination(container, options);
-                pagination.on('beforeMove', handleBeforeMove);
-                console.log(600);
+                } else {
+                    // console.log('2');
+                    let test2 = createFiltresCards(data.results);
+                    refs.productsCards.innerHTML = test2;
+                    options.totalItems = data.perPage * data.totalPages;
+                    refs.paginationElement.style.display = 'block';
+                    const pagination = new Pagination(container, options);
+                    pagination.on('beforeMove', handleBeforeMove);
+                    console.log(600);
                 }
             })
             .catch(error => {
