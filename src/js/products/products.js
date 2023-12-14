@@ -254,7 +254,7 @@ console.log(900);
             options.itemsPerPage
         )
             .then(data => {
-                if (data.totalPages === 0 || data.totalPages === 1) {
+                if (data.totalPages === 0 && data.totalPages === 1) {
                     refs.paginationElement.style.display = 'none';
                     console.log(data.results.length);
                     let test2 = createFiltresCards(data.results);
