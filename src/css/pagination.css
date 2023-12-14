@@ -51,6 +51,7 @@
 
  .tui-pagination .tui-page-btn:hover {
      background-color: #f4f4f4;
+     border-radius: 60px;
  }
  
  .tui-pagination .tui-is-selected, .tui-pagination strong {
