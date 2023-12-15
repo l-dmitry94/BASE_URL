@@ -15,6 +15,7 @@ import { options } from '../services/pagination';
 import { container } from '../services/pagination';
 import { checkProduct } from './check-products';
 import { createMarkupEmptyKeywordFilter } from '../services/markup';
+import { addDiscountToCart } from '../helpers/helpers';
 
 // Функція обробки категорій які приходять з сервера
 export function normalizeCategory(categ) {
@@ -54,6 +55,7 @@ export function handleChange() {
             const pagination = new Pagination(container, options);
             pagination.on('beforeMove', handleBeforeMove);
             refs.paginationElement.style.display = 'block';
+            addDiscountToCart(data);
         }).catch;
     } else if (storedData.category !== null && storedData.keyword === null) {
         fetchSearchProducts(
@@ -62,19 +64,29 @@ export function handleChange() {
             options.itemsPerPage
         )
             .then(data => {
-                if (data.totalPages === 0 ) {
+                if (data.totalPages === 0) {
                     let test2 = createFiltresCards(data.results);
                     refs.productsCards.innerHTML = test2;
-                    refs.paginationElement.setAttribute('style', 'display:none !important');
-                    refs.productsCards.innerHTML = createMarkupEmptyKeywordFilter()
-                } else if (data.perPage * data.totalPages <= options.itemsPerPage) {
+                    refs.paginationElement.setAttribute(
+                        'style',
+                        'display:none !important'
+                    );
+                    refs.productsCards.innerHTML =
+                        createMarkupEmptyKeywordFilter();
+                } else if (
+                    data.perPage * data.totalPages <=
+                    options.itemsPerPage
+                ) {
                     options.totalItems = data.perPage * data.totalPages;
-                    refs.paginationElement.setAttribute('style', 'display:none !important');
+                    refs.paginationElement.setAttribute(
+                        'style',
+                        'display:none !important'
+                    );
                     const pagination = new Pagination(container, options);
                     pagination.on('beforeMove', handleBeforeMove);
                     let test2 = createFiltresCards(data.results);
                     refs.productsCards.innerHTML = test2;
-                   
+                    addDiscountToCart(data);
                 } else {
                     options.totalItems = data.perPage * data.totalPages;
                     const pagination = new Pagination(container, options);
@@ -82,6 +94,7 @@ export function handleChange() {
                     let test2 = createFiltresCards(data.results);
                     refs.productsCards.innerHTML = test2;
                     refs.paginationElement.style.display = 'block';
+                    addDiscountToCart(data);
                 }
                 // pagination.movePageTo(1);
                 // options.totalItems = data.perPage * data.totalPages;
@@ -93,20 +106,30 @@ export function handleChange() {
             });
     } else if (storedData.category === null && storedData.keyword !== null) {
         localStorage.setItem('filter', JSON.stringify(storedData));
-        fetchSearchProductsFilter(storedData.keyword,options.page,options.itemsPerPage).then(data => {
-            if (data.totalPages === 0 ) {
+        fetchSearchProductsFilter(
+            storedData.keyword,
+            options.page,
+            options.itemsPerPage
+        ).then(data => {
+            if (data.totalPages === 0) {
                 let test2 = createFiltresCards(data.results);
                 refs.productsCards.innerHTML = test2;
-                refs.paginationElement.setAttribute('style', 'display:none !important');
-                refs.productsCards.innerHTML = createMarkupEmptyKeywordFilter()
+                refs.paginationElement.setAttribute(
+                    'style',
+                    'display:none !important'
+                );
+                refs.productsCards.innerHTML = createMarkupEmptyKeywordFilter();
             } else if (data.perPage * data.totalPages <= options.itemsPerPage) {
                 options.totalItems = data.perPage * data.totalPages;
-                refs.paginationElement.setAttribute('style', 'display:none !important');
+                refs.paginationElement.setAttribute(
+                    'style',
+                    'display:none !important'
+                );
                 const pagination = new Pagination(container, options);
                 pagination.on('beforeMove', handleBeforeMove);
                 let test2 = createFiltresCards(data.results);
                 refs.productsCards.innerHTML = test2;
-               
+                addDiscountToCart(data);
             } else {
                 options.totalItems = data.perPage * data.totalPages;
                 const pagination = new Pagination(container, options);
@@ -114,6 +137,7 @@ export function handleChange() {
                 let test2 = createFiltresCards(data.results);
                 refs.productsCards.innerHTML = test2;
                 refs.paginationElement.style.display = 'block';
+                addDiscountToCart(data);
             }
         }).catch;
         // localStorage.setItem('filter', data1);
@@ -126,19 +150,29 @@ export function handleChange() {
             options.itemsPerPage
         )
             .then(data => {
-                if (data.totalPages === 0 ) {
+                if (data.totalPages === 0) {
                     let test2 = createFiltresCards(data.results);
                     refs.productsCards.innerHTML = test2;
-                    refs.paginationElement.setAttribute('style', 'display:none !important');
-                    refs.productsCards.innerHTML = createMarkupEmptyKeywordFilter()
-                } else if (data.perPage * data.totalPages <= options.itemsPerPage) {
+                    refs.paginationElement.setAttribute(
+                        'style',
+                        'display:none !important'
+                    );
+                    refs.productsCards.innerHTML =
+                        createMarkupEmptyKeywordFilter();
+                } else if (
+                    data.perPage * data.totalPages <=
+                    options.itemsPerPage
+                ) {
                     options.totalItems = data.perPage * data.totalPages;
-                    refs.paginationElement.setAttribute('style', 'display:none !important');
+                    refs.paginationElement.setAttribute(
+                        'style',
+                        'display:none !important'
+                    );
                     const pagination = new Pagination(container, options);
                     pagination.on('beforeMove', handleBeforeMove);
                     let test2 = createFiltresCards(data.results);
                     refs.productsCards.innerHTML = test2;
-                   
+                    addDiscountToCart(data);
                 } else {
                     options.totalItems = data.perPage * data.totalPages;
                     const pagination = new Pagination(container, options);
@@ -146,6 +180,7 @@ export function handleChange() {
                     let test2 = createFiltresCards(data.results);
                     refs.productsCards.innerHTML = test2;
                     refs.paginationElement.style.display = 'block';
+                    addDiscountToCart(data);
                 }
             })
             .catch(error => {
@@ -175,19 +210,29 @@ export function handleSubmit(event) {
             options.itemsPerPage
         )
             .then(data => {
-                if (data.totalPages === 0 ) {
+                if (data.totalPages === 0) {
                     let test2 = createFiltresCards(data.results);
                     refs.productsCards.innerHTML = test2;
-                    refs.paginationElement.setAttribute('style', 'display:none !important');
-                    refs.productsCards.innerHTML = createMarkupEmptyKeywordFilter()
-                } else if (data.perPage * data.totalPages <= options.itemsPerPage) {
+                    refs.paginationElement.setAttribute(
+                        'style',
+                        'display:none !important'
+                    );
+                    refs.productsCards.innerHTML =
+                        createMarkupEmptyKeywordFilter();
+                } else if (
+                    data.perPage * data.totalPages <=
+                    options.itemsPerPage
+                ) {
                     options.totalItems = data.perPage * data.totalPages;
-                    refs.paginationElement.setAttribute('style', 'display:none !important');
+                    refs.paginationElement.setAttribute(
+                        'style',
+                        'display:none !important'
+                    );
                     const pagination = new Pagination(container, options);
                     pagination.on('beforeMove', handleBeforeMove);
                     let test2 = createFiltresCards(data.results);
                     refs.productsCards.innerHTML = test2;
-                   
+                    addDiscountToCart(data);
                 } else {
                     options.totalItems = data.perPage * data.totalPages;
                     const pagination = new Pagination(container, options);
@@ -195,6 +240,7 @@ export function handleSubmit(event) {
                     let test2 = createFiltresCards(data.results);
                     refs.productsCards.innerHTML = test2;
                     refs.paginationElement.style.display = 'block';
+                    addDiscountToCart(data);
                 }
             })
             .catch(error => {
@@ -210,32 +256,42 @@ export function handleSubmit(event) {
                 const pagination = new Pagination(container, options);
                 pagination.on('beforeMove', handleBeforeMove);
                 refs.productsCards.innerHTML = markup;
+                addDiscountToCart(data);
             })
             .catch(error => {
                 console.error(error);
                 // Додаткова обробка помилки
             });
     } else if (storedData.keyword !== null && storedData.category === null) {
-
         fetchSearchProductsFilter(
             storedData.keyword.toLowerCase(),
             1,
             options.itemsPerPage
         )
             .then(data => {
-                if (data.totalPages === 0 ) {
+                if (data.totalPages === 0) {
                     let test2 = createFiltresCards(data.results);
                     refs.productsCards.innerHTML = test2;
-                    refs.paginationElement.setAttribute('style', 'display:none !important');
-                    refs.productsCards.innerHTML = createMarkupEmptyKeywordFilter()
-                } else if (data.perPage * data.totalPages <= options.itemsPerPage) {
+                    refs.paginationElement.setAttribute(
+                        'style',
+                        'display:none !important'
+                    );
+                    refs.productsCards.innerHTML =
+                        createMarkupEmptyKeywordFilter();
+                } else if (
+                    data.perPage * data.totalPages <=
+                    options.itemsPerPage
+                ) {
                     options.totalItems = data.perPage * data.totalPages;
-                    refs.paginationElement.setAttribute('style', 'display:none !important');
+                    refs.paginationElement.setAttribute(
+                        'style',
+                        'display:none !important'
+                    );
                     const pagination = new Pagination(container, options);
                     pagination.on('beforeMove', handleBeforeMove);
                     let test2 = createFiltresCards(data.results);
                     refs.productsCards.innerHTML = test2;
-                   
+                    addDiscountToCart(data);
                 } else {
                     options.totalItems = data.perPage * data.totalPages;
                     const pagination = new Pagination(container, options);
@@ -243,6 +299,7 @@ export function handleSubmit(event) {
                     let test2 = createFiltresCards(data.results);
                     refs.productsCards.innerHTML = test2;
                     refs.paginationElement.style.display = 'block';
+                    addDiscountToCart(data);
                 }
             })
             .catch(error => {
@@ -256,19 +313,29 @@ export function handleSubmit(event) {
             options.itemsPerPage
         )
             .then(data => {
-                if (data.totalPages === 0 ) {
+                if (data.totalPages === 0) {
                     let test2 = createFiltresCards(data.results);
                     refs.productsCards.innerHTML = test2;
-                    refs.paginationElement.setAttribute('style', 'display:none !important');
-                    refs.productsCards.innerHTML = createMarkupEmptyKeywordFilter()
-                } else if (data.perPage * data.totalPages <= options.itemsPerPage) {
+                    refs.paginationElement.setAttribute(
+                        'style',
+                        'display:none !important'
+                    );
+                    refs.productsCards.innerHTML =
+                        createMarkupEmptyKeywordFilter();
+                } else if (
+                    data.perPage * data.totalPages <=
+                    options.itemsPerPage
+                ) {
                     options.totalItems = data.perPage * data.totalPages;
-                    refs.paginationElement.setAttribute('style', 'display:none !important');
+                    refs.paginationElement.setAttribute(
+                        'style',
+                        'display:none !important'
+                    );
                     const pagination = new Pagination(container, options);
                     pagination.on('beforeMove', handleBeforeMove);
                     let test2 = createFiltresCards(data.results);
                     refs.productsCards.innerHTML = test2;
-                   
+                    addDiscountToCart(data);
                 } else {
                     options.totalItems = data.perPage * data.totalPages;
                     const pagination = new Pagination(container, options);
@@ -276,6 +343,7 @@ export function handleSubmit(event) {
                     let test2 = createFiltresCards(data.results);
                     refs.productsCards.innerHTML = test2;
                     refs.paginationElement.style.display = 'block';
+                    addDiscountToCart(data);
                 }
             })
             .catch(error => {
@@ -289,19 +357,29 @@ export function handleSubmit(event) {
             options.itemsPerPage
         )
             .then(data => {
-                if (data.totalPages === 0 ) {
+                if (data.totalPages === 0) {
                     let test2 = createFiltresCards(data.results);
                     refs.productsCards.innerHTML = test2;
-                    refs.paginationElement.setAttribute('style', 'display:none !important');
-                    refs.productsCards.innerHTML = createMarkupEmptyKeywordFilter()
-                } else if (data.perPage * data.totalPages <= options.itemsPerPage) {
+                    refs.paginationElement.setAttribute(
+                        'style',
+                        'display:none !important'
+                    );
+                    refs.productsCards.innerHTML =
+                        createMarkupEmptyKeywordFilter();
+                } else if (
+                    data.perPage * data.totalPages <=
+                    options.itemsPerPage
+                ) {
                     options.totalItems = data.perPage * data.totalPages;
-                    refs.paginationElement.setAttribute('style', 'display:none !important');
+                    refs.paginationElement.setAttribute(
+                        'style',
+                        'display:none !important'
+                    );
                     const pagination = new Pagination(container, options);
                     pagination.on('beforeMove', handleBeforeMove);
                     let test2 = createFiltresCards(data.results);
                     refs.productsCards.innerHTML = test2;
-                   
+                    addDiscountToCart(data);
                 } else {
                     options.totalItems = data.perPage * data.totalPages;
                     const pagination = new Pagination(container, options);
@@ -309,6 +387,7 @@ export function handleSubmit(event) {
                     let test2 = createFiltresCards(data.results);
                     refs.productsCards.innerHTML = test2;
                     refs.paginationElement.style.display = 'block';
+                    addDiscountToCart(data);
                 }
             })
             .catch(error => {

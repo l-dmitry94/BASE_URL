@@ -1,13 +1,13 @@
-import { refs } from "./refs";
-import { Pagination } from "tui-pagination";
-import { fetchAllProductsPagination } from "../requests/products";
-import { createFiltresCards } from "./markup";
-import { fetchSearchProductsFilter } from "../requests/products";
-import { fetchSearchProductsFilters } from "../requests/products";
-import { fetchSearchProducts } from "../requests/products";
-import { normalizeCategoryServ } from "../products/products";
-import { dataAsString } from "./refs";
-
+import { refs } from './refs';
+import { Pagination } from 'tui-pagination';
+import { fetchAllProductsPagination } from '../requests/products';
+import { createFiltresCards } from './markup';
+import { fetchSearchProductsFilter } from '../requests/products';
+import { fetchSearchProductsFilters } from '../requests/products';
+import { fetchSearchProducts } from '../requests/products';
+import { normalizeCategoryServ } from '../products/products';
+import { dataAsString } from './refs';
+import { addDiscountToCart } from '../helpers/helpers';
 
 export const container = refs.pagination;
 export const options = {
@@ -37,9 +37,6 @@ export const options = {
             '</a>',
     },
 };
-
-
-
 
 export function handleBeforeMove(event) {
     const currentPage = event.page;
@@ -84,6 +81,7 @@ export function handleBeforeMove(event) {
                 // localStorage.setItem('filter', data1);
 
                 refs.productsCards.innerHTML = markup;
+                addDiscountToCart(data);
             })
             .catch(error => {
                 console.error(error);
@@ -96,12 +94,12 @@ export function handleBeforeMove(event) {
             options.itemsPerPage
         )
             .then(data => {
-
                 let markup = createFiltresCards(data.results);
                 const newTotalItems = data.perPage * data.totalPages;
                 // localStorage.setItem('filter', data1);
 
                 refs.productsCards.innerHTML = markup;
+                addDiscountToCart(data);
             })
             .catch(error => {
                 console.error(error);
@@ -120,6 +118,7 @@ export function handleBeforeMove(event) {
                 // localStorage.setItem('filter', data1);
 
                 refs.productsCards.innerHTML = markup;
+                addDiscountToCart(data);
             })
             .catch(error => {
                 console.error(error);
@@ -136,10 +135,9 @@ export function handleBeforeMove(event) {
                 // const newTotalItems = data.perPage * data.totalPages;
                 // localStorage.setItem('filter', data1);
                 options.totalItems = data.perPage * data.totalPages;
-            
-               
 
                 refs.productsCards.innerHTML = markup;
+                addDiscountToCart(data);
             })
             .catch(error => {
                 console.error(error);
@@ -148,11 +146,6 @@ export function handleBeforeMove(event) {
     }
 }
 // export const pagination = new Pagination(container, options);
-
-
-
-
-
 
 function updatePaginationSettings() {
     if (window.innerWidth < 768) {

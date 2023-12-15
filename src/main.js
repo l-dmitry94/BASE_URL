@@ -30,6 +30,7 @@ import { getData } from './js/services/storage';
 import { common } from './js/common/common';
 import { handleModal } from './js/products/modal.js';
 import { checkProduct } from './js/products/check-products.js';
+import { addDiscountToCart } from './js/helpers/helpers';
 
 // !!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!
 fetchAllCategories().then(data => {
@@ -80,7 +81,7 @@ fetchAllProducts()
         options.totalItems = data.perPage * data.totalPages;
         const pagination = new Pagination(container, options);
         pagination.on('beforeMove', handleBeforeMove);
-
+        addDiscountToCart(data);
         // pagination = new Pagination(container, options);
         checkProduct();
     })
@@ -125,10 +126,9 @@ pagination.on('beforeMove', event => {
         fetchAllProductsPagination(currentPage, storedData.limit)
             .then(data => {
                 let markup = createFiltresCards(data.results);
-
                 localStorage.setItem('filter', data1);
-
                 refs.productsCards.innerHTML = markup;
+                console.log(data);
             })
             .catch(error => {
                 console.error(error);

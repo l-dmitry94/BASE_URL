@@ -4,6 +4,7 @@ import { createFiltresCards } from '../services/markup';
 import { dataAsString } from '../services/refs';
 import { checkProduct } from '../products/check-products';
 import { options } from '../services/pagination';
+import { addDiscountToCart } from '../helpers/helpers';
 
 export async function fetchAllCategories() {
     const response = await apiProducts({
@@ -23,18 +24,14 @@ export async function fetchAllProducts() {
 
     return response.data;
 }
-export async function fetchAllProductsPagination(page,limit) {
+export async function fetchAllProductsPagination(page, limit) {
     const response = await apiProducts({
         method: 'GET',
         url: `?page=${page}&limit=${limit}`,
     });
-
     return response.data;
+    
 }
-
-
-
-
 
 export async function fetchSearchProductsFilter(keyword, page, limit) {
     const response = await apiProducts({
